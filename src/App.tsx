@@ -33,6 +33,29 @@ export default function App() {
     }
   }, [selectedVehicle]);
 
+  React.useEffect(() => {
+    fetch('/generated/metadata.json')
+      .then(res => {
+        if (!res.ok) throw new Error('No metadata');
+        return res.json();
+      })
+      .then(data => {
+        const loadedImages: Record<string, string> = {};
+        const loadedContent: Record<string, any> = {};
+        
+        Object.keys(data).forEach(key => {
+          loadedImages[key] = data[key].image;
+          loadedContent[key] = data[key].scene;
+        });
+        
+        setPrimaryImageOverrides(prev => ({ ...prev, ...loadedImages }));
+        setAiGeneratedContent(prev => ({ ...prev, ...loadedContent }));
+      })
+      .catch(err => {
+        // Silently ignore if it doesn't exist yet
+      });
+  }, []);
+
   const isGenericImage = (url: string) => {
     const genericIds = [
       'photo-1567259565705-05249f3d9701',
@@ -62,18 +85,34 @@ export default function App() {
     setIsGenerating(true);
     try {
       const sceneData = await generateVehicleScene(vehicle.name, sceneInput || vehicle.aiPrompt || '');
-      setAiGeneratedContent(prev => ({
-        ...prev,
-        [vehicle.id]: sceneData
-      }));
-
       const imageUrl = await generateVehicleImage(vehicle.name, vehicle.type, vehicle.description, sceneData.imagePrompt);
-      setAiImages(prev => ({ 
-        ...prev, 
-        [vehicle.id]: [...(prev[vehicle.id] || []), imageUrl] 
-      }));
-      // Automatically set as primary when generated
+      
+      try {
+        const response = await fetch('/api/save-image', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ 
+            vehicleId: vehicle.id, 
+            base64Data: imageUrl,
+            sceneData: sceneData
+          })
+        });
+        
+        if (response.ok) {
+          const data = await response.json();
+          setAiGeneratedContent(prev => ({ ...prev, [vehicle.id]: data.metadata.scene }));
+          setPrimaryImageOverrides(prev => ({ ...prev, [vehicle.id]: data.url }));
+          setAiImages(prev => ({ ...prev, [vehicle.id]: [...(prev[vehicle.id] || []), data.url] }));
+          return;
+        }
+      } catch (e) {
+        console.warn("Backend save failed, using temporary base64", e);
+      }
+
+      // Fallback if backend fails
+      setAiGeneratedContent(prev => ({ ...prev, [vehicle.id]: sceneData }));
       setPrimaryImageOverrides(prev => ({ ...prev, [vehicle.id]: imageUrl }));
+      setAiImages(prev => ({ ...prev, [vehicle.id]: [...(prev[vehicle.id] || []), imageUrl] }));
     } catch (error) {
       console.error("Failed to generate image", error);
     } finally {
@@ -96,16 +135,31 @@ export default function App() {
         try {
           const scenePrompt = vehicle.aiPrompt || `A cinematic shot of a ${vehicle.name} in action.`;
           const sceneData = await generateVehicleScene(vehicle.name, scenePrompt);
-          setAiGeneratedContent(prev => ({
-            ...prev,
-            [vehicle.id]: sceneData
-          }));
-
           const imageUrl = await generateVehicleImage(vehicle.name, vehicle.type, vehicle.description, sceneData.imagePrompt);
-          setAiImages(prev => ({ 
-            ...prev, 
-            [vehicle.id]: [...(prev[vehicle.id] || []), imageUrl] 
-          }));
+
+          try {
+            const response = await fetch('/api/save-image', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ 
+                vehicleId: vehicle.id, 
+                base64Data: imageUrl,
+                sceneData: sceneData
+              })
+            });
+            
+            if (response.ok) {
+              const data = await response.json();
+              setAiGeneratedContent(prev => ({ ...prev, [vehicle.id]: data.metadata.scene }));
+              setPrimaryImageOverrides(prev => ({ ...prev, [vehicle.id]: data.url }));
+              continue;
+            }
+          } catch (e) {
+             console.warn("Backend save failed for", vehicle.name);
+          }
+
+          // Fallback
+          setAiGeneratedContent(prev => ({ ...prev, [vehicle.id]: sceneData }));
           setPrimaryImageOverrides(prev => ({ ...prev, [vehicle.id]: imageUrl }));
         } catch (error) {
           console.error(`Failed to generate image for ${vehicle.name}`, error);
