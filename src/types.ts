@@ -24,6 +24,7 @@ export interface Vehicle {
     event: string;
   }[];
   gallery?: string[];
+  aiPrompt?: string;
 }
 
 export type Category = 'All' | 'Tank' | 'APC' | 'Aircraft' | 'Naval' | 'Artillery';

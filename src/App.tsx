@@ -1,13 +1,14 @@
 import React from 'react';
-import { Search, Filter, Shield, Zap, Target, Info, ChevronRight, X, Image as ImageIcon } from 'lucide-react';
+import { Search, Filter, Shield, Zap, Target, Info, ChevronRight, X, Image as ImageIcon, Sparkles, Loader2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { VEHICLES } from './constants';
 import { Vehicle, Category } from './types';
+import { generateVehicleImage, generateVehicleScene } from './services/geminiService';
 
 const CATEGORIES: Category[] = ['All', 'Tank', 'APC', 'Aircraft', 'Naval', 'Artillery'];
-const GENERIC_MILITARY_IMAGE = 'https://source.unsplash.com/800x600/?tank,military';
+const GENERIC_MILITARY_IMAGE = 'https://images.unsplash.com/photo-1566633806327-68e152aaf26d?q=80&w=800&auto=format&fit=crop';
 
-const getDynamicImage = (name: string, type: string) => `https://source.unsplash.com/800x600/?${encodeURIComponent(name)},military,${encodeURIComponent(type.toLowerCase())}`;
+const getDynamicImage = (id: string) => `https://picsum.photos/seed/${id}/800/450`;
 
 export default function App() {
   const [selectedCategory, setSelectedCategory] = React.useState<Category>('All');
@@ -15,6 +16,86 @@ export default function App() {
   const [searchQuery, setSearchQuery] = React.useState('');
   const [selectedVehicle, setSelectedVehicle] = React.useState<Vehicle | null>(null);
   const [activeTab, setActiveTab] = React.useState<'overview' | 'specs' | 'history' | 'gallery'>('overview');
+  const [aiImages, setAiImages] = React.useState<Record<string, string[]>>({});
+  const [primaryImageOverrides, setPrimaryImageOverrides] = React.useState<Record<string, string>>({});
+  const [isGenerating, setIsGenerating] = React.useState(false);
+  const [isEditingUrl, setIsEditingUrl] = React.useState(false);
+  const [tempUrl, setTempUrl] = React.useState('');
+  const [sceneInput, setSceneInput] = React.useState('');
+  const [aiGeneratedContent, setAiGeneratedContent] = React.useState<Record<string, { title: string, description: string, imagePrompt: string }>>({});
+  const [isAiMenuOpen, setIsAiMenuOpen] = React.useState(false);
+
+  React.useEffect(() => {
+    if (selectedVehicle) {
+      setSceneInput(selectedVehicle.aiPrompt || `A cinematic shot of a ${selectedVehicle.name} in action.`);
+    }
+  }, [selectedVehicle]);
+
+  const isGenericImage = (url: string) => {
+    const genericIds = [
+      'photo-1567259565705-05249f3d9701',
+      'photo-1516939884455-1445c8652f83',
+      'photo-1621682372775-533449e550ed',
+      'photo-1614332284882-331c326582a3',
+      'photo-1583623025817-d180a2221d0a',
+      'photo-1534260164206-2a3a4976001b',
+      'photo-1599059813005-11265ba4b4ce',
+      'photo-1576400883215-7083980b1297',
+      'photo-1580136608260-42d1c49e6a70',
+      'photo-1517976487492-5750f3195933',
+      'photo-1500077423678-25eead48513a',
+      'photo-1550985543-f47f38aee65e'
+    ];
+    return genericIds.some(id => url.includes(id));
+  };
+
+  const getVehicleImage = (vehicle: Vehicle) => {
+    if (primaryImageOverrides[vehicle.id]) return primaryImageOverrides[vehicle.id];
+    if (vehicle.image && !isGenericImage(vehicle.image)) return vehicle.image;
+    return getDynamicImage(vehicle.id);
+  };
+
+  const handleGenerateImage = async (vehicle: Vehicle) => {
+    if (isGenerating) return;
+    setIsGenerating(true);
+    try {
+      const sceneData = await generateVehicleScene(vehicle.name, sceneInput || vehicle.aiPrompt || '');
+      setAiGeneratedContent(prev => ({
+        ...prev,
+        [vehicle.id]: sceneData
+      }));
+
+      const imageUrl = await generateVehicleImage(vehicle.name, vehicle.type, vehicle.description, sceneData.imagePrompt);
+      setAiImages(prev => ({ 
+        ...prev, 
+        [vehicle.id]: [...(prev[vehicle.id] || []), imageUrl] 
+      }));
+      // Automatically set as primary when generated
+      setPrimaryImageOverrides(prev => ({ ...prev, [vehicle.id]: imageUrl }));
+    } catch (error) {
+      console.error("Failed to generate image", error);
+    } finally {
+      setIsGenerating(false);
+    }
+  };
+
+  const handleUpdateUrl = (vehicleId: string) => {
+    if (tempUrl.trim()) {
+      const url = tempUrl.trim();
+      setAiImages(prev => ({ 
+        ...prev, 
+        [vehicleId]: [...(prev[vehicleId] || []), url] 
+      }));
+      // Automatically set as primary when added
+      setPrimaryImageOverrides(prev => ({ ...prev, [vehicleId]: url }));
+      setIsEditingUrl(false);
+      setTempUrl('');
+    }
+  };
+
+  const setAsPrimary = (vehicleId: string, url: string) => {
+    setPrimaryImageOverrides(prev => ({ ...prev, [vehicleId]: url }));
+  };
 
   const countries = React.useMemo(() => {
     const uniqueCountries = Array.from(new Set(VEHICLES.map(v => v.country))).sort();
@@ -141,7 +222,7 @@ export default function App() {
               >
                 <div className="aspect-video relative overflow-hidden">
                   <img
-                    src={getDynamicImage(vehicle.name, vehicle.type)}
+                    src={getVehicleImage(vehicle)}
                     alt={vehicle.name}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     referrerPolicy="no-referrer"
@@ -205,15 +286,63 @@ export default function App() {
                   </button>
                 </div>
                 <div className="flex-1 overflow-y-auto">
-                  <img
-                    src={getDynamicImage(selectedVehicle.name, selectedVehicle.type)}
-                    alt={selectedVehicle.name}
-                    className="w-full aspect-video object-cover"
-                    referrerPolicy="no-referrer"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = GENERIC_MILITARY_IMAGE;
-                    }}
-                  />
+                  <div className="relative group">
+                    <img
+                      src={getVehicleImage(selectedVehicle)}
+                      alt={selectedVehicle.name}
+                      className="w-full aspect-video object-cover"
+                      referrerPolicy="no-referrer"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = GENERIC_MILITARY_IMAGE;
+                      }}
+                    />
+                    <div className="absolute top-4 right-4 flex flex-col items-end gap-2">
+                      {isGenerating ? (
+                        <div className="flex items-center gap-2 px-3 py-1.5 bg-blue-600/90 backdrop-blur-md text-white rounded-md font-bold text-[10px] uppercase tracking-wider shadow-lg">
+                          <Loader2 className="w-3 h-3 animate-spin" />
+                          Generating Cinematic Scene...
+                        </div>
+                      ) : isAiMenuOpen ? (
+                        <div className="flex flex-col items-end gap-2 bg-black/80 backdrop-blur-xl p-4 rounded-lg border border-white/10 shadow-2xl w-72">
+                          <div className="flex justify-between w-full items-center mb-1">
+                            <label className="text-[10px] font-bold text-blue-400 uppercase tracking-wider">Scene Input</label>
+                            <button onClick={() => setIsAiMenuOpen(false)} className="text-zinc-400 hover:text-white">
+                              <X className="w-4 h-4" />
+                            </button>
+                          </div>
+                          <textarea
+                            value={sceneInput}
+                            onChange={(e) => setSceneInput(e.target.value)}
+                            placeholder="Describe the scene..."
+                            className="w-full h-24 bg-black/40 border border-white/20 rounded p-2 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-blue-500 resize-none"
+                          />
+                          <button
+                            onClick={() => {
+                              handleGenerateImage(selectedVehicle);
+                              setIsAiMenuOpen(false);
+                            }}
+                            className="flex items-center gap-2 px-3 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-md font-bold text-[10px] uppercase tracking-wider shadow-lg transition-all w-full justify-center mt-2"
+                          >
+                            <Sparkles className="w-3 h-3" />
+                            Generate Cinematic Scene
+                          </button>
+                        </div>
+                      ) : (
+                        <button
+                          onClick={() => setIsAiMenuOpen(true)}
+                          className="flex items-center gap-2 px-3 py-1.5 bg-blue-600/90 hover:bg-blue-500 backdrop-blur-md text-white rounded-md font-bold text-[10px] uppercase tracking-wider shadow-lg transition-all"
+                        >
+                          <Sparkles className="w-3 h-3" />
+                          AI Gen Primary
+                        </button>
+                      )}
+                    </div>
+                    {primaryImageOverrides[selectedVehicle.id] && (
+                      <div className="absolute bottom-4 right-4 px-2 py-1 bg-blue-500/20 backdrop-blur-md border border-blue-500/30 rounded text-[10px] font-bold text-blue-400 uppercase tracking-tighter">
+                        Custom Primary
+                      </div>
+                    )}
+                  </div>
                   <div className="px-8 pt-6">
                     <div className="flex gap-6 border-b border-[#27272a]">
                       {(['overview', 'specs', 'history', 'gallery'] as const).map((tab) => (
@@ -247,13 +376,34 @@ export default function App() {
                         className="space-y-8"
                       >
                         {activeTab === 'overview' && (
-                          <section>
-                            <h4 className="tech-label mb-3 flex items-center gap-2">
-                              <Info className="w-4 h-4" /> Overview
-                            </h4>
-                            <p className="text-lg text-zinc-300 leading-relaxed tech-header">
-                              {selectedVehicle.description}
-                            </p>
+                          <section className="space-y-8">
+                            {aiGeneratedContent[selectedVehicle.id] && (
+                              <div className="p-6 bg-blue-900/10 border border-blue-500/20 rounded-xl space-y-4">
+                                <h4 className="tech-label flex items-center gap-2 text-blue-400">
+                                  <Sparkles className="w-4 h-4" /> AI Generated Scene
+                                </h4>
+                                <div>
+                                  <h5 className="text-white font-bold text-lg mb-2">{aiGeneratedContent[selectedVehicle.id].title}</h5>
+                                  <p className="text-sm text-zinc-300 leading-relaxed italic border-l-2 border-blue-500/50 pl-4">
+                                    "{aiGeneratedContent[selectedVehicle.id].description}"
+                                  </p>
+                                </div>
+                                <div className="pt-4 border-t border-blue-500/10">
+                                  <span className="text-[10px] font-bold text-blue-400/70 uppercase tracking-wider block mb-1">Image Prompt Used</span>
+                                  <p className="text-xs text-zinc-400 font-mono bg-black/40 p-3 rounded">
+                                    {aiGeneratedContent[selectedVehicle.id].imagePrompt}
+                                  </p>
+                                </div>
+                              </div>
+                            )}
+                            <div>
+                              <h4 className="tech-label mb-3 flex items-center gap-2">
+                                <Info className="w-4 h-4" /> Overview
+                              </h4>
+                              <p className="text-lg text-zinc-300 leading-relaxed tech-header">
+                                {selectedVehicle.description}
+                              </p>
+                            </div>
                             <div className="grid grid-cols-3 gap-4 pt-8 mt-8 border-t border-[#27272a]">
                               <div className="text-center">
                                 <span className="tech-label block">Crew</span>
@@ -357,34 +507,96 @@ export default function App() {
                         )}
                         {activeTab === 'gallery' && (
                           <div className="space-y-6">
-                            <h4 className="tech-label mb-3 flex items-center gap-2">
-                              <ImageIcon className="w-4 h-4" /> Tactical Imagery
-                            </h4>
-                            {selectedVehicle.gallery && selectedVehicle.gallery.length > 0 ? (
-                              <div className="grid grid-cols-2 gap-4">
-                                {selectedVehicle.gallery.map((img, i) => (
-                                  <motion.div
-                                    key={i}
-                                    initial={{ opacity: 0, scale: 0.95 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    transition={{ delay: i * 0.1 }}
-                                    className="aspect-square rounded-lg overflow-hidden tech-border group cursor-zoom-in"
-                                  >
-                                    <img
-                                      src={img}
-                                      alt={`${selectedVehicle.name} gallery ${i + 1}`}
-                                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                                      referrerPolicy="no-referrer"
-                                    />
-                                  </motion.div>
-                                ))}
+                            <div className="flex items-center justify-between mb-3">
+                              <h4 className="tech-label flex items-center gap-2">
+                                <ImageIcon className="w-4 h-4" /> Tactical Imagery
+                              </h4>
+                              <div className="flex gap-2">
+                                <button
+                                  onClick={() => setIsEditingUrl(!isEditingUrl)}
+                                  className="flex items-center gap-2 px-3 py-1.5 bg-zinc-800 hover:bg-zinc-700 text-white rounded-md font-bold text-[10px] uppercase tracking-wider shadow-lg transition-all"
+                                >
+                                  <ImageIcon className="w-3 h-3" />
+                                  Add URL
+                                </button>
                               </div>
-                            ) : (
-                              <div className="p-12 text-center tech-card rounded-lg border-dashed border-[#27272a]">
-                                <ImageIcon className="w-8 h-8 text-zinc-600 mx-auto mb-3 opacity-20" />
-                                <p className="text-zinc-500 text-sm">No additional imagery available for this asset.</p>
+                            </div>
+
+                            {isEditingUrl && (
+                              <div className="p-4 bg-black/40 border border-white/10 rounded-lg flex gap-2 mb-4">
+                                <input
+                                  type="text"
+                                  value={tempUrl}
+                                  onChange={(e) => setTempUrl(e.target.value)}
+                                  placeholder="Paste tactical image URL..."
+                                  className="flex-1 bg-[#18181b] border border-[#27272a] rounded px-3 py-1.5 text-xs focus:outline-none focus:border-blue-500"
+                                  onKeyDown={(e) => e.key === 'Enter' && handleUpdateUrl(selectedVehicle.id)}
+                                />
+                                <button
+                                  onClick={() => handleUpdateUrl(selectedVehicle.id)}
+                                  className="px-3 py-1.5 bg-blue-600 rounded text-xs font-bold"
+                                >
+                                  Add
+                                </button>
                               </div>
                             )}
+
+                            {(() => {
+                              const baseGallery = selectedVehicle.gallery && selectedVehicle.gallery.length > 0 
+                                ? selectedVehicle.gallery 
+                                : [
+                                    `https://picsum.photos/seed/${selectedVehicle.id}-1/800/600`,
+                                    `https://picsum.photos/seed/${selectedVehicle.id}-2/800/600`,
+                                    `https://picsum.photos/seed/${selectedVehicle.id}-3/800/600`,
+                                    `https://picsum.photos/seed/${selectedVehicle.id}-4/800/600`
+                                  ];
+                              
+                              const customImages = aiImages[selectedVehicle.id] || [];
+                              const galleryImages = [selectedVehicle.image, ...customImages, ...baseGallery];
+                              
+                              return (
+                                <div className="grid grid-cols-2 gap-4">
+                                  {galleryImages.map((img, i) => (
+                                    <motion.div
+                                      key={i}
+                                      initial={{ opacity: 0, scale: 0.95 }}
+                                      animate={{ opacity: 1, scale: 1 }}
+                                      transition={{ delay: i * 0.1 }}
+                                      className="aspect-square rounded-lg overflow-hidden tech-border group relative"
+                                    >
+                                      <img
+                                        src={img}
+                                        alt={`${selectedVehicle.name} gallery ${i + 1}`}
+                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                        referrerPolicy="no-referrer"
+                                      />
+                                      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-2">
+                                        <button
+                                          onClick={() => setAsPrimary(selectedVehicle.id, img)}
+                                          className={`w-full py-2 rounded font-bold text-[10px] uppercase tracking-wider transition-colors ${
+                                            (primaryImageOverrides[selectedVehicle.id] || selectedVehicle.image) === img
+                                              ? 'bg-green-600 text-white'
+                                              : 'bg-white/10 hover:bg-white/20 text-white'
+                                          }`}
+                                        >
+                                          {(primaryImageOverrides[selectedVehicle.id] || selectedVehicle.image) === img ? 'Current Primary' : 'Set as Primary'}
+                                        </button>
+                                      </div>
+                                      {img === selectedVehicle.image && (
+                                        <div className="absolute top-2 right-2 px-1.5 py-0.5 bg-zinc-500 rounded text-[8px] font-bold text-white uppercase">
+                                          Original
+                                        </div>
+                                      )}
+                                      {customImages.includes(img) && (
+                                        <div className="absolute top-2 right-2 px-1.5 py-0.5 bg-blue-500 rounded text-[8px] font-bold text-white uppercase">
+                                          Custom
+                                        </div>
+                                      )}
+                                    </motion.div>
+                                  ))}
+                                </div>
+                              );
+                            })()}
                           </div>
                         )}
                       </motion.div>
