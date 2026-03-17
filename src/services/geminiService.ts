@@ -2,6 +2,22 @@ import { GoogleGenAI } from "@google/genai";
 
 let aiClient: GoogleGenAI | null = null;
 
+const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
+async function withRetry<T>(fn: () => Promise<T>, retries = 5, backoff = 5000): Promise<T> {
+  try {
+    return await fn();
+  } catch (error: any) {
+    const isRateLimit = error?.status === 'RESOURCE_EXHAUSTED' || error?.message?.includes('429') || error?.message?.includes('quota');
+    if (retries > 0 && isRateLimit) {
+      console.warn(`Rate limit hit. Retrying in ${backoff/1000}s... (${retries} retries left)`);
+      await delay(backoff);
+      return withRetry(fn, retries - 1, backoff * 2);
+    }
+    throw error;
+  }
+}
+
 function getAiClient(): GoogleGenAI {
   if (!aiClient) {
     const apiKey = process.env.GEMINI_API_KEY;
@@ -50,10 +66,10 @@ Description:
 Image Prompt:
 ([Image Prompt])`;
 
-    const response = await ai.models.generateContent({
+    const response = await withRetry(() => ai.models.generateContent({
       model: 'gemini-3.1-pro-preview',
       contents: prompt,
-    });
+    }));
 
     const text = response.text || '';
     
@@ -79,7 +95,7 @@ export async function generateVehicleImage(name: string, type: string, descripti
     Context: ${description}. 
     Style: Professional military photography, dramatic lighting, realistic textures, 4k resolution, bokeh background, battlefield environment.`;
 
-    const response = await ai.models.generateContent({
+    const response = await withRetry(() => ai.models.generateContent({
       model: 'gemini-2.5-flash-image',
       contents: [{ parts: [{ text: prompt }] }],
       config: {
@@ -87,7 +103,7 @@ export async function generateVehicleImage(name: string, type: string, descripti
           aspectRatio: "16:9",
         },
       },
-    });
+    }));
 
     for (const part of response.candidates?.[0]?.content?.parts || []) {
       if (part.inlineData) {

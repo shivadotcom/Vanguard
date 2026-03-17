@@ -152,18 +152,29 @@ export default function App() {
               const data = await response.json();
               setAiGeneratedContent(prev => ({ ...prev, [vehicle.id]: data.metadata.scene }));
               setPrimaryImageOverrides(prev => ({ ...prev, [vehicle.id]: data.url }));
-              continue;
+            } else {
+              // Fallback
+              setAiGeneratedContent(prev => ({ ...prev, [vehicle.id]: sceneData }));
+              setPrimaryImageOverrides(prev => ({ ...prev, [vehicle.id]: imageUrl }));
             }
           } catch (e) {
              console.warn("Backend save failed for", vehicle.name);
+             // Fallback
+             setAiGeneratedContent(prev => ({ ...prev, [vehicle.id]: sceneData }));
+             setPrimaryImageOverrides(prev => ({ ...prev, [vehicle.id]: imageUrl }));
           }
-
-          // Fallback
-          setAiGeneratedContent(prev => ({ ...prev, [vehicle.id]: sceneData }));
-          setPrimaryImageOverrides(prev => ({ ...prev, [vehicle.id]: imageUrl }));
+          
+          // Add delay to respect Gemini API free tier rate limits (15 RPM)
+          if (i < VEHICLES.length - 1) {
+            setGenerationProgress(`Waiting for rate limit...`);
+            await new Promise(resolve => setTimeout(resolve, 8500));
+          }
         } catch (error) {
           console.error(`Failed to generate image for ${vehicle.name}`, error);
-          // Continue with the next vehicle even if one fails
+          // Add delay even on error to avoid spamming
+          if (i < VEHICLES.length - 1) {
+            await new Promise(resolve => setTimeout(resolve, 8500));
+          }
         }
       }
     } finally {
