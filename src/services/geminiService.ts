@@ -1,9 +1,21 @@
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+let aiClient: GoogleGenAI | null = null;
+
+function getAiClient(): GoogleGenAI {
+  if (!aiClient) {
+    const apiKey = process.env.GEMINI_API_KEY;
+    if (!apiKey) {
+      console.warn("GEMINI_API_KEY is not set. AI features will not work.");
+    }
+    aiClient = new GoogleGenAI({ apiKey: apiKey || 'dummy-key-to-prevent-crash' });
+  }
+  return aiClient;
+}
 
 export async function generateVehicleScene(vehicleName: string, sceneInput: string) {
   try {
+    const ai = getAiClient();
     const prompt = `You are a military visualization AI.
 
 Your job is to generate:
@@ -62,6 +74,7 @@ Image Prompt:
 
 export async function generateVehicleImage(name: string, type: string, description: string, customPrompt?: string) {
   try {
+    const ai = getAiClient();
     const prompt = customPrompt || `Generate a highly detailed, cinematic, tactical military photograph of a ${name} (${type}). 
     Context: ${description}. 
     Style: Professional military photography, dramatic lighting, realistic textures, 4k resolution, bokeh background, battlefield environment.`;
