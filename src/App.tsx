@@ -24,6 +24,8 @@ export default function App() {
   const [sceneInput, setSceneInput] = React.useState('');
   const [aiGeneratedContent, setAiGeneratedContent] = React.useState<Record<string, { title: string, description: string, imagePrompt: string }>>({});
   const [isAiMenuOpen, setIsAiMenuOpen] = React.useState(false);
+  const [isGeneratingAll, setIsGeneratingAll] = React.useState(false);
+  const [generationProgress, setGenerationProgress] = React.useState('');
 
   React.useEffect(() => {
     if (selectedVehicle) {
@@ -76,6 +78,43 @@ export default function App() {
       console.error("Failed to generate image", error);
     } finally {
       setIsGenerating(false);
+    }
+  };
+
+  const handleGenerateAllImages = async () => {
+    if (isGeneratingAll) return;
+    setIsGeneratingAll(true);
+    
+    try {
+      for (let i = 0; i < VEHICLES.length; i++) {
+        const vehicle = VEHICLES[i];
+        // Skip if already generated
+        if (primaryImageOverrides[vehicle.id]) continue;
+        
+        setGenerationProgress(`Generating ${i + 1} of ${VEHICLES.length}: ${vehicle.name}`);
+        
+        try {
+          const scenePrompt = vehicle.aiPrompt || `A cinematic shot of a ${vehicle.name} in action.`;
+          const sceneData = await generateVehicleScene(vehicle.name, scenePrompt);
+          setAiGeneratedContent(prev => ({
+            ...prev,
+            [vehicle.id]: sceneData
+          }));
+
+          const imageUrl = await generateVehicleImage(vehicle.name, vehicle.type, vehicle.description, sceneData.imagePrompt);
+          setAiImages(prev => ({ 
+            ...prev, 
+            [vehicle.id]: [...(prev[vehicle.id] || []), imageUrl] 
+          }));
+          setPrimaryImageOverrides(prev => ({ ...prev, [vehicle.id]: imageUrl }));
+        } catch (error) {
+          console.error(`Failed to generate image for ${vehicle.name}`, error);
+          // Continue with the next vehicle even if one fails
+        }
+      }
+    } finally {
+      setIsGeneratingAll(false);
+      setGenerationProgress('');
     }
   };
 
@@ -202,8 +241,16 @@ export default function App() {
               className="w-full bg-[#18181b] tech-border rounded-md py-2 pl-10 pr-4 text-sm focus:outline-none focus:border-blue-500 transition-colors"
             />
           </div>
-          <div className="flex items-center gap-4">
-            <div className="flex flex-col items-end">
+          <div className="flex items-center gap-6">
+            <button
+              onClick={handleGenerateAllImages}
+              disabled={isGeneratingAll}
+              className="flex items-center gap-2 px-4 py-2 bg-blue-600/20 hover:bg-blue-600/40 border border-blue-500/50 text-blue-400 rounded-md font-bold text-[10px] uppercase tracking-wider transition-all disabled:opacity-50"
+            >
+              {isGeneratingAll ? <Loader2 className="w-4 h-4 animate-spin" /> : <Sparkles className="w-4 h-4" />}
+              {isGeneratingAll ? generationProgress : 'Generate All AI Images'}
+            </button>
+            <div className="flex flex-col items-end border-l border-[#27272a] pl-6">
               <span className="tech-label">Total Assets</span>
               <span className="tech-value">{filteredVehicles.length}</span>
             </div>
