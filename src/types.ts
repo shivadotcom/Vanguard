@@ -23,7 +23,6 @@ export interface Vehicle {
     year: string;
     event: string;
   }[];
-  gallery?: string[];
   aiPrompt?: string;
 }
 

@@ -1,204 +1,61 @@
 import React from 'react';
-import { Search, Filter, Shield, Zap, Target, Info, ChevronRight, X, Image as ImageIcon, Sparkles, Loader2 } from 'lucide-react';
+import { Search, Filter, Shield, Zap, Target, Info, ChevronRight, X, Image as ImageIcon, ArrowLeftRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { VEHICLES } from './constants';
 import { Vehicle, Category } from './types';
-import { generateVehicleImage, generateVehicleScene } from './services/geminiService';
+import { VehicleImage } from './components/VehicleImage';
 
 const CATEGORIES: Category[] = ['All', 'Tank', 'APC', 'Aircraft', 'Naval', 'Artillery'];
-const GENERIC_MILITARY_IMAGE = 'https://images.unsplash.com/photo-1566633806327-68e152aaf26d?q=80&w=800&auto=format&fit=crop';
-
-const getDynamicImage = (id: string) => `https://picsum.photos/seed/${id}/800/450`;
+const GENERIC_MILITARY_IMAGE = '/images/defaults/tank.jpg';
 
 export default function App() {
   const [selectedCategory, setSelectedCategory] = React.useState<Category>('All');
   const [selectedCountry, setSelectedCountry] = React.useState<string>('All');
   const [searchQuery, setSearchQuery] = React.useState('');
   const [selectedVehicle, setSelectedVehicle] = React.useState<Vehicle | null>(null);
-  const [activeTab, setActiveTab] = React.useState<'overview' | 'specs' | 'history' | 'gallery'>('overview');
-  const [aiImages, setAiImages] = React.useState<Record<string, string[]>>({});
-  const [primaryImageOverrides, setPrimaryImageOverrides] = React.useState<Record<string, string>>({});
-  const [isGenerating, setIsGenerating] = React.useState(false);
-  const [isEditingUrl, setIsEditingUrl] = React.useState(false);
-  const [tempUrl, setTempUrl] = React.useState('');
-  const [sceneInput, setSceneInput] = React.useState('');
-  const [aiGeneratedContent, setAiGeneratedContent] = React.useState<Record<string, { title: string, description: string, imagePrompt: string }>>({});
-  const [isAiMenuOpen, setIsAiMenuOpen] = React.useState(false);
-  const [isGeneratingAll, setIsGeneratingAll] = React.useState(false);
-  const [generationProgress, setGenerationProgress] = React.useState('');
+  const [activeTab, setActiveTab] = React.useState<'overview' | 'specs' | 'history'>('overview');
+  const [compareList, setCompareList] = React.useState<string[]>([]);
+  const [isCompareModalOpen, setIsCompareModalOpen] = React.useState(false);
+  const [toastMessage, setToastMessage] = React.useState<string | null>(null);
+
+  const showToast = (message: string) => {
+    setToastMessage(message);
+    setTimeout(() => {
+      setToastMessage(null);
+    }, 3000);
+  };
 
   React.useEffect(() => {
-    if (selectedVehicle) {
-      setSceneInput(selectedVehicle.aiPrompt || `A cinematic shot of a ${selectedVehicle.name} in action.`);
+    if (compareList.length === 0) {
+      setIsCompareModalOpen(false);
     }
-  }, [selectedVehicle]);
+  }, [compareList]);
 
-  React.useEffect(() => {
-    fetch('/generated/metadata.json')
-      .then(res => {
-        if (!res.ok) throw new Error('No metadata');
-        return res.json();
-      })
-      .then(data => {
-        const loadedImages: Record<string, string> = {};
-        const loadedContent: Record<string, any> = {};
-        
-        Object.keys(data).forEach(key => {
-          loadedImages[key] = data[key].image;
-          loadedContent[key] = data[key].scene;
-        });
-        
-        setPrimaryImageOverrides(prev => ({ ...prev, ...loadedImages }));
-        setAiGeneratedContent(prev => ({ ...prev, ...loadedContent }));
-      })
-      .catch(err => {
-        // Silently ignore if it doesn't exist yet
-      });
-  }, []);
-
-  const isGenericImage = (url: string) => {
-    const genericIds = [
-      'photo-1567259565705-05249f3d9701',
-      'photo-1516939884455-1445c8652f83',
-      'photo-1621682372775-533449e550ed',
-      'photo-1614332284882-331c326582a3',
-      'photo-1583623025817-d180a2221d0a',
-      'photo-1534260164206-2a3a4976001b',
-      'photo-1599059813005-11265ba4b4ce',
-      'photo-1576400883215-7083980b1297',
-      'photo-1580136608260-42d1c49e6a70',
-      'photo-1517976487492-5750f3195933',
-      'photo-1500077423678-25eead48513a',
-      'photo-1550985543-f47f38aee65e'
-    ];
-    return genericIds.some(id => url.includes(id));
-  };
-
-  const getVehicleImage = (vehicle: Vehicle) => {
-    if (primaryImageOverrides[vehicle.id]) return primaryImageOverrides[vehicle.id];
-    if (vehicle.image && !isGenericImage(vehicle.image)) return vehicle.image;
-    return getDynamicImage(vehicle.id);
-  };
-
-  const handleGenerateImage = async (vehicle: Vehicle) => {
-    if (isGenerating) return;
-    setIsGenerating(true);
-    try {
-      const sceneData = await generateVehicleScene(vehicle.name, sceneInput || vehicle.aiPrompt || '');
-      const imageUrl = await generateVehicleImage(vehicle.name, vehicle.type, vehicle.description, sceneData.imagePrompt);
-      
-      try {
-        const response = await fetch('/api/save-image', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ 
-            vehicleId: vehicle.id, 
-            base64Data: imageUrl,
-            sceneData: sceneData
-          })
-        });
-        
-        if (response.ok) {
-          const data = await response.json();
-          setAiGeneratedContent(prev => ({ ...prev, [vehicle.id]: data.metadata.scene }));
-          setPrimaryImageOverrides(prev => ({ ...prev, [vehicle.id]: data.url }));
-          setAiImages(prev => ({ ...prev, [vehicle.id]: [...(prev[vehicle.id] || []), data.url] }));
-          return;
-        }
-      } catch (e) {
-        console.warn("Backend save failed, using temporary base64", e);
-      }
-
-      // Fallback if backend fails
-      setAiGeneratedContent(prev => ({ ...prev, [vehicle.id]: sceneData }));
-      setPrimaryImageOverrides(prev => ({ ...prev, [vehicle.id]: imageUrl }));
-      setAiImages(prev => ({ ...prev, [vehicle.id]: [...(prev[vehicle.id] || []), imageUrl] }));
-    } catch (error) {
-      console.error("Failed to generate image", error);
-    } finally {
-      setIsGenerating(false);
-    }
-  };
-
-  const handleGenerateAllImages = async () => {
-    if (isGeneratingAll) return;
-    setIsGeneratingAll(true);
+  const toggleCompare = (e: React.MouseEvent, vehicleId: string) => {
+    e.stopPropagation();
     
-    try {
-      for (let i = 0; i < VEHICLES.length; i++) {
-        const vehicle = VEHICLES[i];
-        // Skip if already generated
-        if (primaryImageOverrides[vehicle.id]) continue;
-        
-        setGenerationProgress(`Generating ${i + 1} of ${VEHICLES.length}: ${vehicle.name}`);
-        
-        try {
-          const scenePrompt = vehicle.aiPrompt || `A cinematic shot of a ${vehicle.name} in action.`;
-          const sceneData = await generateVehicleScene(vehicle.name, scenePrompt);
-          const imageUrl = await generateVehicleImage(vehicle.name, vehicle.type, vehicle.description, sceneData.imagePrompt);
+    const vehicleToAdd = VEHICLES.find(v => v.id === vehicleId);
+    if (!vehicleToAdd) return;
 
-          try {
-            const response = await fetch('/api/save-image', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ 
-                vehicleId: vehicle.id, 
-                base64Data: imageUrl,
-                sceneData: sceneData
-              })
-            });
-            
-            if (response.ok) {
-              const data = await response.json();
-              setAiGeneratedContent(prev => ({ ...prev, [vehicle.id]: data.metadata.scene }));
-              setPrimaryImageOverrides(prev => ({ ...prev, [vehicle.id]: data.url }));
-            } else {
-              // Fallback
-              setAiGeneratedContent(prev => ({ ...prev, [vehicle.id]: sceneData }));
-              setPrimaryImageOverrides(prev => ({ ...prev, [vehicle.id]: imageUrl }));
-            }
-          } catch (e) {
-             console.warn("Backend save failed for", vehicle.name);
-             // Fallback
-             setAiGeneratedContent(prev => ({ ...prev, [vehicle.id]: sceneData }));
-             setPrimaryImageOverrides(prev => ({ ...prev, [vehicle.id]: imageUrl }));
-          }
-          
-          // Add delay to respect Gemini API free tier rate limits (15 RPM)
-          if (i < VEHICLES.length - 1) {
-            setGenerationProgress(`Waiting for rate limit...`);
-            await new Promise(resolve => setTimeout(resolve, 8500));
-          }
-        } catch (error) {
-          console.error(`Failed to generate image for ${vehicle.name}`, error);
-          // Add delay even on error to avoid spamming
-          if (i < VEHICLES.length - 1) {
-            await new Promise(resolve => setTimeout(resolve, 8500));
-          }
-        }
+    if (compareList.includes(vehicleId)) {
+      setCompareList(prev => prev.filter(id => id !== vehicleId));
+      return;
+    }
+    
+    if (compareList.length >= 6) {
+      showToast("You can only compare up to 6 vehicles at a time.");
+      return;
+    }
+    
+    if (compareList.length > 0) {
+      const firstVehicle = VEHICLES.find(v => v.id === compareList[0]);
+      if (firstVehicle && firstVehicle.type !== vehicleToAdd.type) {
+        showToast(`Cannot compare a ${vehicleToAdd.type} with a ${firstVehicle.type}. Select another ${firstVehicle.type}.`);
+        return;
       }
-    } finally {
-      setIsGeneratingAll(false);
-      setGenerationProgress('');
     }
-  };
-
-  const handleUpdateUrl = (vehicleId: string) => {
-    if (tempUrl.trim()) {
-      const url = tempUrl.trim();
-      setAiImages(prev => ({ 
-        ...prev, 
-        [vehicleId]: [...(prev[vehicleId] || []), url] 
-      }));
-      // Automatically set as primary when added
-      setPrimaryImageOverrides(prev => ({ ...prev, [vehicleId]: url }));
-      setIsEditingUrl(false);
-      setTempUrl('');
-    }
-  };
-
-  const setAsPrimary = (vehicleId: string, url: string) => {
-    setPrimaryImageOverrides(prev => ({ ...prev, [vehicleId]: url }));
+    
+    setCompareList(prev => [...prev, vehicleId]);
   };
 
   const countries = React.useMemo(() => {
@@ -224,56 +81,74 @@ export default function App() {
     return matchesCategory && matchesCountry && matchesSearch;
   });
 
+  const chunkedVehicles = React.useMemo(() => {
+    const chunks = [];
+    for (let i = 0; i < filteredVehicles.length; i += 5) {
+      chunks.push(filteredVehicles.slice(i, i + 5));
+    }
+    return chunks;
+  }, [filteredVehicles]);
+
   return (
-    <div className="flex h-screen overflow-hidden bg-[#0a0a0b] text-[#e2e2e4]">
+    <div className="flex flex-col lg:flex-row h-screen overflow-hidden bg-[#0a0a0b] text-[#e2e2e4]">
       {/* Sidebar */}
-      <aside className="w-64 tech-border border-r flex flex-col">
-        <div className="p-6 border-b border-[#27272a]">
-          <h1 className="text-xl font-bold tracking-tighter flex items-center gap-2">
-            <Shield className="w-6 h-6 text-blue-500" />
-            VANGUARD
-          </h1>
-          <p className="tech-label mt-1">Tactical Database v2.4</p>
+      <aside className="w-full lg:w-64 tech-border border-b lg:border-b-0 lg:border-r flex flex-col shrink-0 z-20 bg-[#0a0a0b]">
+        <div className="p-4 lg:p-6 border-b border-[#27272a] flex items-center justify-between">
+          <div>
+            <h1 className="text-lg lg:text-xl font-bold tracking-tighter flex items-center gap-2">
+              <Shield className="w-5 h-5 lg:w-6 lg:h-6 text-blue-500" />
+              VANGUARD
+            </h1>
+            <p className="tech-label mt-1 hidden lg:block">Tactical Database v2.4</p>
+          </div>
+          <div className="lg:hidden flex items-center gap-3">
+            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+            <span className="tech-label">Online</span>
+          </div>
         </div>
 
-        <div className="flex-1 overflow-y-auto p-4 space-y-6">
+        <div className="flex-none lg:flex-1 overflow-y-auto p-3 lg:p-4 flex flex-col gap-4 lg:gap-6 hide-scrollbar">
           <div>
-            <h3 className="tech-label mb-3 px-2">Classification</h3>
-            <div className="space-y-1">
+            <h3 className="tech-label px-2 mb-2">Classification</h3>
+            <div className="flex flex-row lg:flex-col gap-2 lg:gap-1 overflow-x-auto lg:overflow-x-visible hide-scrollbar pb-2 lg:pb-0">
               {CATEGORIES.map(cat => (
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`w-full text-left px-3 py-2 rounded-md text-sm transition-colors flex items-center justify-between group ${
-                    selectedCategory === cat ? 'bg-blue-500/10 text-blue-400' : 'hover:bg-[#18181b]'
+                  className={`shrink-0 lg:w-full text-left px-4 py-2 rounded-md text-xs lg:text-sm transition-all flex items-center justify-between group ${
+                    selectedCategory === cat 
+                      ? 'bg-blue-600 text-white border border-blue-500 shadow-[0_0_12px_rgba(37,99,235,0.5)] font-medium' 
+                      : 'bg-[#18181b] lg:bg-transparent hover:bg-[#27272a] border border-[#27272a] lg:border-transparent text-zinc-400 hover:text-zinc-200'
                   }`}
                 >
                   {cat}
-                  <ChevronRight className={`w-4 h-4 transition-transform ${selectedCategory === cat ? 'translate-x-0 opacity-100' : '-translate-x-2 opacity-0 group-hover:opacity-50 group-hover:translate-x-0'}`} />
+                  <ChevronRight className={`hidden lg:block w-4 h-4 transition-transform ${selectedCategory === cat ? 'translate-x-0 opacity-100' : '-translate-x-2 opacity-0 group-hover:opacity-50 group-hover:translate-x-0'}`} />
                 </button>
               ))}
             </div>
           </div>
 
           <div>
-            <h3 className="tech-label mb-3 px-2">Origin</h3>
-            <div className="space-y-1">
+            <h3 className="tech-label px-2 mb-2">Origin</h3>
+            <div className="flex flex-row lg:flex-col gap-2 lg:gap-1 overflow-x-auto lg:overflow-x-visible hide-scrollbar pb-2 lg:pb-0">
               {countries.map(country => (
                 <button
                   key={country}
                   onClick={() => setSelectedCountry(country)}
-                  className={`w-full text-left px-3 py-2 rounded-md text-sm transition-colors flex items-center justify-between group ${
-                    selectedCountry === country ? 'bg-blue-500/10 text-blue-400' : 'hover:bg-[#18181b]'
+                  className={`shrink-0 lg:w-full text-left px-4 py-2 rounded-md text-xs lg:text-sm transition-all flex items-center justify-between group ${
+                    selectedCountry === country 
+                      ? 'bg-blue-600 text-white border border-blue-500 shadow-[0_0_12px_rgba(37,99,235,0.5)] font-medium' 
+                      : 'bg-[#18181b] lg:bg-transparent hover:bg-[#27272a] border border-[#27272a] lg:border-transparent text-zinc-400 hover:text-zinc-200'
                   }`}
                 >
                   {country}
-                  <ChevronRight className={`w-4 h-4 transition-transform ${selectedCountry === country ? 'translate-x-0 opacity-100' : '-translate-x-2 opacity-0 group-hover:opacity-50 group-hover:translate-x-0'}`} />
+                  <ChevronRight className={`hidden lg:block w-4 h-4 transition-transform ${selectedCountry === country ? 'translate-x-0 opacity-100' : '-translate-x-2 opacity-0 group-hover:opacity-50 group-hover:translate-x-0'}`} />
                 </button>
               ))}
             </div>
           </div>
 
-          <div className="p-4 tech-card rounded-lg bg-blue-500/5 border-blue-500/20">
+          <div className="hidden lg:block p-4 tech-card rounded-lg bg-blue-500/5 border-blue-500/20 mt-auto">
             <div className="flex items-center gap-2 text-blue-400 mb-2">
               <Info className="w-4 h-4" />
               <span className="text-xs font-bold uppercase tracking-wider">Status</span>
@@ -284,7 +159,7 @@ export default function App() {
           </div>
         </div>
 
-        <div className="p-4 border-t border-[#27272a]">
+        <div className="hidden lg:block p-4 border-t border-[#27272a]">
           <div className="flex items-center gap-3">
             <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
             <span className="tech-label">System Online</span>
@@ -293,10 +168,10 @@ export default function App() {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 flex flex-col relative">
+      <main className="flex-1 flex flex-col relative min-h-0 overflow-hidden">
         {/* Header */}
-        <header className="h-16 tech-border border-b flex items-center justify-between px-8 bg-[#0a0a0b]/80 backdrop-blur-md z-10">
-          <div className="relative w-96">
+        <header className="tech-border border-b flex flex-col lg:flex-row items-center justify-between p-4 lg:px-8 lg:h-16 bg-[#0a0a0b]/80 backdrop-blur-md z-10 gap-4 lg:gap-0 shrink-0">
+          <div className="relative w-full lg:w-96">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-500" />
             <input
               type="text"
@@ -306,16 +181,27 @@ export default function App() {
               className="w-full bg-[#18181b] tech-border rounded-md py-2 pl-10 pr-4 text-sm focus:outline-none focus:border-blue-500 transition-colors"
             />
           </div>
-          <div className="flex items-center gap-6">
-            <button
-              onClick={handleGenerateAllImages}
-              disabled={isGeneratingAll}
-              className="flex items-center gap-2 px-4 py-2 bg-blue-600/20 hover:bg-blue-600/40 border border-blue-500/50 text-blue-400 rounded-md font-bold text-[10px] uppercase tracking-wider transition-all disabled:opacity-50"
-            >
-              {isGeneratingAll ? <Loader2 className="w-4 h-4 animate-spin" /> : <Sparkles className="w-4 h-4" />}
-              {isGeneratingAll ? generationProgress : 'Generate All AI Images'}
-            </button>
-            <div className="flex flex-col items-end border-l border-[#27272a] pl-6">
+          <div className="flex items-center gap-4 lg:gap-6 w-full lg:w-auto overflow-x-auto hide-scrollbar pb-1 lg:pb-0">
+            {compareList.length > 0 && (
+              <div className="flex items-center bg-[#18181b] border border-[#27272a] rounded-md overflow-hidden transition-all hover:border-blue-500/50 shrink-0">
+                <button
+                  onClick={() => setIsCompareModalOpen(true)}
+                  className="flex items-center gap-2 px-3 lg:px-4 py-2 hover:bg-[#27272a] text-zinc-300 font-bold text-[10px] uppercase tracking-wider transition-colors"
+                >
+                  <ArrowLeftRight className="w-4 h-4 text-blue-400" />
+                  <span className="whitespace-nowrap">Compare {compareList.length} {VEHICLES.find(v => v.id === compareList[0])?.type}{compareList.length > 1 ? 's' : ''}</span>
+                </button>
+                <div className="w-px h-4 bg-[#27272a]" />
+                <button
+                  onClick={() => setCompareList([])}
+                  className="px-3 py-2 text-zinc-500 hover:text-red-400 hover:bg-[#27272a] transition-colors"
+                  title="Clear comparison"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+            )}
+            <div className="flex flex-col items-end border-l border-[#27272a] pl-4 lg:pl-6 shrink-0">
               <span className="tech-label">Total Assets</span>
               <span className="tech-value">{filteredVehicles.length}</span>
             </div>
@@ -323,25 +209,42 @@ export default function App() {
         </header>
 
         {/* Grid */}
-        <div className="flex-1 overflow-y-auto p-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredVehicles.map((vehicle) => (
-              <motion.div
-                layoutId={vehicle.id}
-                key={vehicle.id}
-                onClick={() => setSelectedVehicle(vehicle)}
-                className="tech-card rounded-xl overflow-hidden cursor-pointer group"
-              >
-                <div className="aspect-video relative overflow-hidden">
-                  <img
-                    src={getVehicleImage(vehicle)}
-                    alt={vehicle.name}
+        <div className="flex-1 overflow-y-auto p-4 lg:p-8 space-y-8">
+          {chunkedVehicles.map((chunk, rowIndex) => (
+            <div key={rowIndex} className="flex overflow-x-auto gap-6 pb-4 hide-scrollbar snap-x">
+              {chunk.map((vehicle) => (
+                <motion.div
+                  layoutId={vehicle.id}
+                  key={vehicle.id}
+                  onClick={() => setSelectedVehicle(vehicle)}
+                  className="tech-card rounded-xl overflow-hidden cursor-pointer group shrink-0 w-[85vw] sm:w-[340px] lg:w-[400px] snap-center"
+                >
+                <div className="aspect-video relative overflow-hidden bg-[#18181b]">
+                  <VehicleImage
+                    vehicle={vehicle}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    referrerPolicy="no-referrer"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = GENERIC_MILITARY_IMAGE;
-                    }}
                   />
+                  <button
+                    onClick={(e) => toggleCompare(e, vehicle.id)}
+                    className={`absolute top-3 left-3 p-2 backdrop-blur-md rounded border transition-colors z-10 ${
+                      compareList.includes(vehicle.id) 
+                        ? 'bg-blue-600/80 border-blue-400 text-white' 
+                        : (compareList.length > 0 && VEHICLES.find(v => v.id === compareList[0])?.type !== vehicle.type) || compareList.length >= 6
+                          ? 'bg-black/40 border-white/5 text-zinc-600 cursor-not-allowed'
+                          : 'bg-black/60 border-white/10 text-zinc-400 hover:text-white hover:bg-black/80'
+                    }`}
+                    title={
+                      compareList.includes(vehicle.id) 
+                        ? "Remove from comparison" 
+                        : compareList.length >= 6 
+                          ? "Maximum 6 vehicles reached" 
+                          : (compareList.length > 0 && VEHICLES.find(v => v.id === compareList[0])?.type !== vehicle.type)
+                            ? `Only ${VEHICLES.find(v => v.id === compareList[0])?.type}s can be compared right now`
+                            : "Add to comparison"
+                    }
+                  >
+                    <ArrowLeftRight className="w-4 h-4" />
+                  </button>
                   <div className="absolute top-3 right-3 px-2 py-1 bg-black/60 backdrop-blur-md rounded border border-white/10">
                     <span className="tech-label text-white">{vehicle.type}</span>
                   </div>
@@ -366,8 +269,9 @@ export default function App() {
                   </div>
                 </div>
               </motion.div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ))}
         </div>
 
         {/* Details Overlay */}
@@ -399,65 +303,14 @@ export default function App() {
                 </div>
                 <div className="flex-1 overflow-y-auto">
                   <div className="relative group">
-                    <img
-                      src={getVehicleImage(selectedVehicle)}
-                      alt={selectedVehicle.name}
+                    <VehicleImage
+                      vehicle={selectedVehicle}
                       className="w-full aspect-video object-cover"
-                      referrerPolicy="no-referrer"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).src = GENERIC_MILITARY_IMAGE;
-                      }}
                     />
-                    <div className="absolute top-4 right-4 flex flex-col items-end gap-2">
-                      {isGenerating ? (
-                        <div className="flex items-center gap-2 px-3 py-1.5 bg-blue-600/90 backdrop-blur-md text-white rounded-md font-bold text-[10px] uppercase tracking-wider shadow-lg">
-                          <Loader2 className="w-3 h-3 animate-spin" />
-                          Generating Cinematic Scene...
-                        </div>
-                      ) : isAiMenuOpen ? (
-                        <div className="flex flex-col items-end gap-2 bg-black/80 backdrop-blur-xl p-4 rounded-lg border border-white/10 shadow-2xl w-72">
-                          <div className="flex justify-between w-full items-center mb-1">
-                            <label className="text-[10px] font-bold text-blue-400 uppercase tracking-wider">Scene Input</label>
-                            <button onClick={() => setIsAiMenuOpen(false)} className="text-zinc-400 hover:text-white">
-                              <X className="w-4 h-4" />
-                            </button>
-                          </div>
-                          <textarea
-                            value={sceneInput}
-                            onChange={(e) => setSceneInput(e.target.value)}
-                            placeholder="Describe the scene..."
-                            className="w-full h-24 bg-black/40 border border-white/20 rounded p-2 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-blue-500 resize-none"
-                          />
-                          <button
-                            onClick={() => {
-                              handleGenerateImage(selectedVehicle);
-                              setIsAiMenuOpen(false);
-                            }}
-                            className="flex items-center gap-2 px-3 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-md font-bold text-[10px] uppercase tracking-wider shadow-lg transition-all w-full justify-center mt-2"
-                          >
-                            <Sparkles className="w-3 h-3" />
-                            Generate Cinematic Scene
-                          </button>
-                        </div>
-                      ) : (
-                        <button
-                          onClick={() => setIsAiMenuOpen(true)}
-                          className="flex items-center gap-2 px-3 py-1.5 bg-blue-600/90 hover:bg-blue-500 backdrop-blur-md text-white rounded-md font-bold text-[10px] uppercase tracking-wider shadow-lg transition-all"
-                        >
-                          <Sparkles className="w-3 h-3" />
-                          AI Gen Primary
-                        </button>
-                      )}
-                    </div>
-                    {primaryImageOverrides[selectedVehicle.id] && (
-                      <div className="absolute bottom-4 right-4 px-2 py-1 bg-blue-500/20 backdrop-blur-md border border-blue-500/30 rounded text-[10px] font-bold text-blue-400 uppercase tracking-tighter">
-                        Custom Primary
-                      </div>
-                    )}
                   </div>
                   <div className="px-8 pt-6">
                     <div className="flex gap-6 border-b border-[#27272a]">
-                      {(['overview', 'specs', 'history', 'gallery'] as const).map((tab) => (
+                      {(['overview', 'specs', 'history'] as const).map((tab) => (
                         <button
                           key={tab}
                           onClick={() => setActiveTab(tab)}
@@ -489,25 +342,6 @@ export default function App() {
                       >
                         {activeTab === 'overview' && (
                           <section className="space-y-8">
-                            {aiGeneratedContent[selectedVehicle.id] && (
-                              <div className="p-6 bg-blue-900/10 border border-blue-500/20 rounded-xl space-y-4">
-                                <h4 className="tech-label flex items-center gap-2 text-blue-400">
-                                  <Sparkles className="w-4 h-4" /> AI Generated Scene
-                                </h4>
-                                <div>
-                                  <h5 className="text-white font-bold text-lg mb-2">{aiGeneratedContent[selectedVehicle.id].title}</h5>
-                                  <p className="text-sm text-zinc-300 leading-relaxed italic border-l-2 border-blue-500/50 pl-4">
-                                    "{aiGeneratedContent[selectedVehicle.id].description}"
-                                  </p>
-                                </div>
-                                <div className="pt-4 border-t border-blue-500/10">
-                                  <span className="text-[10px] font-bold text-blue-400/70 uppercase tracking-wider block mb-1">Image Prompt Used</span>
-                                  <p className="text-xs text-zinc-400 font-mono bg-black/40 p-3 rounded">
-                                    {aiGeneratedContent[selectedVehicle.id].imagePrompt}
-                                  </p>
-                                </div>
-                              </div>
-                            )}
                             <div>
                               <h4 className="tech-label mb-3 flex items-center gap-2">
                                 <Info className="w-4 h-4" /> Overview
@@ -617,106 +451,147 @@ export default function App() {
                             )}
                           </div>
                         )}
-                        {activeTab === 'gallery' && (
-                          <div className="space-y-6">
-                            <div className="flex items-center justify-between mb-3">
-                              <h4 className="tech-label flex items-center gap-2">
-                                <ImageIcon className="w-4 h-4" /> Tactical Imagery
-                              </h4>
-                              <div className="flex gap-2">
-                                <button
-                                  onClick={() => setIsEditingUrl(!isEditingUrl)}
-                                  className="flex items-center gap-2 px-3 py-1.5 bg-zinc-800 hover:bg-zinc-700 text-white rounded-md font-bold text-[10px] uppercase tracking-wider shadow-lg transition-all"
-                                >
-                                  <ImageIcon className="w-3 h-3" />
-                                  Add URL
-                                </button>
-                              </div>
-                            </div>
-
-                            {isEditingUrl && (
-                              <div className="p-4 bg-black/40 border border-white/10 rounded-lg flex gap-2 mb-4">
-                                <input
-                                  type="text"
-                                  value={tempUrl}
-                                  onChange={(e) => setTempUrl(e.target.value)}
-                                  placeholder="Paste tactical image URL..."
-                                  className="flex-1 bg-[#18181b] border border-[#27272a] rounded px-3 py-1.5 text-xs focus:outline-none focus:border-blue-500"
-                                  onKeyDown={(e) => e.key === 'Enter' && handleUpdateUrl(selectedVehicle.id)}
-                                />
-                                <button
-                                  onClick={() => handleUpdateUrl(selectedVehicle.id)}
-                                  className="px-3 py-1.5 bg-blue-600 rounded text-xs font-bold"
-                                >
-                                  Add
-                                </button>
-                              </div>
-                            )}
-
-                            {(() => {
-                              const baseGallery = selectedVehicle.gallery && selectedVehicle.gallery.length > 0 
-                                ? selectedVehicle.gallery 
-                                : [
-                                    `https://picsum.photos/seed/${selectedVehicle.id}-1/800/600`,
-                                    `https://picsum.photos/seed/${selectedVehicle.id}-2/800/600`,
-                                    `https://picsum.photos/seed/${selectedVehicle.id}-3/800/600`,
-                                    `https://picsum.photos/seed/${selectedVehicle.id}-4/800/600`
-                                  ];
-                              
-                              const customImages = aiImages[selectedVehicle.id] || [];
-                              const galleryImages = [selectedVehicle.image, ...customImages, ...baseGallery];
-                              
-                              return (
-                                <div className="grid grid-cols-2 gap-4">
-                                  {galleryImages.map((img, i) => (
-                                    <motion.div
-                                      key={i}
-                                      initial={{ opacity: 0, scale: 0.95 }}
-                                      animate={{ opacity: 1, scale: 1 }}
-                                      transition={{ delay: i * 0.1 }}
-                                      className="aspect-square rounded-lg overflow-hidden tech-border group relative"
-                                    >
-                                      <img
-                                        src={img}
-                                        alt={`${selectedVehicle.name} gallery ${i + 1}`}
-                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                                        referrerPolicy="no-referrer"
-                                      />
-                                      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-2">
-                                        <button
-                                          onClick={() => setAsPrimary(selectedVehicle.id, img)}
-                                          className={`w-full py-2 rounded font-bold text-[10px] uppercase tracking-wider transition-colors ${
-                                            (primaryImageOverrides[selectedVehicle.id] || selectedVehicle.image) === img
-                                              ? 'bg-green-600 text-white'
-                                              : 'bg-white/10 hover:bg-white/20 text-white'
-                                          }`}
-                                        >
-                                          {(primaryImageOverrides[selectedVehicle.id] || selectedVehicle.image) === img ? 'Current Primary' : 'Set as Primary'}
-                                        </button>
-                                      </div>
-                                      {img === selectedVehicle.image && (
-                                        <div className="absolute top-2 right-2 px-1.5 py-0.5 bg-zinc-500 rounded text-[8px] font-bold text-white uppercase">
-                                          Original
-                                        </div>
-                                      )}
-                                      {customImages.includes(img) && (
-                                        <div className="absolute top-2 right-2 px-1.5 py-0.5 bg-blue-500 rounded text-[8px] font-bold text-white uppercase">
-                                          Custom
-                                        </div>
-                                      )}
-                                    </motion.div>
-                                  ))}
-                                </div>
-                              );
-                            })()}
-                          </div>
-                        )}
                       </motion.div>
                     </AnimatePresence>
                   </div>
                 </div>
               </motion.div>
             </>
+          )}
+        </AnimatePresence>
+
+        {/* Comparison Modal */}
+        <AnimatePresence>
+          {isCompareModalOpen && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 md:p-8"
+            >
+              <motion.div
+                initial={{ scale: 0.95, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.95, opacity: 0 }}
+                className="bg-[#0a0a0b] tech-border rounded-xl w-full max-w-7xl max-h-full flex flex-col overflow-hidden shadow-2xl"
+              >
+                <div className="p-6 border-b border-[#27272a] flex items-center justify-between bg-[#18181b]">
+                  <h2 className="text-xl font-bold tracking-tighter flex items-center gap-2">
+                    <ArrowLeftRight className="w-5 h-5 text-blue-500" />
+                    Vehicle Comparison
+                  </h2>
+                  <button onClick={() => setIsCompareModalOpen(false)} className="p-2 hover:bg-[#27272a] rounded-full transition-colors">
+                    <X className="w-6 h-6" />
+                  </button>
+                </div>
+                <div className="flex-1 overflow-auto p-6">
+                  {compareList.length === 0 ? (
+                    <div className="flex flex-col items-center justify-center h-64 text-zinc-500">
+                      <ArrowLeftRight className="w-12 h-12 mb-4 opacity-20" />
+                      <p>No vehicles selected for comparison.</p>
+                    </div>
+                  ) : (
+                    <div className="min-w-max pb-4">
+                      <table className="w-full text-left border-collapse">
+                        <thead>
+                          <tr>
+                            <th className="p-4 border-b border-r border-[#27272a] bg-[#0a0a0b] sticky left-0 z-20 w-32 md:w-48"></th>
+                            {compareList.map(id => {
+                              const v = VEHICLES.find(v => v.id === id);
+                              if (!v) return null;
+                              return (
+                                <th key={id} className="p-4 border-b border-r border-[#27272a] w-64 md:w-80 align-top bg-[#0a0a0b]">
+                                  <div className="relative aspect-video rounded-lg overflow-hidden tech-border mb-3 bg-[#18181b]">
+                                    <VehicleImage 
+                                      vehicle={v} 
+                                      className="w-full h-full object-cover" 
+                                    />
+                                    <button onClick={(e) => toggleCompare(e, id)} className="absolute top-2 right-2 p-1.5 bg-black/60 rounded hover:bg-red-500/80 text-white backdrop-blur-md transition-colors">
+                                      <X className="w-4 h-4" />
+                                    </button>
+                                  </div>
+                                  <h3 className="text-lg font-bold tracking-tight line-clamp-2">{v.name}</h3>
+                                </th>
+                              );
+                            })}
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-[#27272a]">
+                          {[
+                            { label: 'Type', key: 'type' },
+                            { label: 'Country', key: 'country' },
+                            { label: 'Weight', key: 'weight', isSpec: true },
+                            { label: 'Speed', key: 'speed', isSpec: true },
+                            { label: 'Range', key: 'range', isSpec: true },
+                            { label: 'Crew', key: 'crew', isSpec: true },
+                            { label: 'Armor', key: 'armor', isSpec: true },
+                          ].map((row) => (
+                            <tr key={row.label} className="hover:bg-blue-500/10 transition-colors group">
+                              <td className="p-4 border-r border-[#27272a] tech-label sticky left-0 bg-[#0a0a0b] group-hover:bg-[#121215] z-10 whitespace-nowrap">
+                                {row.label}
+                              </td>
+                              {compareList.map(id => {
+                                const v = VEHICLES.find(v => v.id === id);
+                                if (!v) return null;
+                                const val = row.isSpec ? (v.specs as any)[row.key] : (v as any)[row.key];
+                                return (
+                                  <td key={id} className="p-4 border-r border-[#27272a] tech-value">
+                                    {val || 'N/A'}
+                                  </td>
+                                );
+                              })}
+                            </tr>
+                          ))}
+                          <tr className="hover:bg-blue-500/10 transition-colors group">
+                            <td className="p-4 border-r border-[#27272a] tech-label sticky left-0 bg-[#0a0a0b] group-hover:bg-[#121215] z-10 align-top whitespace-nowrap">
+                              Armament
+                            </td>
+                            {compareList.map(id => {
+                              const v = VEHICLES.find(v => v.id === id);
+                              if (!v) return null;
+                              return (
+                                <td key={id} className="p-4 border-r border-[#27272a] align-top">
+                                  <ul className="space-y-2">
+                                    {v.specs.armament?.map((arm, i) => (
+                                      <li key={i} className="tech-value text-xs flex items-start gap-2">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 flex-shrink-0" />
+                                        {arm}
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </td>
+                              );
+                            })}
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Toast Message */}
+        <AnimatePresence>
+          {toastMessage && (
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 50 }}
+              className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[100] px-4 py-3 bg-[#18181b] text-zinc-300 rounded-lg shadow-2xl border border-[#27272a] text-sm flex items-center gap-3 min-w-[300px]"
+            >
+              <Info className="w-4 h-4 text-blue-400 shrink-0" />
+              <span className="flex-1">{toastMessage}</span>
+              <button 
+                onClick={() => setToastMessage(null)} 
+                className="p-1 hover:bg-[#27272a] rounded-md text-zinc-500 hover:text-zinc-300 transition-colors"
+                title="Close"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </motion.div>
           )}
         </AnimatePresence>
       </main>

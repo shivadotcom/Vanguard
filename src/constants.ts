@@ -29,11 +29,6 @@ export const VEHICLES: Vehicle[] = [
       { year: '1985', event: 'M1A1 upgrade with 120mm gun introduced.' },
       { year: '1992', event: 'M1A2 variant enters service with digital systems.' },
       { year: '2017', event: 'M1A2 SEPv3 modernization begins delivery.' }
-    ],
-    gallery: [
-      'https://images.unsplash.com/photo-1566633806327-68e152aaf26d?q=80&w=2000&auto=format&fit=crop',
-      'https://picsum.photos/seed/abrams1/800/600',
-      'https://picsum.photos/seed/abrams2/800/600'
     ]
   },
   {
@@ -65,12 +60,6 @@ export const VEHICLES: Vehicle[] = [
       { year: '1995', event: 'Leopard 2A5 upgrade with wedge-shaped armor.' },
       { year: '2001', event: 'Leopard 2A6 with longer L/55 gun enters service.' },
       { year: '2014', event: 'Leopard 2A7 modernization delivered to Germany.' }
-    ],
-    gallery: [
-      'https://picsum.photos/seed/leopard1/800/600',
-      'https://picsum.photos/seed/leopard2/800/600',
-      'https://picsum.photos/seed/leopard3/800/600',
-      'https://picsum.photos/seed/leopard4/800/600'
     ]
   },
   {
@@ -99,12 +88,6 @@ export const VEHICLES: Vehicle[] = [
       { year: '1997', event: 'First production F-22 Raptor flight.' },
       { year: '2005', event: 'Full operational capability achieved.' },
       { year: '2011', event: 'Final production F-22 delivered to USAF.' }
-    ],
-    gallery: [
-      'https://picsum.photos/seed/raptor1/800/600',
-      'https://picsum.photos/seed/raptor2/800/600',
-      'https://picsum.photos/seed/raptor3/800/600',
-      'https://picsum.photos/seed/raptor4/800/600'
     ]
   },
   {
@@ -203,11 +186,7 @@ export const VEHICLES: Vehicle[] = [
       armor: 'Chobham / Dorchester Level 2',
       crew: 4,
       range: '550 km'
-    },
-    gallery: [
-      'https://picsum.photos/seed/challenger1/800/600',
-      'https://picsum.photos/seed/challenger2/800/600'
-    ]
+    }
   },
   {
     id: 'k2-black-panther',
