@@ -13,12 +13,12 @@ interface VehicleImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
 
 export const VehicleImage: React.FC<VehicleImageProps> = ({ vehicle, className, alt, ...props }) => {
   const [src, setSrc] = useState<string | null>(memoryCache.get(vehicle.id) || null);
-  const [error, setError] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   useEffect(() => {
     let isMounted = true;
 
-    if (!src && !error) {
+    if (!src && !errorMsg) {
       getOrGenerateVehicleImage(vehicle)
         .then((imageUrl) => {
           if (isMounted) {
@@ -28,7 +28,7 @@ export const VehicleImage: React.FC<VehicleImageProps> = ({ vehicle, className, 
         .catch((err) => {
           console.error("Error loading image for", vehicle.id, err);
           if (isMounted) {
-            setError(true);
+            setErrorMsg(err.message || String(err) || "Unknown error");
           }
         });
     }
@@ -36,18 +36,25 @@ export const VehicleImage: React.FC<VehicleImageProps> = ({ vehicle, className, 
     return () => {
       isMounted = false;
     };
-  }, [vehicle, src, error]);
+  }, [vehicle, src, errorMsg]);
 
-  if (error || !src) {
+  if (errorMsg || !src) {
     // Show fallback if error or while loading
     return (
-      <img
-        src={getFallbackImage(vehicle.type)}
-        alt={alt || vehicle.name}
-        className={className}
-        referrerPolicy="no-referrer"
-        {...props}
-      />
+      <div className={`relative flex items-center justify-center bg-[#111827] overflow-hidden ${className || ''}`}>
+        <img
+          src={getFallbackImage(vehicle.type)}
+          alt={alt || vehicle.name}
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
+          referrerPolicy="no-referrer"
+          {...props}
+        />
+        {errorMsg && (
+          <div className="relative z-10 text-[10px] text-red-400 bg-black/80 p-2 rounded border border-red-500/30 m-2 max-w-full break-words font-mono text-center">
+            {errorMsg.length > 60 ? errorMsg.substring(0, 60) + '...' : errorMsg}
+          </div>
+        )}
+      </div>
     );
   }
 
@@ -57,7 +64,7 @@ export const VehicleImage: React.FC<VehicleImageProps> = ({ vehicle, className, 
       alt={alt || vehicle.name}
       className={className}
       referrerPolicy="no-referrer"
-      onError={() => setError(true)}
+      onError={() => setErrorMsg("Failed to load image element")}
       {...props}
     />
   );

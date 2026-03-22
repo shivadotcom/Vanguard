@@ -77,10 +77,9 @@ async function processQueue() {
       item.reject(error);
     }
     
-    // Wait 2-3 seconds before next request if there are more items
+    // Wait 4.5 seconds before next request to stay under 15 RPM free tier limit
     if (generationQueue.length > 0) {
-      const delay = Math.floor(Math.random() * 1000) + 2000; // 2000-3000ms
-      await new Promise(resolve => setTimeout(resolve, delay));
+      await new Promise(resolve => setTimeout(resolve, 4500));
     }
   }
   
@@ -182,9 +181,10 @@ async function compressImage(dataUrl: string): Promise<string> {
 
 async function generateAndStoreImage(vehicle: Vehicle): Promise<string> {
   try {
-    const apiKey = process.env.GEMINI_API_KEY;
+    // Try process.env first (AI Studio/Vite define), then import.meta.env (Vercel standard)
+    const apiKey = process.env.GEMINI_API_KEY || (import.meta as any).env?.VITE_GEMINI_API_KEY;
     if (!apiKey) {
-      throw new Error("Gemini API key not found");
+      throw new Error("API key not found. Set VITE_GEMINI_API_KEY in Vercel.");
     }
 
     const ai = new GoogleGenAI({ apiKey });
