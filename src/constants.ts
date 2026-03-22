@@ -5,89 +5,24 @@ export const VEHICLES: Vehicle[] = [
     id: 'm1a2-abrams',
     name: 'M1A2 Abrams',
     type: 'Tank',
-    country: 'USA',
-    era: 'Modern',
-    image: 'https://images.unsplash.com/photo-1566633806327-68e152aaf26d?q=80&w=2000&auto=format&fit=crop',
-    description: 'The M1 Abrams is a third-generation American main battle tank. It is highly mobile, designed for modern armored ground warfare.',
-    specs: {
-      weight: '62 metric tons',
-      speed: '67 km/h',
-      armament: ['120 mm M256 smoothbore gun', '1 x .50 caliber M2HB machine gun', '2 x 7.62 mm M240 machine guns'],
-      armor: 'Chobham, RH armor, Depleted Uranium mesh',
-      crew: 4,
-      range: '426 km'
-    },
-    variants: [
-      { name: 'M1A1', description: 'Upgraded with 120mm smoothbore gun and improved armor.' },
-      { name: 'M1A2 SEPv3', description: 'Latest modernization with improved power distribution and communications.' },
-      { name: 'M1 TTB', description: 'Tank Test Bed with unmanned turret and crew in hull.' }
-    ],
-    timeline: [
-      { year: '1972', event: 'Chrysler Defense and General Motors submit designs for XM1.' },
-      { year: '1976', event: 'Chrysler design selected for production.' },
-      { year: '1980', event: 'Initial production M1 enters service.' },
-      { year: '1985', event: 'M1A1 upgrade with 120mm gun introduced.' },
-      { year: '1992', event: 'M1A2 variant enters service with digital systems.' },
-      { year: '2017', event: 'M1A2 SEPv3 modernization begins delivery.' }
-    ]
-  },
-  {
-    id: 'leopard-2a7',
-    name: 'Leopard 2A7',
-    type: 'Tank',
-    country: 'Germany',
-    era: 'Modern',
-    image: 'https://images.unsplash.com/photo-1590424753858-394a1278090d?q=80&w=2000&auto=format&fit=crop',
-    description: 'The Leopard 2 is a main battle tank developed by Krauss-Maffei in the 1970s for the West German Army.',
-    aiPrompt: 'Leopard 2 tank firing in desert battlefield, explosion hitting enemy tank, cinematic lighting, ultra realistic, 4k',
-    specs: {
-      weight: '62.3 metric tons',
-      speed: '68 km/h',
-      armament: ['120 mm Rheinmetall L/55 smoothbore gun', '2 x 7.62 mm MG3A1'],
-      armor: 'Modular composite armor',
-      crew: 4,
-      range: '450 km'
-    },
-    variants: [
-      { name: 'Leopard 2A4', description: 'Most widespread version with vertical turret armor.' },
-      { name: 'Leopard 2A6', description: 'Features the longer L/55 gun for increased penetration.' },
-      { name: 'Strv 122', description: 'Swedish variant with reinforced top armor and command systems.' }
-    ],
-    timeline: [
-      { year: '1970', event: 'Development of Leopard 2 begins.' },
-      { year: '1979', event: 'Leopard 2 enters service with the Bundeswehr.' },
-      { year: '1985', event: 'Leopard 2A4 (most common variant) introduced.' },
-      { year: '1995', event: 'Leopard 2A5 upgrade with wedge-shaped armor.' },
-      { year: '2001', event: 'Leopard 2A6 with longer L/55 gun enters service.' },
-      { year: '2014', event: 'Leopard 2A7 modernization delivered to Germany.' }
-    ]
-  },
-  {
-    id: 'f22-raptor',
-    name: 'F-22 Raptor',
-    type: 'Aircraft',
-    country: 'USA',
+    country: 'United States',
     era: 'Modern',
     image: '',
-    description: 'The Lockheed Martin F-22 Raptor is an American single-seat, twin-engine, all-weather stealth tactical fighter aircraft.',
+    description: 'The M1A2 Abrams is a third-generation American main battle tank designed by Chrysler Defense.',
     specs: {
-      weight: '19,700 kg (empty)',
-      speed: 'Mach 2.25 (2,410 km/h)',
-      armament: ['20 mm M61A2 Vulcan cannon', 'AIM-120 AMRAAM', 'AIM-9 Sidewinder'],
-      crew: 1,
-      range: '3,000 km'
+      weight: '66.8 tons',
+      speed: '67 km/h',
+      armament: ['120mm L/44 M256A1 smoothbore gun', '1 × 0.50 cal (12.7 mm) M2HB heavy machine gun', '2 × 7.62 mm M240 machine guns'],
+      armor: 'Chobham, depleted uranium mesh-reinforced composite armor',
+      crew: 4,
+      range: '426 km',
+      engine: 'Honeywell AGT1500C multi-fuel turbine engine'
     },
     variants: [
-      { name: 'F-22A', description: 'The primary production version for the USAF.' },
-      { name: 'FB-22', description: 'Proposed regional bomber version with larger delta wing (Cancelled).' }
+      { name: 'M1A2 SEP', description: 'System Enhancement Package with upgraded armor and electronics.' }
     ],
     timeline: [
-      { year: '1981', event: 'Advanced Tactical Fighter (ATF) program initiated.' },
-      { year: '1990', event: 'YF-22 prototype first flight.' },
-      { year: '1991', event: 'Lockheed Martin design selected over YF-23.' },
-      { year: '1997', event: 'First production F-22 Raptor flight.' },
-      { year: '2005', event: 'Full operational capability achieved.' },
-      { year: '2011', event: 'Final production F-22 delivered to USAF.' }
+      { year: '1992', event: 'M1A2 variant introduced.' }
     ]
   },
   {
@@ -99,93 +34,172 @@ export const VEHICLES: Vehicle[] = [
     image: '',
     description: 'The T-14 Armata is a next-generation Russian main battle tank based on the Armata Universal Combat Platform.',
     specs: {
-      weight: '48 metric tons',
-      speed: '80–90 km/h',
+      weight: '55 tons',
+      speed: '80 km/h',
       armament: ['125 mm 2A82-1M smoothbore gun', '12.7 mm Kord machine gun', '7.62 mm PKTM machine gun'],
-      armor: '44S-sv-Sh, Afghanit active protection system',
+      armor: 'Malachit dual-reactive armor',
       crew: 3,
-      range: '500 km'
+      range: '500 km',
+      engine: 'ChTZ 12N360 (A-85-3A) diesel engine'
+    }
+  },
+  {
+    id: 'f-22-raptor',
+    name: 'F-22 Raptor',
+    type: 'Aircraft',
+    country: 'United States',
+    era: 'Modern',
+    image: '',
+    description: 'The Lockheed Martin F-22 Raptor is an American single-seat, twin-engine, all-weather stealth tactical fighter aircraft.',
+    specs: {
+      weight: '19,700 kg (empty)',
+      speed: 'Mach 2.25',
+      armament: ['1× 20 mm M61A2 Vulcan rotary cannon', '6× AIM-120 AMRAAM', '2× AIM-9 Sidewinder'],
+      crew: 1,
+      range: '2,960 km',
+      engine: '2 × Pratt & Whitney F119-PW-100 turbofans'
+    }
+  },
+  {
+    id: 'm2-bradley',
+    name: 'M2 Bradley',
+    type: 'APC',
+    country: 'United States',
+    era: 'Cold War',
+    image: '',
+    description: 'The M2 Bradley is an American infantry fighting vehicle that is a member of the Bradley Fighting Vehicle family.',
+    specs: {
+      weight: '27.6 tons',
+      speed: '66 km/h',
+      armament: ['25 mm M242 chain gun', 'TOW anti-tank missiles', '7.62 mm M240C machine gun'],
+      armor: 'Spaced laminate armor',
+      crew: 3,
+      range: '483 km',
+      engine: 'Cummins VTA-903T diesel'
     }
   },
   {
     id: 'nimitz-class',
     name: 'Nimitz-class Aircraft Carrier',
     type: 'Naval',
-    country: 'USA',
+    country: 'United States',
     era: 'Modern',
     image: '',
-    description: 'The Nimitz-class aircraft carriers are a class of ten nuclear-powered aircraft carriers in service with the United States Navy.',
+    description: 'The Nimitz class is a class of ten nuclear-powered aircraft carriers in service with the United States Navy.',
     specs: {
       weight: '100,000 long tons',
-      speed: '30+ knots (56+ km/h)',
-      armament: ['Sea Sparrow missiles', 'Phalanx CIWS', 'RIM-116 Rolling Airframe Missile'],
-      crew: 6000,
-      range: 'Unlimited (Nuclear powered)'
+      speed: '30+ knots',
+      armament: ['2 × Sea Sparrow', '2 × RIM-116 Rolling Airframe Missile', '2 × PHALANX CIWS'],
+      crew: 6012,
+      range: 'Unlimited',
+      engine: '2 × Westinghouse A4W nuclear reactors'
     }
   },
   {
-    id: 'su-57',
-    name: 'Sukhoi Su-57',
-    type: 'Aircraft',
-    country: 'Russia',
+    id: 'm142-himars',
+    name: 'M142 HIMARS',
+    type: 'Artillery',
+    country: 'United States',
     era: 'Modern',
     image: '',
-    description: 'The Sukhoi Su-57 is a twin-engine stealth multirole fighter aircraft developed by Sukhoi.',
+    description: 'The M142 High Mobility Artillery Rocket System (HIMARS) is a light multiple rocket launcher developed in the late 1990s.',
     specs: {
-      weight: '18,000 kg (empty)',
-      speed: 'Mach 2.0 (2,120 km/h)',
-      armament: ['30 mm Gryazev-Shipunov GSh-30-1 cannon', 'Kh-38M', 'R-77M'],
-      crew: 1,
-      range: '3,500 km'
-    }
-  },
-  {
-    id: 'a10-warthog',
-    name: 'A-10 Thunderbolt II',
-    type: 'Aircraft',
-    country: 'USA',
-    era: 'Modern',
-    image: '',
-    description: 'The Fairchild Republic A-10 Thunderbolt II is a single-seat, twin-turbofan, straight-wing, subsonic attack aircraft.',
-    specs: {
-      weight: '11,321 kg (empty)',
-      speed: '706 km/h',
-      armament: ['30 mm GAU-8/A Avenger rotary cannon', 'Hydra 70 rockets', 'AGM-65 Maverick'],
-      crew: 1,
-      range: '4,150 km'
-    }
-  },
-  {
-    id: 'ah64-apache',
-    name: 'AH-64 Apache',
-    type: 'Aircraft',
-    country: 'USA',
-    era: 'Modern',
-    image: '',
-    description: 'The Boeing AH-64 Apache is an American advanced attack helicopter with a nose-mounted sensor suite for target acquisition and night vision systems.',
-    specs: {
-      weight: '5,165 kg (empty)',
-      speed: '293 km/h',
-      armament: ['30 mm M230 chain gun', 'AGM-114 Hellfire', 'Hydra 70 rockets'],
-      crew: 2,
-      range: '476 km'
+      weight: '16.25 tons',
+      speed: '85 km/h',
+      armament: ['6 × 227 mm M270 series rockets or 1 MGM-140 ATACMS missile'],
+      armor: 'Protection against small arms and shell splinters',
+      crew: 3,
+      range: '480 km',
+      engine: 'Caterpillar 3115 ATAAC 6.6-liter diesel'
     }
   },
   {
     id: 'challenger-2',
     name: 'Challenger 2',
     type: 'Tank',
-    country: 'UK',
+    country: 'United Kingdom',
     era: 'Modern',
     image: '',
     description: 'The FV4034 Challenger 2 is a British main battle tank (MBT) in service with the armies of the United Kingdom and Oman.',
     specs: {
-      weight: '62.5 metric tons',
+      weight: '62.5 tons',
       speed: '59 km/h',
-      armament: ['120 mm L30A1 rifled gun', '2 x 7.62 mm L94A1 chain gun'],
+      armament: ['120 mm L30A1 rifled gun', '7.62 mm L94A1 chain gun', '7.62 mm L37A2 machine gun'],
       armor: 'Chobham / Dorchester Level 2',
       crew: 4,
-      range: '550 km'
+      range: '550 km',
+      engine: 'Perkins CV12-6A V12 diesel 1,200 hp'
+    }
+  },
+  {
+    id: 'leopard-2a7',
+    name: 'Leopard 2A7',
+    type: 'Tank',
+    country: 'Germany',
+    era: 'Modern',
+    image: '',
+    description: 'The Leopard 2 is a 3rd generation main battle tank originally developed by Krauss-Maffei in the 1970s for the West German army.',
+    specs: {
+      weight: '66.5 tons',
+      speed: '68 km/h',
+      armament: ['120 mm Rheinmetall L/55 smoothbore gun', '2 × 7.62 mm MG3A1 machine guns'],
+      armor: '3rd generation composite; including high-hardness steel, tungsten and plastic filler with ceramic component',
+      crew: 4,
+      range: '450 km',
+      engine: 'MTU MB 873 Ka-501 liquid-cooled V12 twin-turbo diesel'
+    }
+  },
+  {
+    id: 'dassault-rafale',
+    name: 'Dassault Rafale',
+    type: 'Aircraft',
+    country: 'France',
+    era: 'Modern',
+    image: '',
+    description: 'The Dassault Rafale is a French twin-engine, canard delta wing, multirole fighter aircraft designed and built by Dassault Aviation.',
+    specs: {
+      weight: '10,300 kg (empty)',
+      speed: 'Mach 1.8',
+      armament: ['1× 30 mm GIAT 30/M791 autocannon', 'Air-to-air missiles: Magic II, MICA, Meteor', 'Air-to-ground missiles: SCALP EG, AASM'],
+      crew: 1,
+      range: '3,700 km',
+      engine: '2 × Snecma M88-4e turbofans'
+    }
+  },
+  {
+    id: 'type-99',
+    name: 'Type 99',
+    type: 'Tank',
+    country: 'China',
+    era: 'Modern',
+    image: '',
+    description: 'The Type 99 is a Chinese third generation main battle tank (MBT). It is the current most advanced main battle tank fielded by the People\'s Liberation Army Ground Force.',
+    specs: {
+      weight: '54 tons',
+      speed: '80 km/h',
+      armament: ['125 mm ZPT-98 smoothbore gun', '12.7 mm QJC-88 heavy machine gun', '7.62 mm Type 86 coaxial machine gun'],
+      armor: 'Composite armor with explosive reactive armor (ERA)',
+      crew: 3,
+      range: '500 km',
+      engine: '150HB 1,500 hp diesel engine'
+    }
+  },
+  {
+    id: 'merkava-mk4',
+    name: 'Merkava Mk.4',
+    type: 'Tank',
+    country: 'Israel',
+    era: 'Modern',
+    image: '',
+    description: 'The Merkava is a series of main battle tanks used by the Israel Defense Forces. The Mk.4 is the most recent variant.',
+    specs: {
+      weight: '65 tons',
+      speed: '64 km/h',
+      armament: ['120 mm MG253 smoothbore gun', '1 × 12.7 mm heavy machine gun', '2 × 7.62 mm machine guns', '1 × 60 mm internal mortar'],
+      armor: 'Modular composite armor, Trophy active protection system',
+      crew: 4,
+      range: '500 km',
+      engine: 'General Dynamics GD883 V12 water-cooled diesel'
     }
   },
   {
@@ -197,207 +211,13 @@ export const VEHICLES: Vehicle[] = [
     image: '',
     description: 'The K2 Black Panther is a next-generation South Korean main battle tank designed by the Agency for Defense Development.',
     specs: {
-      weight: '55 metric tons',
+      weight: '55 tons',
       speed: '70 km/h',
-      armament: ['120 mm L/55 smoothbore gun', '12.7 mm K6 heavy machine gun'],
-      armor: 'Composite armor with ERA',
+      armament: ['120 mm L/55 smoothbore gun', '12.7 mm K6 heavy machine gun', '7.62 mm coaxial machine gun'],
+      armor: 'Classified composite armor with ERA and NERA',
       crew: 3,
-      range: '450 km'
-    }
-  },
-  {
-    id: 'merkava-iv',
-    name: 'Merkava Mark IV',
-    type: 'Tank',
-    country: 'Israel',
-    era: 'Modern',
-    image: '',
-    description: 'The Merkava is a series of main battle tanks used by the Israel Defense Forces and the backbone of the IDF\'s armored corps.',
-    specs: {
-      weight: '65 metric tons',
-      speed: '64 km/h',
-      armament: ['120 mm MG253 smoothbore gun', '1 x 12.7 mm MG', '2 x 7.62 mm MG'],
-      armor: 'Classified composite/sloped armor',
-      crew: 4,
-      range: '500 km'
-    }
-  },
-  {
-    id: 'm2-bradley',
-    name: 'M2 Bradley',
-    type: 'APC',
-    country: 'USA',
-    era: 'Modern',
-    image: '',
-    description: 'The M2 Bradley Infantry Fighting Vehicle is an American infantry fighting vehicle that is part of the Bradley Fighting Vehicle family.',
-    specs: {
-      weight: '27.6 metric tons',
-      speed: '64 km/h',
-      armament: ['25 mm M242 Bushmaster chain gun', 'TOW anti-tank missiles'],
-      crew: 3,
-      range: '480 km'
-    }
-  },
-  {
-    id: 'bmp-3',
-    name: 'BMP-3',
-    type: 'APC',
-    country: 'Russia',
-    era: 'Modern',
-    image: '',
-    description: 'The BMP-3 is a Soviet and Russian infantry fighting vehicle, successor to the BMP-1 and BMP-2.',
-    specs: {
-      weight: '18.7 metric tons',
-      speed: '72 km/h',
-      armament: ['100 mm 2A70 rifled gun', '30 mm 2A72 autocannon'],
-      crew: 3,
-      range: '600 km'
-    }
-  },
-  {
-    id: 'eurofighter',
-    name: 'Eurofighter Typhoon',
-    type: 'Aircraft',
-    country: 'EU',
-    era: 'Modern',
-    image: '',
-    description: 'The Eurofighter Typhoon is a European multinational twin-engine, canard delta wing, multirole fighter.',
-    specs: {
-      weight: '11,000 kg (empty)',
-      speed: 'Mach 2.0+',
-      armament: ['27 mm Mauser BK-27 revolver cannon', 'Meteor BVRAAM'],
-      crew: 1,
-      range: '2,900 km'
-    }
-  },
-  {
-    id: 'j-20',
-    name: 'Chengdu J-20',
-    type: 'Aircraft',
-    country: 'China',
-    era: 'Modern',
-    image: '',
-    description: 'The Chengdu J-20, also known as Mighty Dragon, is a twin-engine all-weather stealth fifth-generation fighter aircraft.',
-    specs: {
-      weight: '19,000 kg (empty)',
-      speed: 'Mach 2.0+',
-      armament: ['Internal weapons bay', 'PL-15 BVRAAM', 'PL-10 SRAAM'],
-      crew: 1,
-      range: '6,000 km'
-    }
-  },
-  {
-    id: 'type-055',
-    name: 'Type 055 Destroyer',
-    type: 'Naval',
-    country: 'China',
-    era: 'Modern',
-    image: '',
-    description: 'The Type 055 destroyer is a class of stealth guided-missile destroyers being constructed for the Chinese People\'s Liberation Army Navy.',
-    specs: {
-      weight: '12,000–13,000 tons',
-      speed: '30 knots',
-      armament: ['112 VLS cells', 'HHQ-9 SAM', 'YJ-18 Anti-ship missiles'],
-      crew: 300,
-      range: '9,300 km'
-    }
-  },
-  {
-    id: 'astute-class',
-    name: 'Astute-class Submarine',
-    type: 'Naval',
-    country: 'UK',
-    era: 'Modern',
-    image: '',
-    description: 'The Astute class is the latest class of nuclear-powered fleet submarines (SSNs) in service with the Royal Navy.',
-    specs: {
-      weight: '7,400 tons (submerged)',
-      speed: '30 knots',
-      armament: ['6 x 21-inch torpedo tubes', 'Spearfish torpedoes', 'Tomahawk missiles'],
-      crew: 98,
-      range: 'Unlimited (Nuclear)'
-    }
-  },
-  {
-    id: 'pzh-2000',
-    name: 'PzH 2000',
-    type: 'Artillery',
-    country: 'Germany',
-    era: 'Modern',
-    image: '',
-    description: 'The Panzerhaubitze 2000 is a German 155 mm self-propelled howitzer developed by Krauss-Maffei Wegmann.',
-    specs: {
-      weight: '55.3 metric tons',
-      speed: '67 km/h',
-      armament: ['155 mm Rheinmetall L52 JBM', '7.62 mm MG3 machine gun'],
-      crew: 5,
-      range: '420 km'
-    }
-  },
-  {
-    id: 'm109-paladin',
-    name: 'M109A7 Paladin',
-    type: 'Artillery',
-    country: 'USA',
-    era: 'Modern',
-    image: '',
-    description: 'The M109 is an American 155 mm turreted self-propelled howitzer, first introduced in the early 1960s.',
-    specs: {
-      weight: '35 metric tons',
-      speed: '61 km/h',
-      armament: ['155 mm M126 Howitzer', '.50 caliber M2 machine gun'],
-      crew: 4,
-      range: '322 km'
-    }
-  },
-  {
-    id: 'tos-1a',
-    name: 'TOS-1A Solntsepyok',
-    type: 'Artillery',
-    country: 'Russia',
-    era: 'Modern',
-    image: '',
-    description: 'The TOS-1 is a Soviet 220 mm 24-barrel multiple rocket launcher and thermobaric weapon mounted on a T-72 tank chassis.',
-    specs: {
-      weight: '46.5 metric tons',
-      speed: '60 km/h',
-      armament: ['24-barrel rocket launcher', 'Thermobaric rockets'],
-      crew: 3,
-      range: '550 km'
-    }
-  },
-  {
-    id: 't-90m',
-    name: 'T-90M Proryv',
-    type: 'Tank',
-    country: 'Russia',
-    era: 'Modern',
-    image: '',
-    description: 'The T-90M is the latest modernization of the T-90 main battle tank, featuring improved armor, a new turret, and updated fire control systems.',
-    specs: {
-      weight: '48 metric tons',
-      speed: '60 km/h',
-      armament: ['125 mm 2A46M-5 smoothbore gun', '12.7 mm NSVT machine gun'],
-      armor: 'Relikt ERA, composite armor',
-      crew: 3,
-      range: '550 km'
-    }
-  },
-  {
-    id: 'leclerc',
-    name: 'Leclerc',
-    type: 'Tank',
-    country: 'France',
-    era: 'Modern',
-    image: '',
-    description: 'The Leclerc is a main battle tank built by Nexter Systems of France. It was named in honor of General Philippe Leclerc de Hauteclocque.',
-    specs: {
-      weight: '56 metric tons',
-      speed: '72 km/h',
-      armament: ['120 mm F1 smoothbore gun', '12.7 mm coaxial machine gun'],
-      armor: 'Modular composite armor',
-      crew: 3,
-      range: '550 km'
+      range: '450 km',
+      engine: 'MTU MT883 / Doosan Infracore DV27K 1,500 hp diesel'
     }
   },
   {
@@ -407,288 +227,332 @@ export const VEHICLES: Vehicle[] = [
     country: 'Japan',
     era: 'Modern',
     image: '',
-    description: 'The Type 10 is a next-generation main battle tank of the Japan Ground Self-Defense Force, designed to be smaller and lighter than its predecessor.',
+    description: 'The Type 10 is a next-generation main battle tank of JSDF produced by Mitsubishi Heavy Industries for the Japanese Ground Self Defense Force.',
     specs: {
-      weight: '44 metric tons',
+      weight: '44 tons',
       speed: '70 km/h',
-      armament: ['120 mm smoothbore gun', '12.7 mm M2HB machine gun'],
-      armor: 'Nano-crystal steel, ceramic composite',
+      armament: ['Japan Steel Works 120 mm smoothbore cannon', '12.7 mm M2HB machine gun', '7.62 mm Type 74 machine gun'],
+      armor: 'Nano-crystal steel, modular ceramic composite armor',
       crew: 3,
-      range: '480 km'
+      range: '500 km',
+      engine: 'Mitsubishi 8VA34WTK 8-cylinder diesel 1,200 hp'
+    }
+  },
+  {
+    id: 'c1-ariete',
+    name: 'C1 Ariete',
+    type: 'Tank',
+    country: 'Italy',
+    era: 'Modern',
+    image: '',
+    description: 'The C1 Ariete is the main battle tank of the Italian Army, developed by a consortium formed by Iveco-Fiat and Oto Melara.',
+    specs: {
+      weight: '54 tons',
+      speed: '65 km/h',
+      armament: ['120 mm Oto Melara smoothbore gun', '2 × 7.62 mm MG 42/59 machine guns'],
+      armor: 'Steel and composite blend',
+      crew: 4,
+      range: '550 km',
+      engine: 'Iveco V-12 MTCA twin-turbo diesel 1,250 hp'
+    }
+  },
+  {
+    id: 'arjun-mbt',
+    name: 'Arjun MBT',
+    type: 'Tank',
+    country: 'India',
+    era: 'Modern',
+    image: '',
+    description: 'The Arjun is a third-generation main battle tank developed by India\'s Defence Research and Development Organisation (DRDO).',
+    specs: {
+      weight: '68 tons',
+      speed: '58 km/h',
+      armament: ['120 mm rifled gun', '12.7 mm NSVT heavy machine gun', '7.62 mm TK714 coaxial machine gun'],
+      armor: 'Kanchan composite armor',
+      crew: 4,
+      range: '450 km',
+      engine: 'MTU MB 838 Ka-501 V10 diesel 1,400 hp'
+    }
+  },
+  {
+    id: 'strv-122',
+    name: 'Stridsvagn 122',
+    type: 'Tank',
+    country: 'Sweden',
+    era: 'Modern',
+    image: '',
+    description: 'The Stridsvagn 122 is a Swedish main battle tank based on the German Leopard 2 Improved variant.',
+    specs: {
+      weight: '62.5 tons',
+      speed: '68 km/h',
+      armament: ['120 mm Rheinmetall L/44 smoothbore gun', '2 × 7.62 mm ksp m/94 machine guns'],
+      armor: '3rd generation composite armor with reinforced roof',
+      crew: 4,
+      range: '470 km',
+      engine: 'MTU MB 873 Ka-501 liquid-cooled V12 twin-turbo diesel'
+    }
+  },
+  {
+    id: 'k9-thunder',
+    name: 'K9 Thunder',
+    type: 'Artillery',
+    country: 'South Korea',
+    era: 'Modern',
+    image: '',
+    description: 'The K9 Thunder is a South Korean 155 mm self-propelled howitzer designed and developed by the Agency for Defense Development and Samsung Aerospace Industries.',
+    specs: {
+      weight: '47 tons',
+      speed: '67 km/h',
+      armament: ['155 mm / 52 caliber howitzer', '12.7 mm K6 heavy machine gun'],
+      armor: 'Welded MIL-12560H armor steel',
+      crew: 5,
+      range: '360 km',
+      engine: 'MTU MT 881 Ka-500 8-cylinder water-cooled diesel'
+    }
+  },
+  {
+    id: 'mitsubishi-f2',
+    name: 'Mitsubishi F-2',
+    type: 'Aircraft',
+    country: 'Japan',
+    era: 'Modern',
+    image: '',
+    description: 'The Mitsubishi F-2 is a multirole fighter derived from the General Dynamics F-16 Fighting Falcon, and manufactured by Mitsubishi Heavy Industries.',
+    specs: {
+      weight: '9,527 kg (empty)',
+      speed: 'Mach 2.0',
+      armament: ['20 mm JM61A1 Vulcan cannon', 'AAM-3, AAM-4, AAM-5 air-to-air missiles', 'ASM-1, ASM-2 anti-ship missiles'],
+      crew: 1,
+      range: '834 km (combat radius)',
+      engine: '1 × General Electric F110-IHI-129 turbofan'
+    }
+  },
+  {
+    id: 'centauro-ii',
+    name: 'Centauro II',
+    type: 'APC',
+    country: 'Italy',
+    era: 'Modern',
+    image: '',
+    description: 'The Centauro II is a modernized 8x8 wheeled tank destroyer developed by the CIO consortium (Iveco and Oto Melara) for the Italian Army.',
+    specs: {
+      weight: '30 tons',
+      speed: '105 km/h',
+      armament: ['120 mm / 45 caliber smoothbore gun', '1 × 7.62 mm coaxial machine gun', '1 × 12.7 mm remote weapon station'],
+      armor: 'Ballistic steel with add-on composite armor',
+      crew: 3,
+      range: '800 km',
+      engine: 'Iveco Vector 8V Euro III diesel 720 hp'
+    }
+  },
+  {
+    id: 'hal-tejas',
+    name: 'HAL Tejas',
+    type: 'Aircraft',
+    country: 'India',
+    era: 'Modern',
+    image: '',
+    description: 'The HAL Tejas is an Indian, single engine, delta wing, light multirole fighter designed by the Aeronautical Development Agency.',
+    specs: {
+      weight: '6,560 kg (empty)',
+      speed: 'Mach 1.8',
+      armament: ['23 mm GSh-23 twin-barrel cannon', 'Astra, Derby, Python-5 air-to-air missiles', 'BrahMos-NG anti-ship missile'],
+      crew: 1,
+      range: '1,850 km',
+      engine: '1 × General Electric F404-GE-IN20 turbofan'
     }
   },
   {
     id: 'cv90',
-    name: 'CV90',
+    name: 'Combat Vehicle 90',
     type: 'APC',
     country: 'Sweden',
     era: 'Modern',
     image: '',
-    description: 'The Combat Vehicle 90 (CV90) is a family of Swedish tracked armored combat vehicles designed by FMV, Hägglunds and Bofors.',
+    description: 'The Combat Vehicle 90 (CV90) is a family of Swedish tracked combat vehicles designed by Sweden\'s Defence Materiel Administration.',
     specs: {
-      weight: '23–35 metric tons',
+      weight: '23-35 tons',
       speed: '70 km/h',
-      armament: ['40 mm Bofors autocannon', '7.62 mm machine gun'],
+      armament: ['40 mm Bofors autocannon', '7.62 mm Ksp m/39 machine gun'],
+      armor: 'Steel armor, capable of withstanding 30mm APFSDS',
       crew: 3,
-      range: '320 km'
+      range: '320 km',
+      engine: 'Scania DS14 or DC16 diesel'
     }
   },
   {
-    id: 'boxer',
-    name: 'Boxer MIV',
+    id: 'k21-ifv',
+    name: 'K21 IFV',
     type: 'APC',
-    country: 'Germany',
+    country: 'South Korea',
     era: 'Modern',
     image: '',
-    description: 'The Boxer is a multirole armored fighting vehicle designed by an international consortium to accomplish a number of operations through the use of installable mission modules.',
+    description: 'The K21 is a South Korean infantry fighting vehicle designed to effectively defeat other IFVs as heavily armed and armored as the BMP-3.',
     specs: {
-      weight: '36.5 metric tons',
-      speed: '103 km/h',
-      armament: ['40 mm automatic grenade launcher', '12.7 mm machine gun'],
+      weight: '25.6 tons',
+      speed: '70 km/h',
+      armament: ['40 mm Bofors XK40 cannon', '7.62 mm coaxial machine gun', '2 × ATGM launchers'],
+      armor: 'Aluminum alloy with ceramic tiles and fiberglass',
       crew: 3,
-      range: '1050 km'
+      range: '500 km',
+      engine: 'Doosan D2840LXE V-10 turbocharged diesel 750 hp'
     }
   },
   {
-    id: 'f35-lightning',
-    name: 'F-35 Lightning II',
+    id: 'type-89-ifv',
+    name: 'Type 89 IFV',
+    type: 'APC',
+    country: 'Japan',
+    era: 'Modern',
+    image: '',
+    description: 'The Type 89 is a Japanese infantry fighting vehicle that entered service with the Japan Ground Self-Defense Force in 1989.',
+    specs: {
+      weight: '26.5 tons',
+      speed: '70 km/h',
+      armament: ['35 mm KDE cannon', 'Type 79 Jyu-MAT anti-tank missiles', '7.62 mm Type 74 machine gun'],
+      armor: 'Steel armor',
+      crew: 3,
+      range: '400 km',
+      engine: 'Mitsubishi 6SY31WA water-cooled 6-cylinder diesel 600 hp'
+    }
+  },
+  {
+    id: 'dardo-ifv',
+    name: 'Dardo IFV',
+    type: 'APC',
+    country: 'Italy',
+    era: 'Modern',
+    image: '',
+    description: 'The Dardo is an infantry fighting vehicle designed for the Italian Army as a replacement for the M113 APC.',
+    specs: {
+      weight: '23.4 tons',
+      speed: '70 km/h',
+      armament: ['25 mm Oerlikon KBA cannon', '2 × TOW anti-tank missiles', '7.62 mm MG 42/59 machine gun'],
+      armor: 'Aluminum alloy hull with add-on steel armor',
+      crew: 3,
+      range: '600 km',
+      engine: 'Iveco-Fiat 6V MTCA turbodiesel 512 hp'
+    }
+  },
+  {
+    id: 'bmp-2-sarath',
+    name: 'BMP-2 Sarath',
+    type: 'APC',
+    country: 'India',
+    era: 'Cold War',
+    image: '',
+    description: 'The BMP-2 Sarath is an Indian license-produced variant of the Soviet BMP-2 amphibious infantry fighting vehicle.',
+    specs: {
+      weight: '14.3 tons',
+      speed: '65 km/h',
+      armament: ['30 mm 2A42 autocannon', '9M113 Konkurs ATGM', '7.62 mm PKT machine gun'],
+      armor: 'Welded steel',
+      crew: 3,
+      range: '600 km',
+      engine: 'UTD-20/3 6-cylinder diesel 300 hp'
+    }
+  },
+  {
+    id: 'jas-39-gripen',
+    name: 'JAS 39 Gripen',
     type: 'Aircraft',
-    country: 'USA',
+    country: 'Sweden',
     era: 'Modern',
     image: '',
-    description: 'The Lockheed Martin F-35 Lightning II is an American family of single-seat, single-engine, all-weather stealth multirole combat aircraft.',
+    description: 'The Saab JAS 39 Gripen is a light single-engine multirole fighter aircraft manufactured by the Swedish aerospace company Saab AB.',
     specs: {
-      weight: '13,290 kg (empty)',
-      speed: 'Mach 1.6',
-      armament: ['25 mm GAU-22/A cannon', 'Internal weapons bay'],
+      weight: '6,800 kg (empty)',
+      speed: 'Mach 2.0',
+      armament: ['1 × 27 mm Mauser BK-27 revolver cannon', 'Meteor, AMRAAM, IRIS-T air-to-air missiles', 'RBS-15 anti-ship missile'],
       crew: 1,
-      range: '2,800 km'
+      range: '3,200 km',
+      engine: '1 × Volvo RM12 turbofan'
     }
   },
   {
-    id: 'rafale',
-    name: 'Dassault Rafale',
-    type: 'Aircraft',
-    country: 'France',
-    era: 'Modern',
-    image: '',
-    description: 'The Dassault Rafale is a French twin-engine, canard delta wing, multirole fighter aircraft designed and built by Dassault Aviation.',
-    specs: {
-      weight: '10,300 kg (empty)',
-      speed: 'Mach 1.8',
-      armament: ['30 mm GIAT 30/M791 cannon', 'MICA air-to-air missiles'],
-      crew: 1,
-      range: '3,700 km'
-    }
-  },
-  {
-    id: 'zumwalt-class',
-    name: 'Zumwalt-class Destroyer',
+    id: 'sejong-great',
+    name: 'Sejong the Great-class',
     type: 'Naval',
-    country: 'USA',
+    country: 'South Korea',
     era: 'Modern',
     image: '',
-    description: 'The Zumwalt-class destroyer is a class of three United States Navy guided-missile destroyers designed as multi-mission stealth ships.',
+    description: 'The Sejong the Great-class destroyers are guided missile destroyers of the Republic of Korea Navy.',
     specs: {
-      weight: '15,907 long tons',
-      speed: '30 knots',
-      armament: ['80 VLS cells', '2 x 155 mm Advanced Gun System'],
-      crew: 147,
-      range: 'Unlimited (Nuclear)'
-    }
-  },
-  {
-    id: 'type-45',
-    name: 'Type 45 Destroyer',
-    type: 'Naval',
-    country: 'UK',
-    era: 'Modern',
-    image: '',
-    description: 'The Type 45 destroyer, also known as the D or Daring class, is a class of six guided-missile destroyers built for the United Kingdom\'s Royal Navy.',
-    specs: {
-      weight: '8,000–8,500 tons',
+      weight: '10,600 tons (full load)',
       speed: '30+ knots',
-      armament: ['48-cell Sea Viper VLS', '114 mm Mk 8 naval gun'],
-      crew: 191,
-      range: '13,000 km'
+      armament: ['1 × 5 inch Mk 45 Mod 4 gun', '128-cell VLS (SM-2, Hyunmoo III)', '1 × Goalkeeper CIWS'],
+      crew: 300,
+      range: '10,200 km',
+      engine: '4 × General Electric LM2500 gas turbines'
     }
   },
   {
-    id: 'm270-mlrs',
-    name: 'M270 MLRS',
-    type: 'Artillery',
-    country: 'USA',
+    id: 'izumo-class',
+    name: 'Izumo-class',
+    type: 'Naval',
+    country: 'Japan',
     era: 'Modern',
     image: '',
-    description: 'The M270 Multiple Launch Rocket System is an American armored, self-propelled, multiple rocket launcher.',
+    description: 'The Izumo-class multi-purpose destroyers are helicopter carriers in service with the Japan Maritime Self-Defense Force.',
     specs: {
-      weight: '25 metric tons',
-      speed: '64 km/h',
-      armament: ['12-tube rocket launcher', 'GMLRS rockets', 'ATACMS missiles'],
-      crew: 3,
-      range: '480 km'
+      weight: '27,000 tons (full load)',
+      speed: '30 knots',
+      armament: ['2 × Phalanx CIWS', '2 × SeaRAM CIWS'],
+      crew: 970,
+      range: 'Classified',
+      engine: '4 × GE/IHI LM2500IEC gas turbines'
     }
   },
   {
-    id: 'archer-artillery',
-    name: 'Archer Artillery System',
-    type: 'Artillery',
+    id: 'ins-vikramaditya',
+    name: 'INS Vikramaditya',
+    type: 'Naval',
+    country: 'India',
+    era: 'Modern',
+    image: '',
+    description: 'INS Vikramaditya is a modified Kiev-class aircraft carrier and the flagship of the Indian Navy.',
+    specs: {
+      weight: '45,400 tons (loaded)',
+      speed: '30 knots',
+      armament: ['4 × AK-630 CIWS', 'Barak 1 and Barak 8 SAM systems'],
+      crew: 1600,
+      range: '13,000 km',
+      engine: '8 × turbo-pressurized boilers, 4 shafts, 4 geared steam turbines'
+    }
+  },
+  {
+    id: 'visby-class',
+    name: 'Visby-class Corvette',
+    type: 'Naval',
     country: 'Sweden',
     era: 'Modern',
     image: '',
-    description: 'The Archer Artillery System is a Swedish self-propelled guns system developed by Bofors (now BAE Systems Bofors).',
+    description: 'The Visby class is a stealth corvette of the Swedish Navy, designed by Swedish Defence Materiel Administration and built by Kockums.',
     specs: {
-      weight: '30 metric tons',
-      speed: '70 km/h',
-      armament: ['155 mm FH 77 BW L52 howitzer', 'Remote weapon station'],
-      crew: 3,
-      range: '500 km'
+      weight: '640 tons',
+      speed: '35+ knots',
+      armament: ['1 × Bofors 57 mm Mk3 stealth gun', '8 × RBS15 Mk2 anti-ship missiles', '4 × 400 mm torpedo tubes'],
+      crew: 43,
+      range: '4,600 km',
+      engine: 'CODAG (4 × gas turbines, 2 × diesel engines)'
     }
   },
   {
-    id: 'b2-spirit',
-    name: 'B-2 Spirit',
-    type: 'Aircraft',
-    country: 'USA',
-    era: 'Modern',
-    image: '',
-    description: 'The Northrop B-2 Spirit, also known as the Stealth Bomber, is an American heavy strategic bomber, featuring low-observable stealth technology.',
-    specs: {
-      weight: '71,700 kg (empty)',
-      speed: 'Mach 0.95',
-      armament: ['18,000 kg of ordnance', 'Nuclear/Conventional bombs'],
-      crew: 2,
-      range: '11,100 km'
-    }
-  },
-  {
-    id: 't-72b3',
-    name: 'T-72B3',
+    id: 'k1a1-tank',
+    name: 'K1A1 Tank',
     type: 'Tank',
-    country: 'Russia',
+    country: 'South Korea',
     era: 'Modern',
     image: '',
-    description: 'The T-72B3 is a Russian main battle tank, a modernization of the T-72B, featuring improved fire control and mobility.',
+    description: 'The K1A1 is an upgraded version of the K1 main battle tank, featuring a 120mm smoothbore gun and improved electronics.',
     specs: {
-      weight: '46 metric tons',
-      speed: '60 km/h',
-      armament: ['125 mm 2A46M-5 smoothbore gun', '12.7 mm NSVT machine gun'],
-      armor: 'Kontakt-5 ERA',
-      crew: 3,
-      range: '500 km'
-    }
-  },
-  {
-    id: 'marder',
-    name: 'Marder IFV',
-    type: 'APC',
-    country: 'Germany',
-    era: 'Modern',
-    image: '',
-    description: 'The Marder is a German infantry fighting vehicle operated by the German Army as the main weapon of the Panzergrenadiere.',
-    specs: {
-      weight: '28.5 metric tons',
-      speed: '75 km/h',
-      armament: ['20 mm Rheinmetall MK 20 Rh 202', 'MILAN anti-tank missiles'],
-      crew: 3,
-      range: '520 km'
-    }
-  },
-  {
-    id: 'panavia-tornado',
-    name: 'Panavia Tornado',
-    type: 'Aircraft',
-    country: 'EU',
-    era: 'Modern',
-    image: '',
-    description: 'The Panavia Tornado is a family of twin-engine, variable-sweep wing multirole combat aircraft, jointly developed by the UK, Germany and Italy.',
-    specs: {
-      weight: '13,890 kg (empty)',
-      speed: 'Mach 2.2',
-      armament: ['27 mm Mauser BK-27 cannon', 'Storm Shadow missiles'],
-      crew: 2,
-      range: '1,390 km'
-    }
-  },
-  {
-    id: 't-80bvm',
-    name: 'T-80BVM',
-    type: 'Tank',
-    country: 'Russia',
-    era: 'Modern',
-    image: '',
-    description: 'The T-80BVM is an upgraded version of the T-80BV main battle tank, featuring Relikt explosive reactive armor and improved fire control.',
-    specs: {
-      weight: '46 metric tons',
-      speed: '70 km/h',
-      armament: ['125 mm 2A46M-4 smoothbore gun', '12.7 mm NSVT machine gun'],
-      armor: 'Relikt ERA, composite armor',
-      crew: 3,
-      range: '500 km'
-    }
-  },
-  {
-    id: 'f-15ex',
-    name: 'F-15EX Eagle II',
-    type: 'Aircraft',
-    country: 'USA',
-    era: 'Modern',
-    image: '',
-    description: 'The Boeing F-15EX Eagle II is an American all-weather multirole strike fighter, a heavily modernized version of the F-15 Eagle.',
-    specs: {
-      weight: '14,379 kg (empty)',
-      speed: 'Mach 2.5+',
-      armament: ['20 mm M61 Vulcan cannon', 'Up to 22 air-to-air missiles'],
-      crew: 2,
-      range: '3,900 km'
-    }
-  },
-  {
-    id: 'type-052d',
-    name: 'Type 052D Destroyer',
-    type: 'Naval',
-    country: 'China',
-    era: 'Modern',
-    image: '',
-    description: 'The Type 052D is a class of guided-missile destroyers in the Chinese People\'s Liberation Army Navy Surface Force.',
-    specs: {
-      weight: '7,500 tons',
-      speed: '30 knots',
-      armament: ['64 VLS cells', '130 mm naval gun', 'YJ-18 missiles'],
-      crew: 280,
-      range: '12,000 km'
-    }
-  },
-  {
-    id: 'p-8-poseidon',
-    name: 'P-8 Poseidon',
-    type: 'Aircraft',
-    country: 'USA',
-    era: 'Modern',
-    image: '',
-    description: 'The Boeing P-8 Poseidon is an American maritime patrol and reconnaissance aircraft developed for the United States Navy.',
-    specs: {
-      weight: '62,730 kg (empty)',
-      speed: '907 km/h',
-      armament: ['AGM-84 Harpoon', 'Mark 54 torpedoes', 'Survival kits'],
-      crew: 9,
-      range: '8,300 km'
-    }
-  },
-  {
-    id: 'himars',
-    name: 'M142 HIMARS',
-    type: 'Artillery',
-    country: 'USA',
-    era: 'Modern',
-    image: '',
-    description: 'The M142 High Mobility Artillery Rocket System (HIMARS) is a light multiple rocket launcher developed in the late 1990s.',
-    specs: {
-      weight: '16.2 metric tons',
-      speed: '85 km/h',
-      armament: ['6 x GMLRS rockets', '1 x ATACMS missile'],
-      crew: 3,
-      range: '480 km'
+      weight: '54.5 tons',
+      speed: '65 km/h',
+      armament: ['120 mm KM256 smoothbore gun', '12.7 mm K6 heavy machine gun', '2 × 7.62 mm M60E2 machine guns'],
+      armor: 'Korean Special Armor Plate (KSAP)',
+      crew: 4,
+      range: '500 km',
+      engine: 'MTU MB 871 Ka-501 diesel 1,200 hp'
     }
   }
 ];
