@@ -3,7 +3,8 @@ import { Vehicle } from '../types';
 import { getOrGenerateVehicleImage, memoryCache } from '../services/imageService';
 
 const getFallbackImage = (type: string) => {
-  return `/images/defaults/${type.toLowerCase()}.jpg`;
+  // Use a reliable placeholder service for the fallback image
+  return `https://placehold.co/600x400/111827/4B5563?text=${encodeURIComponent(type)}+Image+Unavailable`;
 };
 
 interface VehicleImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
