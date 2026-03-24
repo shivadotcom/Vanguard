@@ -74,6 +74,22 @@ export const VehicleImage: React.FC<VehicleImageProps> = ({ vehicle, className, 
     };
   }, [vehicle, src, isVisible]);
 
+  // Listen for image updates across all instances of this component
+  useEffect(() => {
+    const handleImageUpdate = (e: CustomEvent) => {
+      if (e.detail.vehicleId === vehicle.id) {
+        if (e.detail.action === 'delete') {
+          setSrc(null);
+        } else if (e.detail.action === 'update') {
+          setSrc(e.detail.src);
+        }
+      }
+    };
+
+    window.addEventListener('vehicle-image-updated', handleImageUpdate as EventListener);
+    return () => window.removeEventListener('vehicle-image-updated', handleImageUpdate as EventListener);
+  }, [vehicle.id]);
+
   const handleGenerateAI = async (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
@@ -85,6 +101,7 @@ export const VehicleImage: React.FC<VehicleImageProps> = ({ vehicle, className, 
     try {
       const imageUrl = await generateVehicleImageAI(vehicle);
       setSrc(imageUrl);
+      window.dispatchEvent(new CustomEvent('vehicle-image-updated', { detail: { vehicleId: vehicle.id, action: 'update', src: imageUrl } }));
     } catch (err: any) {
       console.error("Error generating AI image:", err);
       setErrorMsg(err.message || String(err));
@@ -103,6 +120,7 @@ export const VehicleImage: React.FC<VehicleImageProps> = ({ vehicle, className, 
     try {
       const cloudUrl = await uploadCustomVehicleImage(vehicle, manualUrl.trim());
       setSrc(cloudUrl);
+      window.dispatchEvent(new CustomEvent('vehicle-image-updated', { detail: { vehicleId: vehicle.id, action: 'update', src: cloudUrl } }));
     } catch (err: any) {
       console.error("Failed to upload URL:", err);
       setErrorMsg(err.message || "Failed to upload URL to Cloudinary");
@@ -128,6 +146,7 @@ export const VehicleImage: React.FC<VehicleImageProps> = ({ vehicle, className, 
 
       const cloudUrl = await uploadCustomVehicleImage(vehicle, base64String);
       setSrc(cloudUrl);
+      window.dispatchEvent(new CustomEvent('vehicle-image-updated', { detail: { vehicleId: vehicle.id, action: 'update', src: cloudUrl } }));
     } catch (err: any) {
       console.error("Failed to upload file:", err);
       setErrorMsg(err.message || "Failed to upload file to Cloudinary");
@@ -240,6 +259,7 @@ export const VehicleImage: React.FC<VehicleImageProps> = ({ vehicle, className, 
           e.stopPropagation();
           setSrc(null);
           await deleteImageCache(vehicle.id);
+          window.dispatchEvent(new CustomEvent('vehicle-image-updated', { detail: { vehicleId: vehicle.id, action: 'delete' } }));
         }}
         className="absolute top-2 right-2 bg-black/70 hover:bg-black text-white p-1.5 rounded opacity-0 group-hover:opacity-100 transition-opacity"
         title="Remove Image"

@@ -162,7 +162,8 @@ export async function generateVehicleImageAI(vehicle: Vehicle): Promise<string> 
     const compressedImageUrl = await compressImage(base64String);
     
     // Upload to Cloudinary
-    const cloudUrl = await uploadToCloudinary(vehicle.id, compressedImageUrl);
+    let cloudUrl = await uploadToCloudinary(vehicle.id, compressedImageUrl);
+    cloudUrl = `${cloudUrl}?t=${Date.now()}`;
     
     // Store the Cloudinary URL in local IndexedDB cache
     await storeImage(vehicle.id, cloudUrl);
@@ -193,7 +194,8 @@ export async function generateVehicleImageAI(vehicle: Vehicle): Promise<string> 
                     console.log(`Found Wikipedia image: ${wikiImgUrl}`);
                     
                     // Upload the Wikipedia URL directly to Cloudinary
-                    const cloudUrl = await uploadToCloudinary(vehicle.id, wikiImgUrl);
+                    let cloudUrl = await uploadToCloudinary(vehicle.id, wikiImgUrl);
+                    cloudUrl = `${cloudUrl}?t=${Date.now()}`;
                     await storeImage(vehicle.id, cloudUrl);
                     memoryCache.set(vehicle.id, cloudUrl);
                     return cloudUrl;
@@ -216,7 +218,8 @@ export async function uploadCustomVehicleImage(vehicle: Vehicle, fileDataOrUrl: 
     dataToUpload = await compressImage(fileDataOrUrl);
   }
   
-  const cloudUrl = await uploadToCloudinary(vehicle.id, dataToUpload);
+  let cloudUrl = await uploadToCloudinary(vehicle.id, dataToUpload);
+  cloudUrl = `${cloudUrl}?t=${Date.now()}`;
   await storeImage(vehicle.id, cloudUrl);
   memoryCache.set(vehicle.id, cloudUrl);
   return cloudUrl;
