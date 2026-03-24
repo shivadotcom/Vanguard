@@ -46,6 +46,18 @@ export async function storeImage(vehicleId: string, imageUrlOrBase64: string): P
   });
 }
 
+export async function deleteImageCache(vehicleId: string): Promise<void> {
+  memoryCache.delete(vehicleId);
+  const db = await getDB();
+  return new Promise((resolve, reject) => {
+    const transaction = db.transaction(STORE_NAME, "readwrite");
+    const store = transaction.objectStore(STORE_NAME);
+    const request = store.delete(vehicleId);
+    request.onerror = () => reject(request.error);
+    request.onsuccess = () => resolve();
+  });
+}
+
 export const memoryCache = new Map<string, string>();
 
 export async function getVehicleImage(vehicle: Vehicle): Promise<string | null> {
@@ -120,17 +132,25 @@ async function compressImage(dataUrl: string): Promise<string> {
 
 export async function generateVehicleImageAI(vehicle: Vehicle): Promise<string> {
   try {
-    const prompt = `Realistic high-detail photograph of a ${vehicle.name}, ${vehicle.type}, used by ${vehicle.country}, modern military style, cinematic lighting, neutral background`;
+    // Shortened prompt to avoid URL length limits and complex filter triggers
+    const prompt = `${vehicle.name} ${vehicle.type} military`;
+    const seed = Math.floor(Math.random() * 1000000);
     
-    // Using Pollinations.ai - completely free, no API key required, no strict quotas
-    const url = `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=800&height=450&nologo=true`;
+    // Using Pollinations.ai - completely free, no API key required
+    const url = `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=800&height=450&nologo=true&seed=${seed}`;
     
     const response = await fetch(url);
     if (!response.ok) {
-      throw new Error("Failed to generate image from free AI service");
+      throw new Error(`AI service returned ${response.status} ${response.statusText}`);
     }
 
     const blob = await response.blob();
+    
+    // If the blob is tiny, it's probably an error message disguised as an image
+    if (blob.size < 5000) {
+       throw new Error("Generated image is invalid or too small.");
+    }
+
     const base64String = await new Promise<string>((resolve, reject) => {
       const reader = new FileReader();
       reader.onloadend = () => resolve(reader.result as string);
@@ -149,9 +169,42 @@ export async function generateVehicleImageAI(vehicle: Vehicle): Promise<string> 
     memoryCache.set(vehicle.id, cloudUrl);
     
     return cloudUrl;
-  } catch (error) {
+  } catch (error: any) {
     console.error("Failed to generate/upload image for", vehicle.name, error);
-    throw error;
+    
+    // FALLBACK: Try to find a real image on Wikipedia
+    try {
+        console.log(`Falling back to Wikipedia for ${vehicle.name}...`);
+        const searchUrl = `https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(vehicle.name)}&utf8=&format=json&origin=*`;
+        const searchRes = await fetch(searchUrl);
+        const searchData = await searchRes.json();
+        
+        if (searchData?.query?.search?.length > 0) {
+            const title = searchData.query.search[0].title;
+            const imgUrl = `https://en.wikipedia.org/w/api.php?action=query&titles=${encodeURIComponent(title)}&prop=pageimages&format=json&pithumbsize=800&origin=*`;
+            const imgRes = await fetch(imgUrl);
+            const imgData = await imgRes.json();
+            
+            const pages = imgData?.query?.pages;
+            if (pages) {
+                const pageId = Object.keys(pages)[0];
+                if (pages[pageId]?.thumbnail?.source) {
+                    const wikiImgUrl = pages[pageId].thumbnail.source;
+                    console.log(`Found Wikipedia image: ${wikiImgUrl}`);
+                    
+                    // Upload the Wikipedia URL directly to Cloudinary
+                    const cloudUrl = await uploadToCloudinary(vehicle.id, wikiImgUrl);
+                    await storeImage(vehicle.id, cloudUrl);
+                    memoryCache.set(vehicle.id, cloudUrl);
+                    return cloudUrl;
+                }
+            }
+        }
+    } catch (wikiErr) {
+        console.error("Wikipedia fallback failed", wikiErr);
+    }
+
+    throw new Error(error.message || "Failed to generate image");
   }
 }
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Vehicle } from '../types';
-import { getVehicleImage, generateVehicleImageAI, uploadCustomVehicleImage, memoryCache } from '../services/imageService';
-import { ImageIcon, Loader2, Link as LinkIcon, Upload } from 'lucide-react';
+import { getVehicleImage, generateVehicleImageAI, uploadCustomVehicleImage, memoryCache, deleteImageCache } from '../services/imageService';
+import { ImageIcon, Loader2, Link as LinkIcon, Upload, Trash2 } from 'lucide-react';
 
 const getFallbackImage = (type: string) => {
   return `https://placehold.co/600x400/111827/4B5563?text=${encodeURIComponent(type)}+Image+Unavailable`;
@@ -235,15 +235,16 @@ export const VehicleImage: React.FC<VehicleImageProps> = ({ vehicle, className, 
         {...props}
       />
       <button
-        onClick={(e) => {
+        onClick={async (e) => {
           e.preventDefault();
           e.stopPropagation();
           setSrc(null);
+          await deleteImageCache(vehicle.id);
         }}
         className="absolute top-2 right-2 bg-black/70 hover:bg-black text-white p-1.5 rounded opacity-0 group-hover:opacity-100 transition-opacity"
-        title="Change Image"
+        title="Remove Image"
       >
-        <ImageIcon className="w-4 h-4" />
+        <Trash2 className="w-4 h-4 text-red-400" />
       </button>
     </div>
   );
