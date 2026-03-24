@@ -1,5 +1,6 @@
 import { GoogleGenAI } from "@google/genai";
 import { Vehicle } from "../types";
+import { checkCloudImageExists, uploadToCloudinary } from "./cloudinaryService";
 
 const DB_NAME = "VanguardImageDB";
 const STORE_NAME = "vehicleImages";
@@ -35,12 +36,12 @@ export async function getStoredImage(vehicleId: string): Promise<string | null> 
   });
 }
 
-export async function storeImage(vehicleId: string, base64Image: string): Promise<void> {
+export async function storeImage(vehicleId: string, imageUrlOrBase64: string): Promise<void> {
   const db = await getDB();
   return new Promise((resolve, reject) => {
     const transaction = db.transaction(STORE_NAME, "readwrite");
     const store = transaction.objectStore(STORE_NAME);
-    const request = store.put(base64Image, vehicleId);
+    const request = store.put(imageUrlOrBase64, vehicleId);
     request.onerror = () => reject(request.error);
     request.onsuccess = () => resolve();
   });
@@ -92,28 +93,41 @@ export async function getOrGenerateVehicleImage(vehicle: Vehicle): Promise<strin
     return memoryCache.get(vehicle.id)!;
   }
 
-  // 2. Check storage
+  // 2. Check local IndexedDB storage (cache layer)
   const storedImage = await getStoredImage(vehicle.id);
   if (storedImage) {
     memoryCache.set(vehicle.id, storedImage);
     return storedImage;
   }
 
-  // 3. Check if already generating
+  // 3. Check if already generating/fetching
   if (generationPromises.has(vehicle.id)) {
     return generationPromises.get(vehicle.id)!;
   }
 
-  // 4. Generate via queue
-  const generationPromise = new Promise<string>((resolve, reject) => {
-    generationQueue.push({ vehicle, resolve, reject });
-    processQueue();
+  // 4. Create a promise that handles the full Cloud -> Gemini -> Cloud flow
+  const fetchOrGeneratePromise = new Promise<string>(async (resolve, reject) => {
+    try {
+      // Check Cloudinary first (global storage)
+      const cloudUrl = await checkCloudImageExists(vehicle.id);
+      if (cloudUrl) {
+        await storeImage(vehicle.id, cloudUrl); // Cache locally
+        resolve(cloudUrl);
+        return;
+      }
+
+      // If not in cloud, queue for Gemini generation
+      generationQueue.push({ vehicle, resolve, reject });
+      processQueue();
+    } catch (error) {
+      reject(error);
+    }
   });
   
-  generationPromises.set(vehicle.id, generationPromise);
+  generationPromises.set(vehicle.id, fetchOrGeneratePromise);
 
   try {
-    const result = await generationPromise;
+    const result = await fetchOrGeneratePromise;
     memoryCache.set(vehicle.id, result);
     return result;
   } finally {
@@ -129,7 +143,7 @@ async function compressImage(dataUrl: string): Promise<string> {
       let width = img.width;
       let height = img.height;
 
-      const MAX_WIDTH = 512;
+      const MAX_WIDTH = 800;
       if (width > MAX_WIDTH) {
         height = Math.round((height * MAX_WIDTH) / width);
         width = MAX_WIDTH;
@@ -146,28 +160,15 @@ async function compressImage(dataUrl: string): Promise<string> {
 
       ctx.drawImage(img, 0, 0, width, height);
 
-      const quality = 0.75;
+      const quality = 0.8;
       
       const processBlob = (blob: Blob | null) => {
         if (!blob) {
-          // Fallback to JPEG if WebP fails
-          canvas.toBlob((jpegBlob) => {
-            if (!jpegBlob) {
-              reject(new Error("Failed to compress image"));
-              return;
-            }
-            readBlobAsDataURL(jpegBlob);
-          }, "image/jpeg", quality);
+          reject(new Error("Failed to compress image"));
           return;
         }
-        readBlobAsDataURL(blob);
-      };
-
-      const readBlobAsDataURL = (blob: Blob) => {
         const reader = new FileReader();
-        reader.onloadend = () => {
-          resolve(reader.result as string);
-        };
+        reader.onloadend = () => resolve(reader.result as string);
         reader.onerror = () => reject(new Error("Failed to read blob"));
         reader.readAsDataURL(blob);
       };
@@ -181,7 +182,6 @@ async function compressImage(dataUrl: string): Promise<string> {
 
 async function generateAndStoreImage(vehicle: Vehicle): Promise<string> {
   try {
-    // Try process.env first (AI Studio/Vite define), then import.meta.env (Vercel standard)
     const apiKey = process.env.GEMINI_API_KEY || (import.meta as any).env?.VITE_GEMINI_API_KEY;
     if (!apiKey) {
       throw new Error("API key not found. Set VITE_GEMINI_API_KEY in Vercel.");
@@ -192,13 +192,7 @@ async function generateAndStoreImage(vehicle: Vehicle): Promise<string> {
 
     const response = await ai.models.generateContent({
       model: 'gemini-2.5-flash-image',
-      contents: {
-        parts: [
-          {
-            text: prompt,
-          },
-        ],
-      },
+      contents: { parts: [{ text: prompt }] },
       config: {
         imageConfig: {
           aspectRatio: "16:9",
@@ -212,18 +206,21 @@ async function generateAndStoreImage(vehicle: Vehicle): Promise<string> {
         const base64EncodeString = part.inlineData.data;
         const imageUrl = `data:${part.inlineData.mimeType || 'image/png'};base64,${base64EncodeString}`;
         
-        // Compress the image before storing
+        // Compress the image before storing/uploading
         const compressedImageUrl = await compressImage(imageUrl);
         
-        // Store it
-        await storeImage(vehicle.id, compressedImageUrl);
-        return compressedImageUrl;
+        // Upload to Cloudinary
+        const cloudUrl = await uploadToCloudinary(vehicle.id, compressedImageUrl);
+        
+        // Store the Cloudinary URL in local IndexedDB cache
+        await storeImage(vehicle.id, cloudUrl);
+        return cloudUrl;
       }
     }
 
     throw new Error("No image data returned from Gemini");
   } catch (error) {
-    console.error("Failed to generate image for", vehicle.name, error);
+    console.error("Failed to generate/upload image for", vehicle.name, error);
     throw error;
   }
 }
