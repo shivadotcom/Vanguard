@@ -1,4 +1,3 @@
-import { GoogleGenAI } from "@google/genai";
 import { Vehicle } from "../types";
 import { checkCloudImageExists, uploadToCloudinary } from "./cloudinaryService";
 
@@ -120,40 +119,40 @@ async function compressImage(dataUrl: string): Promise<string> {
 }
 
 export async function generateVehicleImageAI(vehicle: Vehicle): Promise<string> {
-  const apiKey = process.env.GEMINI_API_KEY || (import.meta as any).env?.VITE_GEMINI_API_KEY;
-  if (!apiKey) {
-    throw new Error("API key not found. Set VITE_GEMINI_API_KEY in Vercel.");
-  }
-
-  const ai = new GoogleGenAI({ apiKey });
-  const prompt = `Realistic high-detail image of a ${vehicle.name}, ${vehicle.type}, used by ${vehicle.country}, modern military style, cinematic lighting, neutral background`;
-
-  const response = await ai.models.generateContent({
-    model: 'gemini-2.5-flash-image',
-    contents: { parts: [{ text: prompt }] },
-    config: {
-      imageConfig: {
-        aspectRatio: "16:9",
-        imageSize: "1K"
-      }
+  try {
+    const prompt = `Realistic high-detail photograph of a ${vehicle.name}, ${vehicle.type}, used by ${vehicle.country}, modern military style, cinematic lighting, neutral background`;
+    
+    // Using Pollinations.ai - completely free, no API key required, no strict quotas
+    const url = `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=800&height=450&nologo=true`;
+    
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error("Failed to generate image from free AI service");
     }
-  });
 
-  for (const part of response.candidates?.[0]?.content?.parts || []) {
-    if (part.inlineData) {
-      const base64EncodeString = part.inlineData.data;
-      const imageUrl = `data:${part.inlineData.mimeType || 'image/png'};base64,${base64EncodeString}`;
-      
-      const compressedImageUrl = await compressImage(imageUrl);
-      const cloudUrl = await uploadToCloudinary(vehicle.id, compressedImageUrl);
-      
-      await storeImage(vehicle.id, cloudUrl);
-      memoryCache.set(vehicle.id, cloudUrl);
-      return cloudUrl;
-    }
+    const blob = await response.blob();
+    const base64String = await new Promise<string>((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onloadend = () => resolve(reader.result as string);
+      reader.onerror = () => reject(new Error("Failed to read blob"));
+      reader.readAsDataURL(blob);
+    });
+    
+    // Compress the image before storing/uploading
+    const compressedImageUrl = await compressImage(base64String);
+    
+    // Upload to Cloudinary
+    const cloudUrl = await uploadToCloudinary(vehicle.id, compressedImageUrl);
+    
+    // Store the Cloudinary URL in local IndexedDB cache
+    await storeImage(vehicle.id, cloudUrl);
+    memoryCache.set(vehicle.id, cloudUrl);
+    
+    return cloudUrl;
+  } catch (error) {
+    console.error("Failed to generate/upload image for", vehicle.name, error);
+    throw error;
   }
-
-  throw new Error("No image data returned from Gemini");
 }
 
 export async function uploadCustomVehicleImage(vehicle: Vehicle, fileDataOrUrl: string): Promise<string> {
