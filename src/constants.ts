@@ -1057,11 +1057,6 @@ export const VEHICLES: Vehicle[] = [
     specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
   },
   {
-    id: 'eurofighter-typhoon', name: 'Eurofighter Typhoon', type: 'Aircraft', country: 'United Kingdom', era: 'Modern', image: '',
-    description: 'The Eurofighter Typhoon is a renowned aircraft utilized by United Kingdom.',
-    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
-  },
-  {
     id: 'mirage-iii', name: 'Mirage III', type: 'Aircraft', country: 'France', era: 'Modern', image: '',
     description: 'The Mirage III is a renowned aircraft utilized by France.',
     specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
@@ -1192,11 +1187,6 @@ export const VEHICLES: Vehicle[] = [
     specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
   },
   {
-    id: 'chengdu-j-20', name: 'Chengdu J-20', type: 'Aircraft', country: 'China', era: 'Modern', image: '',
-    description: 'The Chengdu J-20 is a renowned aircraft utilized by China.',
-    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
-  },
-  {
     id: 'shenyang-fc-31', name: 'Shenyang FC-31', type: 'Aircraft', country: 'China', era: 'Modern', image: '',
     description: 'The Shenyang FC-31 is a renowned aircraft utilized by China.',
     specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
@@ -1204,16 +1194,6 @@ export const VEHICLES: Vehicle[] = [
   {
     id: 'hal-tejas-mk2', name: 'HAL Tejas Mk2', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
     description: 'The HAL Tejas Mk2 is a renowned aircraft utilized by India.',
-    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
-  },
-  {
-    id: 'hal-amca', name: 'HAL AMCA', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
-    description: 'The HAL AMCA is a renowned aircraft utilized by India.',
-    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
-  },
-  {
-    id: 'su-30mki', name: 'Su-30MKI', type: 'Aircraft', country: 'Russia', era: 'Modern', image: '',
-    description: 'The Su-30MKI is a renowned aircraft utilized by Russia.',
     specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
   },
   {
@@ -1537,11 +1517,6 @@ export const VEHICLES: Vehicle[] = [
     specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
   },
   {
-    id: 'm2-bradley', name: 'M2 Bradley', type: 'Tank', country: 'United States', era: 'Modern', image: '',
-    description: 'The M2 Bradley is a renowned tank utilized by United States.',
-    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
-  },
-  {
     id: 'm3-bradley', name: 'M3 Bradley', type: 'Tank', country: 'United States', era: 'Modern', image: '',
     description: 'The M3 Bradley is a renowned tank utilized by United States.',
     specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
@@ -1589,11 +1564,6 @@ export const VEHICLES: Vehicle[] = [
   {
     id: 'bmp-2', name: 'BMP-2', type: 'APC', country: 'Russia', era: 'Modern', image: '',
     description: 'The BMP-2 is a renowned apc utilized by Russia.',
-    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
-  },
-  {
-    id: 'bmp-3', name: 'BMP-3', type: 'APC', country: 'Russia', era: 'Modern', image: '',
-    description: 'The BMP-3 is a renowned apc utilized by Russia.',
     specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
   },
   {
