@@ -554,5 +554,141 @@ export const VEHICLES: Vehicle[] = [
       range: '500 km',
       engine: 'MTU MB 871 Ka-501 diesel 1,200 hp'
     }
+  },
+  {
+    id: 'eurofighter-typhoon',
+    name: 'Eurofighter Typhoon',
+    type: 'Aircraft',
+    country: 'United Kingdom',
+    era: 'Modern',
+    image: '',
+    description: 'The Eurofighter Typhoon is a multinational twin-engine, canard delta wing, multirole fighter.',
+    specs: {
+      weight: '11,000 kg (empty)',
+      speed: 'Mach 2.0',
+      armament: ['1 × 27 mm Mauser BK-27 revolver cannon', 'Meteor, AMRAAM, IRIS-T air-to-air missiles', 'Storm Shadow cruise missiles'],
+      crew: 1,
+      range: '2,900 km',
+      engine: '2 × Eurojet EJ200 afterburning turbofan'
+    }
+  },
+  {
+    id: 'su-57-felon',
+    name: 'Sukhoi Su-57',
+    type: 'Aircraft',
+    country: 'Russia',
+    era: 'Modern',
+    image: '',
+    description: 'The Sukhoi Su-57 is a twin-engine stealth multirole fighter aircraft developed by Sukhoi for the Russian Aerospace Forces.',
+    specs: {
+      weight: '18,000 kg (empty)',
+      speed: 'Mach 2.0',
+      armament: ['1 × 30 mm Gryazev-Shipunov GSh-30-1 autocannon', 'R-77M, R-74M2 air-to-air missiles', 'Kh-69 cruise missiles'],
+      crew: 1,
+      range: '3,500 km',
+      engine: '2 × Saturn AL-41F1 afterburning turbofans'
+    }
+  },
+  {
+    id: 'chengdu-j-20',
+    name: 'Chengdu J-20',
+    type: 'Aircraft',
+    country: 'China',
+    era: 'Modern',
+    image: '',
+    description: 'The Chengdu J-20, also known as Mighty Dragon, is a twinjet all-weather stealth fighter aircraft developed by China\'s Chengdu Aerospace Corporation.',
+    specs: {
+      weight: '19,391 kg (empty)',
+      speed: 'Mach 2.0',
+      armament: ['PL-15, PL-10 air-to-air missiles', 'LS-6 precision-guided bombs'],
+      crew: 1,
+      range: '5,500 km',
+      engine: '2 × Shenyang WS-10C or WS-15 afterburning turbofans'
+    }
+  },
+  {
+    id: 'f-35-lightning-ii',
+    name: 'F-35 Lightning II',
+    type: 'Aircraft',
+    country: 'United States',
+    era: 'Modern',
+    image: '',
+    description: 'The Lockheed Martin F-35 Lightning II is an American family of single-seat, single-engine, all-weather stealth multirole combat aircraft.',
+    specs: {
+      weight: '13,290 kg (empty)',
+      speed: 'Mach 1.6',
+      armament: ['1 × 25 mm GAU-22/A 4-barrel rotary cannon', 'AIM-120 AMRAAM, AIM-9X Sidewinder', 'JDAM, AGM-158 JASSM'],
+      crew: 1,
+      range: '2,220 km',
+      engine: '1 × Pratt & Whitney F135-PW-100 afterburning turbofan'
+    }
+  },
+  {
+    id: 'kf-21-boramae',
+    name: 'KF-21 Boramae',
+    type: 'Aircraft',
+    country: 'South Korea',
+    era: 'Modern',
+    image: '',
+    description: 'The KAI KF-21 Boramae is a South Korean fighter aircraft development program, with Indonesian involvement, with the goal of producing an advanced multirole fighter.',
+    specs: {
+      weight: '11,800 kg (empty)',
+      speed: 'Mach 1.81',
+      armament: ['1 × 20 mm M61A2 Vulcan rotary cannon', 'Meteor, IRIS-T, AIM-120 AMRAAM', 'KEPD 350 Taurus'],
+      crew: 1,
+      range: '2,900 km',
+      engine: '2 × General Electric F414-GE-400K afterburning turbofans'
+    }
+  },
+  {
+    id: 'su-30mki',
+    name: 'Sukhoi Su-30MKI',
+    type: 'Aircraft',
+    country: 'India',
+    era: 'Modern',
+    image: '',
+    description: 'The Sukhoi Su-30MKI is a twinjet multirole air superiority fighter developed by Russia\'s Sukhoi and built under licence by India\'s Hindustan Aeronautics Limited (HAL) for the Indian Air Force.',
+    specs: {
+      weight: '18,400 kg (empty)',
+      speed: 'Mach 2.0',
+      armament: ['1 × 30 mm GSh-30-1 autocannon', 'BrahMos ALCM', 'Astra, R-77, R-73 air-to-air missiles'],
+      crew: 2,
+      range: '3,000 km',
+      engine: '2 × Lyulka AL-31FP afterburning turbofans with thrust vectoring'
+    }
+  },
+  {
+    id: 'hal-amca',
+    name: 'HAL AMCA',
+    type: 'Aircraft',
+    country: 'India',
+    era: 'Modern',
+    image: '',
+    description: 'The Advanced Medium Combat Aircraft (AMCA) is an Indian program to develop a fifth-generation stealth, multirole combat aircraft for the Indian Air Force and Indian Navy.',
+    specs: {
+      weight: '12,000 kg (empty, estimated)',
+      speed: 'Mach 2.15 (estimated)',
+      armament: ['23 mm GSh-23 cannon', 'Astra IR, Astra Mark 1/2/3', 'BrahMos-NG'],
+      crew: 1,
+      range: '3,240 km',
+      engine: '2 × GE F414-INS6 (initial) / Custom 110kN engines (future)'
+    }
+  },
+  {
+    id: 'mirage-2000i',
+    name: 'Mirage 2000I Vajra',
+    type: 'Aircraft',
+    country: 'India',
+    era: 'Modern',
+    image: '',
+    description: 'The Dassault Mirage 2000 is a French multirole, single-engine fourth-generation jet fighter. The Indian Air Force operates heavily upgraded Mirage 2000I/TI variants named Vajra.',
+    specs: {
+      weight: '7,500 kg (empty)',
+      speed: 'Mach 2.2',
+      armament: ['2 × 30 mm DEFA 554 revolver cannons', 'MICA air-to-air missiles', 'Spice 2000 precision-guided bombs'],
+      crew: 1,
+      range: '1,550 km',
+      engine: '1 × SNECMA M53-P2 afterburning turbofan'
+    }
   }
 ];
