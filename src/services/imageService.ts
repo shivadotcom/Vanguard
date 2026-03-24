@@ -1,5 +1,15 @@
 import { Vehicle } from "../types";
 import { checkCloudImageExists, uploadToCloudinary } from "./cloudinaryService";
+import { GoogleGenAI } from "@google/genai";
+
+let aiClient: GoogleGenAI | null = null;
+function getAiClient(): GoogleGenAI {
+  if (!aiClient) {
+    const apiKey = process.env.GEMINI_API_KEY;
+    aiClient = new GoogleGenAI({ apiKey: apiKey || 'dummy-key-to-prevent-crash' });
+  }
+  return aiClient;
+}
 
 const DB_NAME = "VanguardImageDB";
 const STORE_NAME = "vehicleImages";
@@ -132,44 +142,55 @@ async function compressImage(dataUrl: string): Promise<string> {
 
 export async function generateVehicleImageAI(vehicle: Vehicle): Promise<string> {
   try {
-    // Shortened prompt to avoid URL length limits and complex filter triggers
-    const prompt = `${vehicle.name} ${vehicle.type} military`;
-    const seed = Math.floor(Math.random() * 1000000);
+    const prompt = `A highly detailed, realistic, cinematic photo of a ${vehicle.name} ${vehicle.type} military vehicle in action. High quality, 4k resolution.`;
     
-    // Using Pollinations.ai - completely free, no API key required
-    const url = `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=800&height=450&nologo=true&seed=${seed}`;
-    
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error(`AI service returned ${response.status} ${response.statusText}`);
-    }
-
-    const blob = await response.blob();
-    
-    // If the blob is tiny, it's probably an error message disguised as an image
-    if (blob.size < 5000) {
-       throw new Error("Generated image is invalid or too small.");
-    }
-
-    const base64String = await new Promise<string>((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onloadend = () => resolve(reader.result as string);
-      reader.onerror = () => reject(new Error("Failed to read blob"));
-      reader.readAsDataURL(blob);
+    const ai = getAiClient();
+    const response = await ai.models.generateContent({
+      model: 'gemini-2.5-flash-image',
+      contents: {
+        parts: [
+          {
+            text: prompt,
+          },
+        ],
+      },
+      config: {
+        imageConfig: {
+          aspectRatio: "16:9",
+          imageSize: "1K"
+        },
+      },
     });
+
+    let base64String = '';
+    for (const part of response.candidates?.[0]?.content?.parts || []) {
+      if (part.inlineData) {
+        base64String = `data:${part.inlineData.mimeType};base64,${part.inlineData.data}`;
+        break;
+      }
+    }
+
+    if (!base64String) {
+      throw new Error("AI service did not return an image.");
+    }
     
     // Compress the image before storing/uploading
     const compressedImageUrl = await compressImage(base64String);
     
-    // Upload to Cloudinary
-    let cloudUrl = await uploadToCloudinary(vehicle.id, compressedImageUrl);
-    cloudUrl = `${cloudUrl}?t=${Date.now()}`;
+    let finalImageUrl = compressedImageUrl;
+    try {
+      // Upload to Cloudinary
+      let cloudUrl = await uploadToCloudinary(vehicle.id, compressedImageUrl);
+      finalImageUrl = `${cloudUrl}?t=${Date.now()}`;
+    } catch (uploadError: any) {
+      console.warn("Cloudinary upload failed, using local image:", uploadError.message);
+    }
     
-    // Store the Cloudinary URL in local IndexedDB cache
-    await storeImage(vehicle.id, cloudUrl);
-    memoryCache.set(vehicle.id, cloudUrl);
+    // Store the URL in local IndexedDB cache
+    await storeImage(vehicle.id, finalImageUrl);
+    memoryCache.set(vehicle.id, finalImageUrl);
     
-    return cloudUrl;
+    return finalImageUrl;
   } catch (error: any) {
     console.error("Failed to generate/upload image for", vehicle.name, error);
     
@@ -193,12 +214,18 @@ export async function generateVehicleImageAI(vehicle: Vehicle): Promise<string> 
                     const wikiImgUrl = pages[pageId].thumbnail.source;
                     console.log(`Found Wikipedia image: ${wikiImgUrl}`);
                     
-                    // Upload the Wikipedia URL directly to Cloudinary
-                    let cloudUrl = await uploadToCloudinary(vehicle.id, wikiImgUrl);
-                    cloudUrl = `${cloudUrl}?t=${Date.now()}`;
-                    await storeImage(vehicle.id, cloudUrl);
-                    memoryCache.set(vehicle.id, cloudUrl);
-                    return cloudUrl;
+                    let finalImageUrl = wikiImgUrl;
+                    try {
+                      // Upload the Wikipedia URL directly to Cloudinary
+                      let cloudUrl = await uploadToCloudinary(vehicle.id, wikiImgUrl);
+                      finalImageUrl = `${cloudUrl}?t=${Date.now()}`;
+                    } catch (uploadError: any) {
+                      console.warn("Cloudinary upload failed for Wikipedia fallback, using direct Wikipedia URL:", uploadError.message);
+                    }
+                    
+                    await storeImage(vehicle.id, finalImageUrl);
+                    memoryCache.set(vehicle.id, finalImageUrl);
+                    return finalImageUrl;
                 }
             }
         }
@@ -218,9 +245,15 @@ export async function uploadCustomVehicleImage(vehicle: Vehicle, fileDataOrUrl: 
     dataToUpload = await compressImage(fileDataOrUrl);
   }
   
-  let cloudUrl = await uploadToCloudinary(vehicle.id, dataToUpload);
-  cloudUrl = `${cloudUrl}?t=${Date.now()}`;
-  await storeImage(vehicle.id, cloudUrl);
-  memoryCache.set(vehicle.id, cloudUrl);
-  return cloudUrl;
+  let finalImageUrl = dataToUpload;
+  try {
+    let cloudUrl = await uploadToCloudinary(vehicle.id, dataToUpload);
+    finalImageUrl = `${cloudUrl}?t=${Date.now()}`;
+  } catch (uploadError: any) {
+    console.warn("Cloudinary upload failed for custom image, using local image:", uploadError.message);
+  }
+  
+  await storeImage(vehicle.id, finalImageUrl);
+  memoryCache.set(vehicle.id, finalImageUrl);
+  return finalImageUrl;
 }

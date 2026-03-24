@@ -1605,5 +1605,1706 @@ export const VEHICLES: Vehicle[] = [
     id: 'marder-ifv', name: 'Marder IFV', type: 'APC', country: 'Germany', era: 'Modern', image: '',
     description: 'The Marder IFV is a renowned apc utilized by Germany.',
     specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'ah-64-apache',
+    name: 'AH-64 Apache',
+    type: 'Aircraft',
+    country: 'United States',
+    era: 'Modern',
+    image: '',
+    description: 'The Boeing AH-64 Apache is an American twin-turboshaft attack helicopter with a tailwheel-type landing gear arrangement and a tandem cockpit for a crew of two.',
+    specs: { weight: '5,165 kg', speed: '293 km/h', armament: ['30 mm M230 chain gun', 'AGM-114 Hellfire', 'Hydra 70 rockets'], crew: 2, range: '476 km', engine: '2 × General Electric T700' }
+  },
+  {
+    id: 'uh-60-black-hawk',
+    name: 'UH-60 Black Hawk',
+    type: 'Aircraft',
+    country: 'United States',
+    era: 'Modern',
+    image: '',
+    description: 'The Sikorsky UH-60 Black Hawk is a four-blade, twin-engine, medium-lift utility helicopter manufactured by Sikorsky Aircraft.',
+    specs: { weight: '4,819 kg', speed: '294 km/h', armament: ['2 × 7.62 mm M240 machine guns'], crew: 2, range: '592 km', engine: '2 × General Electric T700-GE-701C/D' }
+  },
+  {
+    id: 'ch-47-chinook',
+    name: 'CH-47 Chinook',
+    type: 'Aircraft',
+    country: 'United States',
+    era: 'Modern',
+    image: '',
+    description: 'The Boeing CH-47 Chinook is an American twin-engined, tandem rotor, heavy-lift helicopter developed by American rotorcraft company Vertol.',
+    specs: { weight: '11,148 kg', speed: '315 km/h', armament: ['Up to 3 × 7.62 mm machine guns'], crew: 3, range: '741 km', engine: '2 × Lycoming T55-GA-714A' }
+  },
+  {
+    id: 'mi-24-hind',
+    name: 'Mi-24 Hind',
+    type: 'Aircraft',
+    country: 'Russia',
+    era: 'Cold War',
+    image: '',
+    description: 'The Mil Mi-24 is a large helicopter gunship, attack helicopter and low-capacity troop transport with room for eight passengers.',
+    specs: { weight: '8,500 kg', speed: '335 km/h', armament: ['12.7 mm Yak-B Gatling gun', 'AT-2 Swatter ATGMs', '57 mm S-5 rockets'], crew: 3, range: '450 km', engine: '2 × Isotov TV3-117' }
+  },
+  {
+    id: 'ka-52-alligator',
+    name: 'Ka-52 Alligator',
+    type: 'Aircraft',
+    country: 'Russia',
+    era: 'Modern',
+    image: '',
+    description: 'The Kamov Ka-52 Alligator is a highly maneuverable helicopter that can destroy enemy armored and unarmored ground targets, low-speed aerial targets and personnel.',
+    specs: { weight: '7,700 kg', speed: '300 km/h', armament: ['30 mm Shipunov 2A42 cannon', 'Vikhr anti-tank missiles', 'Igla-V air-to-air missiles'], crew: 2, range: '460 km', engine: '2 × Klimov VK-2500' }
+  },
+  {
+    id: 'eurocopter-tiger',
+    name: 'Eurocopter Tiger',
+    type: 'Aircraft',
+    country: 'France/Germany',
+    era: 'Modern',
+    image: '',
+    description: 'The Eurocopter Tiger is a four-blade, twin-engine attack helicopter which first entered service in 2003.',
+    specs: { weight: '3,060 kg', speed: '290 km/h', armament: ['30 mm GIAT 30 cannon', 'PARS 3 LR missiles', 'Mistral air-to-air missiles'], crew: 2, range: '800 km', engine: '2 × MTR390' }
+  },
+  {
+    id: 'ah-1z-viper',
+    name: 'AH-1Z Viper',
+    type: 'Aircraft',
+    country: 'United States',
+    era: 'Modern',
+    image: '',
+    description: 'The Bell AH-1Z Viper is a twin-engine attack helicopter, based on the AH-1W SuperCobra, designed for the United States Marine Corps.',
+    specs: { weight: '5,580 kg', speed: '300 km/h', armament: ['20 mm M197 3-barreled Gatling cannon', 'AGM-114 Hellfire', 'AIM-9 Sidewinder'], crew: 2, range: '685 km', engine: '2 × General Electric T700-GE-401C' }
+  },
+  {
+    id: 'nh90',
+    name: 'NH90',
+    type: 'Aircraft',
+    country: 'Europe',
+    era: 'Modern',
+    image: '',
+    description: 'The NHIndustries NH90 is a medium-sized, twin-engine, multi-role military helicopter.',
+    specs: { weight: '6,400 kg', speed: '300 km/h', armament: ['Door machine guns', 'Anti-submarine torpedoes (NFH variant)'], crew: 2, range: '800 km', engine: '2 × Rolls-Royce Turbomeca RTM322' }
+  },
+  {
+    id: 'aw159-wildcat',
+    name: 'AW159 Wildcat',
+    type: 'Aircraft',
+    country: 'United Kingdom',
+    era: 'Modern',
+    image: '',
+    description: 'The AgustaWestland AW159 Wildcat is an improved version of the Westland Super Lynx military helicopter designed to serve in the battlefield utility, search and rescue and anti-surface warfare roles.',
+    specs: { weight: '3,300 kg', speed: '311 km/h', armament: ['FN MAG machine gun', 'Martlet missiles', 'Sea Venom missiles'], crew: 2, range: '777 km', engine: '2 × LHTEC CTS800-4N' }
+  },
+  {
+    id: 'z-10',
+    name: 'Z-10',
+    type: 'Aircraft',
+    country: 'China',
+    era: 'Modern',
+    image: '',
+    description: 'The CAIC Z-10 is a Chinese medium attack helicopter developed for the People\'s Liberation Army Ground Force.',
+    specs: { weight: '5,100 kg', speed: '270 km/h', armament: ['23 mm or 30 mm cannon', 'HJ-10 anti-tank missiles', 'TY-90 air-to-air missiles'], crew: 2, range: '800 km', engine: '2 × WZ-9' }
+  },
+  {
+    id: 'mi-28-havoc',
+    name: 'Mi-28 Havoc',
+    type: 'Aircraft',
+    country: 'Russia',
+    era: 'Modern',
+    image: '',
+    description: 'The Mil Mi-28 is a Russian all-weather, day-night, military tandem, two-seat anti-armor attack helicopter.',
+    specs: { weight: '8,590 kg', speed: '320 km/h', armament: ['30 mm Shipunov 2A42 cannon', 'Ataka-V anti-tank missiles', 'S-8 rockets'], crew: 2, range: '435 km', engine: '2 × Klimov TV3-117' }
+  },
+  {
+    id: 'oh-58-kiowa',
+    name: 'OH-58 Kiowa',
+    type: 'Aircraft',
+    country: 'United States',
+    era: 'Cold War',
+    image: '',
+    description: 'The Bell OH-58 Kiowa is a family of single-engine, single-rotor, military helicopters used for observation, utility, and direct fire support.',
+    specs: { weight: '1,737 kg', speed: '222 km/h', armament: ['.50 cal M3P machine gun', 'AGM-114 Hellfire', 'Hydra 70 rockets'], crew: 2, range: '556 km', engine: '1 × Rolls-Royce T703-AD-700A' }
+  },
+  {
+    id: 'sh-60-seahawk',
+    name: 'SH-60 Seahawk',
+    type: 'Aircraft',
+    country: 'United States',
+    era: 'Modern',
+    image: '',
+    description: 'The Sikorsky SH-60/MH-60 Seahawk is a twin turboshaft engine, multi-mission United States Navy helicopter based on the United States Army UH-60 Black Hawk.',
+    specs: { weight: '6,895 kg', speed: '270 km/h', armament: ['Mk 46 torpedoes', 'AGM-114 Hellfire', 'M240 machine guns'], crew: 3, range: '834 km', engine: '2 × General Electric T700-GE-401C' }
+  },
+  {
+    id: 'aerospatiale-gazelle',
+    name: 'Aérospatiale Gazelle',
+    type: 'Aircraft',
+    country: 'France',
+    era: 'Cold War',
+    image: '',
+    description: 'The Aérospatiale Gazelle is a French five-seat helicopter, commonly used for light transport, scouting and light attack duties.',
+    specs: { weight: '908 kg', speed: '310 km/h', armament: ['20 mm GIAT cannon', 'HOT anti-tank missiles'], crew: 2, range: '670 km', engine: '1 × Turbomeca Astazou IIIA' }
+  },
+  {
+    id: 'hal-prachand',
+    name: 'HAL Prachand',
+    type: 'Aircraft',
+    country: 'India',
+    era: 'Modern',
+    image: '',
+    description: 'The HAL Prachand is an Indian multi-role light attack helicopter designed and manufactured by the Hindustan Aeronautics Limited (HAL).',
+    specs: { weight: '2,250 kg', speed: '268 km/h', armament: ['20 mm M621 cannon', 'Dhruvastra anti-tank missiles', 'Mistral air-to-air missiles'], crew: 2, range: '550 km', engine: '2 × HAL/Turbomeca Shakti-1H1' }
+  },
+  {
+    id: 'denel-rooivalk',
+    name: 'Denel Rooivalk',
+    type: 'Aircraft',
+    country: 'South Africa',
+    era: 'Modern',
+    image: '',
+    description: 'The Denel Rooivalk is an attack helicopter manufactured by Denel Aviation of South Africa.',
+    specs: { weight: '5,730 kg', speed: '309 km/h', armament: ['20 mm F2 cannon', 'Mokopa ZT-6 anti-tank missiles', 'FZ90 70mm rockets'], crew: 2, range: '740 km', engine: '2 × Turbomeca Makila 1K2' }
+  },
+  {
+    id: 'agusta-a129-mangusta',
+    name: 'Agusta A129 Mangusta',
+    type: 'Aircraft',
+    country: 'Italy',
+    era: 'Cold War',
+    image: '',
+    description: 'The Agusta A129 Mangusta is an attack helicopter originally designed and produced by Italian partner Agusta.',
+    specs: { weight: '2,530 kg', speed: '278 km/h', armament: ['20 mm TM197B Gatling cannon', 'BGM-71 TOW missiles', 'Hellfire missiles'], crew: 2, range: '510 km', engine: '2 × Rolls-Royce Gem 2-1004D' }
+  },
+  {
+    id: 'ch-53e-super-stallion',
+    name: 'CH-53E Super Stallion',
+    type: 'Aircraft',
+    country: 'United States',
+    era: 'Cold War',
+    image: '',
+    description: 'The Sikorsky CH-53E Super Stallion is a heavy-lift helicopter operated by the United States military.',
+    specs: { weight: '15,071 kg', speed: '278 km/h', armament: ['2 × .50 BMG window-mounted GAU-21 machine guns', '1 × .50 BMG ramp-mounted weapon system'], crew: 5, range: '1,000 km', engine: '3 × General Electric T64-GE-416/416A' }
+  },
+  {
+    id: 'uh-1-iroquois',
+    name: 'UH-1 Iroquois',
+    type: 'Aircraft',
+    country: 'United States',
+    era: 'Cold War',
+    image: '',
+    description: 'The Bell UH-1 Iroquois (nicknamed "Huey") is a utility military helicopter powered by a single turboshaft engine, with two-blade main and tail rotors.',
+    specs: { weight: '2,365 kg', speed: '217 km/h', armament: ['2 × 7.62 mm M60 machine guns', '2 × 7-tube 2.75" rocket launchers'], crew: 1, range: '507 km', engine: '1 × Lycoming T53-L-11' }
+  },
+  {
+    id: 'ka-27-helix',
+    name: 'Ka-27 Helix',
+    type: 'Aircraft',
+    country: 'Russia',
+    era: 'Cold War',
+    image: '',
+    description: 'The Kamov Ka-27 is a military helicopter developed for the Soviet Navy, and currently in service in various countries.',
+    specs: { weight: '6,100 kg', speed: '270 km/h', armament: ['1 × torpedo (AT-1M, VTT-1, UMGT-1 Orlan, APR-2 Yastreb) or 36 RGB-NM & RGB-NM-1 sonobuoys'], crew: 3, range: '980 km', engine: '2 × Isotov TV3-117V' }
+  }
+,
+  {
+    id: 'ind-1-arjun-mk1', name: 'Arjun Mk1', type: 'Tank', country: 'India', era: 'Modern', image: '',
+    description: 'The Arjun Mk1 is a modern tank utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-2-arjun-mk1a', name: 'Arjun Mk1A', type: 'Tank', country: 'India', era: 'Modern', image: '',
+    description: 'The Arjun Mk1A is a modern tank utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-3-t-90s-bhishma', name: 'T-90S Bhishma', type: 'Tank', country: 'India/Russia', era: 'Modern', image: '',
+    description: 'The T-90S Bhishma is a modern tank utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-4-t-72m1-ajeya', name: 'T-72M1 Ajeya', type: 'Tank', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The T-72M1 Ajeya is a cold war tank utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-5-vijayanta', name: 'Vijayanta', type: 'Tank', country: 'India/UK', era: 'Cold War', image: '',
+    description: 'The Vijayanta is a cold war tank utilized by India/UK.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-6-bmp-2-sarath', name: 'BMP-2 Sarath', type: 'APC', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The BMP-2 Sarath is a cold war apc utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-7-tata-kestrel--whap-', name: 'TATA Kestrel (WhAP)', type: 'APC', country: 'India', era: 'Modern', image: '',
+    description: 'The TATA Kestrel (WhAP) is a modern apc utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-8-mahindra-marksman', name: 'Mahindra Marksman', type: 'APC', country: 'India', era: 'Modern', image: '',
+    description: 'The Mahindra Marksman is a modern apc utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-9-kalyani-m4', name: 'Kalyani M4', type: 'APC', country: 'India', era: 'Modern', image: '',
+    description: 'The Kalyani M4 is a modern apc utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-10-ashok-leyland-fat-6x6', name: 'Ashok Leyland FAT 6x6', type: 'Artillery', country: 'India', era: 'Modern', image: '',
+    description: 'The Ashok Leyland FAT 6x6 is a modern artillery utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-11-pinaka-mbrl', name: 'Pinaka MBRL', type: 'Artillery', country: 'India', era: 'Modern', image: '',
+    description: 'The Pinaka MBRL is a modern artillery utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-12-dhanush-howitzer', name: 'Dhanush Howitzer', type: 'Artillery', country: 'India', era: 'Modern', image: '',
+    description: 'The Dhanush Howitzer is a modern artillery utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-13-atags', name: 'ATAGS', type: 'Artillery', country: 'India', era: 'Modern', image: '',
+    description: 'The ATAGS is a modern artillery utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-14-k9-vajra-t', name: 'K9 Vajra-T', type: 'Artillery', country: 'India/South Korea', era: 'Modern', image: '',
+    description: 'The K9 Vajra-T is a modern artillery utilized by India/South Korea.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-15-hal-tejas-mk1', name: 'HAL Tejas Mk1', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL Tejas Mk1 is a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-16-hal-tejas-mk1a', name: 'HAL Tejas Mk1A', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL Tejas Mk1A is a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-17-su-30mki', name: 'Su-30MKI', type: 'Aircraft', country: 'India/Russia', era: 'Modern', image: '',
+    description: 'The Su-30MKI is a modern aircraft utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-18-rafale-dh-eh', name: 'Rafale DH/EH', type: 'Aircraft', country: 'India/France', era: 'Modern', image: '',
+    description: 'The Rafale DH/EH is a modern aircraft utilized by India/France.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-19-mirage-2000i', name: 'Mirage 2000I', type: 'Aircraft', country: 'India/France', era: 'Modern', image: '',
+    description: 'The Mirage 2000I is a modern aircraft utilized by India/France.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-20-mig-29upg', name: 'MiG-29UPG', type: 'Aircraft', country: 'India/Russia', era: 'Modern', image: '',
+    description: 'The MiG-29UPG is a modern aircraft utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-21-sepecat-jaguar-is', name: 'SEPECAT Jaguar IS', type: 'Aircraft', country: 'India/UK', era: 'Cold War', image: '',
+    description: 'The SEPECAT Jaguar IS is a cold war aircraft utilized by India/UK.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-22-mig-21-bison', name: 'MiG-21 Bison', type: 'Aircraft', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The MiG-21 Bison is a cold war aircraft utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-23-hal-amca', name: 'HAL AMCA', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL AMCA is a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-24-hal-tedbf', name: 'HAL TEDBF', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL TEDBF is a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-25-hal-dhruv', name: 'HAL Dhruv', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL Dhruv is a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-26-hal-rudra', name: 'HAL Rudra', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL Rudra is a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-27-hal-prachand', name: 'HAL Prachand', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL Prachand is a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-28-hal-luh', name: 'HAL LUH', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL LUH is a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-29-netra-aew-c', name: 'Netra AEW&C', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The Netra AEW&C is a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-30-phalcon-awacs', name: 'Phalcon AWACS', type: 'Aircraft', country: 'India/Israel', era: 'Modern', image: '',
+    description: 'The Phalcon AWACS is a modern aircraft utilized by India/Israel.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-31-p-8i-neptune', name: 'P-8I Neptune', type: 'Aircraft', country: 'India/USA', era: 'Modern', image: '',
+    description: 'The P-8I Neptune is a modern aircraft utilized by India/USA.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-32-c-17-globemaster-iii', name: 'C-17 Globemaster III', type: 'Aircraft', country: 'India/USA', era: 'Modern', image: '',
+    description: 'The C-17 Globemaster III is a modern aircraft utilized by India/USA.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-33-c-130j-super-hercules', name: 'C-130J Super Hercules', type: 'Aircraft', country: 'India/USA', era: 'Modern', image: '',
+    description: 'The C-130J Super Hercules is a modern aircraft utilized by India/USA.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-34-il-76md', name: 'Il-76MD', type: 'Aircraft', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The Il-76MD is a cold war aircraft utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-35-an-32re', name: 'An-32RE', type: 'Aircraft', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The An-32RE is a cold war aircraft utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-36-ins-vikramaditya', name: 'INS Vikramaditya', type: 'Naval', country: 'India/Russia', era: 'Modern', image: '',
+    description: 'The INS Vikramaditya is a modern naval utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-37-ins-vikrant', name: 'INS Vikrant', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The INS Vikrant is a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-38-visakhapatnam-class-destroyer', name: 'Visakhapatnam-class Destroyer', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Visakhapatnam-class Destroyer is a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-39-kolkata-class-destroyer', name: 'Kolkata-class Destroyer', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Kolkata-class Destroyer is a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-40-delhi-class-destroyer', name: 'Delhi-class Destroyer', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Delhi-class Destroyer is a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-41-rajput-class-destroyer', name: 'Rajput-class Destroyer', type: 'Naval', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The Rajput-class Destroyer is a cold war naval utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-42-nilgiri-class-frigate', name: 'Nilgiri-class Frigate', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Nilgiri-class Frigate is a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-43-shivalik-class-frigate', name: 'Shivalik-class Frigate', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Shivalik-class Frigate is a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-44-talwar-class-frigate', name: 'Talwar-class Frigate', type: 'Naval', country: 'India/Russia', era: 'Modern', image: '',
+    description: 'The Talwar-class Frigate is a modern naval utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-45-brahmaputra-class-frigate', name: 'Brahmaputra-class Frigate', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Brahmaputra-class Frigate is a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-46-kamorta-class-corvette', name: 'Kamorta-class Corvette', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Kamorta-class Corvette is a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-47-kora-class-corvette', name: 'Kora-class Corvette', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Kora-class Corvette is a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-48-arihant-class-submarine', name: 'Arihant-class Submarine', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Arihant-class Submarine is a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-49-kalvari-class-submarine', name: 'Kalvari-class Submarine', type: 'Naval', country: 'India/France', era: 'Modern', image: '',
+    description: 'The Kalvari-class Submarine is a modern naval utilized by India/France.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'ind-50-sindhughosh-class-submarine', name: 'Sindhughosh-class Submarine', type: 'Naval', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The Sindhughosh-class Submarine is a cold war naval utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-51-t-55', name: 'T-55', type: 'Tank', country: 'Russia', era: 'Cold War', image: '',
+    description: 'The T-55 is a cold war tank utilized by Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-52-pt-76', name: 'PT-76', type: 'Tank', country: 'Russia', era: 'Cold War', image: '',
+    description: 'The PT-76 is a cold war tank utilized by Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-53-centurion-mk-7', name: 'Centurion Mk 7', type: 'Tank', country: 'UK', era: 'Cold War', image: '',
+    description: 'The Centurion Mk 7 is a cold war tank utilized by UK.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-54-amx-13', name: 'AMX-13', type: 'Tank', country: 'France', era: 'Cold War', image: '',
+    description: 'The AMX-13 is a cold war tank utilized by France.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-55-sherman', name: 'Sherman', type: 'Tank', country: 'USA', era: 'WWII', image: '',
+    description: 'The Sherman is a wwii tank utilized by USA.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-56-btr-60', name: 'BTR-60', type: 'APC', country: 'Russia', era: 'Cold War', image: '',
+    description: 'The BTR-60 is a cold war apc utilized by Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-57-btr-50', name: 'BTR-50', type: 'APC', country: 'Russia', era: 'Cold War', image: '',
+    description: 'The BTR-50 is a cold war apc utilized by Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-58-ot-62-topas', name: 'OT-62 TOPAS', type: 'APC', country: 'Czechoslovakia', era: 'Cold War', image: '',
+    description: 'The OT-62 TOPAS is a cold war apc utilized by Czechoslovakia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-59-casspir', name: 'Casspir', type: 'APC', country: 'South Africa', era: 'Modern', image: '',
+    description: 'The Casspir is a modern apc utilized by South Africa.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-60-aditya-mpv', name: 'Aditya MPV', type: 'APC', country: 'India', era: 'Modern', image: '',
+    description: 'The Aditya MPV is a modern apc utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-61-mahindra-rakshak', name: 'Mahindra Rakshak', type: 'APC', country: 'India', era: 'Modern', image: '',
+    description: 'The Mahindra Rakshak is a modern apc utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-62-windsor', name: 'Windsor', type: 'APC', country: 'Canada', era: 'WWII', image: '',
+    description: 'The Windsor is a wwii apc utilized by Canada.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-63-fv432', name: 'FV432', type: 'APC', country: 'UK', era: 'Cold War', image: '',
+    description: 'The FV432 is a cold war apc utilized by UK.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-64-m113', name: 'M113', type: 'APC', country: 'USA', era: 'Cold War', image: '',
+    description: 'The M113 is a cold war apc utilized by USA.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-65-bm-21-grad', name: 'BM-21 Grad', type: 'Artillery', country: 'Russia', era: 'Cold War', image: '',
+    description: 'The BM-21 Grad is a cold war artillery utilized by Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-66-bm-30-smerch', name: 'BM-30 Smerch', type: 'Artillery', country: 'Russia', era: 'Modern', image: '',
+    description: 'The BM-30 Smerch is a modern artillery utilized by Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-67-m777-howitzer', name: 'M777 Howitzer', type: 'Artillery', country: 'USA', era: 'Modern', image: '',
+    description: 'The M777 Howitzer is a modern artillery utilized by USA.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-68-bofors-fh-77b', name: 'Bofors FH-77B', type: 'Artillery', country: 'Sweden', era: 'Cold War', image: '',
+    description: 'The Bofors FH-77B is a cold war artillery utilized by Sweden.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-69-m-46-field-gun', name: 'M-46 Field Gun', type: 'Artillery', country: 'Russia', era: 'Cold War', image: '',
+    description: 'The M-46 Field Gun is a cold war artillery utilized by Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-70-abbot-spg', name: 'Abbot SPG', type: 'Artillery', country: 'UK', era: 'Cold War', image: '',
+    description: 'The Abbot SPG is a cold war artillery utilized by UK.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-71-akash-sam', name: 'Akash SAM', type: 'Artillery', country: 'India', era: 'Modern', image: '',
+    description: 'The Akash SAM is a modern artillery utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-72-s-400-triumf', name: 'S-400 Triumf', type: 'Artillery', country: 'Russia', era: 'Modern', image: '',
+    description: 'The S-400 Triumf is a modern artillery utilized by Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-73-mrsam', name: 'MRSAM', type: 'Artillery', country: 'India/Israel', era: 'Modern', image: '',
+    description: 'The MRSAM is a modern artillery utilized by India/Israel.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-74-spyder', name: 'Spyder', type: 'Artillery', country: 'Israel', era: 'Modern', image: '',
+    description: 'The Spyder is a modern artillery utilized by Israel.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-75-qrsam', name: 'QRSAM', type: 'Artillery', country: 'India', era: 'Modern', image: '',
+    description: 'The QRSAM is a modern artillery utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-76-prithvi', name: 'Prithvi', type: 'Artillery', country: 'India', era: 'Modern', image: '',
+    description: 'The Prithvi is a modern artillery utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-77-agni-i', name: 'Agni-I', type: 'Artillery', country: 'India', era: 'Modern', image: '',
+    description: 'The Agni-I is a modern artillery utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-78-agni-v', name: 'Agni-V', type: 'Artillery', country: 'India', era: 'Modern', image: '',
+    description: 'The Agni-V is a modern artillery utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-79-brahmos', name: 'BrahMos', type: 'Artillery', country: 'India/Russia', era: 'Modern', image: '',
+    description: 'The BrahMos is a modern artillery utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-80-nirbhay', name: 'Nirbhay', type: 'Artillery', country: 'India', era: 'Modern', image: '',
+    description: 'The Nirbhay is a modern artillery utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-81-mi-17v-5', name: 'Mi-17V-5', type: 'Aircraft', country: 'Russia', era: 'Modern', image: '',
+    description: 'The Mi-17V-5 is a modern aircraft utilized by Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-82-mi-26', name: 'Mi-26', type: 'Aircraft', country: 'Russia', era: 'Cold War', image: '',
+    description: 'The Mi-26 is a cold war aircraft utilized by Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-83-ah-64e-apache', name: 'AH-64E Apache', type: 'Aircraft', country: 'USA', era: 'Modern', image: '',
+    description: 'The AH-64E Apache is a modern aircraft utilized by USA.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-84-ch-47f-chinook', name: 'CH-47F Chinook', type: 'Aircraft', country: 'USA', era: 'Modern', image: '',
+    description: 'The CH-47F Chinook is a modern aircraft utilized by USA.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-85-mh-60r-seahawk', name: 'MH-60R Seahawk', type: 'Aircraft', country: 'USA', era: 'Modern', image: '',
+    description: 'The MH-60R Seahawk is a modern aircraft utilized by USA.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-86-kamov-ka-31', name: 'Kamov Ka-31', type: 'Aircraft', country: 'Russia', era: 'Modern', image: '',
+    description: 'The Kamov Ka-31 is a modern aircraft utilized by Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-87-kamov-ka-28', name: 'Kamov Ka-28', type: 'Aircraft', country: 'Russia', era: 'Cold War', image: '',
+    description: 'The Kamov Ka-28 is a cold war aircraft utilized by Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-88-chetak', name: 'Chetak', type: 'Aircraft', country: 'India/France', era: 'Cold War', image: '',
+    description: 'The Chetak is a cold war aircraft utilized by India/France.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-89-cheetah', name: 'Cheetah', type: 'Aircraft', country: 'India/France', era: 'Cold War', image: '',
+    description: 'The Cheetah is a cold war aircraft utilized by India/France.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-90-dornier-do-228', name: 'Dornier Do 228', type: 'Aircraft', country: 'India/Germany', era: 'Modern', image: '',
+    description: 'The Dornier Do 228 is a modern aircraft utilized by India/Germany.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-91-tu-142', name: 'Tu-142', type: 'Aircraft', country: 'Russia', era: 'Cold War', image: '',
+    description: 'The Tu-142 is a cold war aircraft utilized by Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-92-sea-harrier', name: 'Sea Harrier', type: 'Aircraft', country: 'UK', era: 'Cold War', image: '',
+    description: 'The Sea Harrier is a cold war aircraft utilized by UK.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-93-mig-29k', name: 'MiG-29K', type: 'Aircraft', country: 'Russia', era: 'Modern', image: '',
+    description: 'The MiG-29K is a modern aircraft utilized by Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-94-mig-27', name: 'MiG-27', type: 'Aircraft', country: 'Russia', era: 'Cold War', image: '',
+    description: 'The MiG-27 is a cold war aircraft utilized by Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-95-mig-23', name: 'MiG-23', type: 'Aircraft', country: 'Russia', era: 'Cold War', image: '',
+    description: 'The MiG-23 is a cold war aircraft utilized by Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-96-su-7', name: 'Su-7', type: 'Aircraft', country: 'Russia', era: 'Cold War', image: '',
+    description: 'The Su-7 is a cold war aircraft utilized by Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-97-hunter', name: 'Hunter', type: 'Aircraft', country: 'UK', era: 'Cold War', image: '',
+    description: 'The Hunter is a cold war aircraft utilized by UK.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-98-gnat', name: 'Gnat', type: 'Aircraft', country: 'UK', era: 'Cold War', image: '',
+    description: 'The Gnat is a cold war aircraft utilized by UK.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-99-ajeet', name: 'Ajeet', type: 'Aircraft', country: 'India', era: 'Cold War', image: '',
+    description: 'The Ajeet is a cold war aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'base-100-marut', name: 'Marut', type: 'Aircraft', country: 'India', era: 'Cold War', image: '',
+    description: 'The Marut is a cold war aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-101-sepecat-jaguar-is-d', name: 'SEPECAT Jaguar IS D', type: 'Aircraft', country: 'India/UK', era: 'Cold War', image: '',
+    description: 'The SEPECAT Jaguar IS D is a variant of the SEPECAT Jaguar IS, a cold war aircraft utilized by India/UK.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-102-sindhughosh-class-submarine-mk-1', name: 'Sindhughosh-class Submarine Mk 1', type: 'Naval', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The Sindhughosh-class Submarine Mk 1 is a variant of the Sindhughosh-class Submarine, a cold war naval utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-103-talwar-class-frigate-d', name: 'Talwar-class Frigate D', type: 'Naval', country: 'India/Russia', era: 'Modern', image: '',
+    description: 'The Talwar-class Frigate D is a variant of the Talwar-class Frigate, a modern naval utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-104-rafale-dh-eh-mk-2', name: 'Rafale DH/EH Mk 2', type: 'Aircraft', country: 'India/France', era: 'Modern', image: '',
+    description: 'The Rafale DH/EH Mk 2 is a variant of the Rafale DH/EH, a modern aircraft utilized by India/France.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-105-an-32re-light', name: 'An-32RE Light', type: 'Aircraft', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The An-32RE Light is a variant of the An-32RE, a cold war aircraft utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-106-pinaka-mbrl-mk-2', name: 'Pinaka MBRL Mk 2', type: 'Artillery', country: 'India', era: 'Modern', image: '',
+    description: 'The Pinaka MBRL Mk 2 is a variant of the Pinaka MBRL, a modern artillery utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-107-phalcon-awacs-c', name: 'Phalcon AWACS C', type: 'Aircraft', country: 'India/Israel', era: 'Modern', image: '',
+    description: 'The Phalcon AWACS C is a variant of the Phalcon AWACS, a modern aircraft utilized by India/Israel.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-108-k9-vajra-t-b', name: 'K9 Vajra-T B', type: 'Artillery', country: 'India/South Korea', era: 'Modern', image: '',
+    description: 'The K9 Vajra-T B is a variant of the K9 Vajra-T, a modern artillery utilized by India/South Korea.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-109-kamorta-class-corvette-stealth', name: 'Kamorta-class Corvette Stealth', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Kamorta-class Corvette Stealth is a variant of the Kamorta-class Corvette, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-110-hal-tejas-mk1a-desert', name: 'HAL Tejas Mk1A Desert', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL Tejas Mk1A Desert is a variant of the HAL Tejas Mk1A, a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-111-tata-kestrel--whap--c', name: 'TATA Kestrel (WhAP) C', type: 'APC', country: 'India', era: 'Modern', image: '',
+    description: 'The TATA Kestrel (WhAP) C is a variant of the TATA Kestrel (WhAP), a modern apc utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-112-nilgiri-class-frigate-mk-1', name: 'Nilgiri-class Frigate Mk 1', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Nilgiri-class Frigate Mk 1 is a variant of the Nilgiri-class Frigate, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-113-arjun-mk1a-light', name: 'Arjun Mk1A Light', type: 'Tank', country: 'India', era: 'Modern', image: '',
+    description: 'The Arjun Mk1A Light is a variant of the Arjun Mk1A, a modern tank utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-114-kalvari-class-submarine-c', name: 'Kalvari-class Submarine C', type: 'Naval', country: 'India/France', era: 'Modern', image: '',
+    description: 'The Kalvari-class Submarine C is a variant of the Kalvari-class Submarine, a modern naval utilized by India/France.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-115-hal-amca-block-ii', name: 'HAL AMCA Block II', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL AMCA Block II is a variant of the HAL AMCA, a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-116-hal-amca-prototype', name: 'HAL AMCA Prototype', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL AMCA Prototype is a variant of the HAL AMCA, a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-117-p-8i-neptune-desert', name: 'P-8I Neptune Desert', type: 'Aircraft', country: 'India/USA', era: 'Modern', image: '',
+    description: 'The P-8I Neptune Desert is a variant of the P-8I Neptune, a modern aircraft utilized by India/USA.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-118-phalcon-awacs-heavy', name: 'Phalcon AWACS Heavy', type: 'Aircraft', country: 'India/Israel', era: 'Modern', image: '',
+    description: 'The Phalcon AWACS Heavy is a variant of the Phalcon AWACS, a modern aircraft utilized by India/Israel.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-119-talwar-class-frigate-trainer', name: 'Talwar-class Frigate Trainer', type: 'Naval', country: 'India/Russia', era: 'Modern', image: '',
+    description: 'The Talwar-class Frigate Trainer is a variant of the Talwar-class Frigate, a modern naval utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-120-sepecat-jaguar-is-block-ii', name: 'SEPECAT Jaguar IS Block II', type: 'Aircraft', country: 'India/UK', era: 'Cold War', image: '',
+    description: 'The SEPECAT Jaguar IS Block II is a variant of the SEPECAT Jaguar IS, a cold war aircraft utilized by India/UK.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-121-p-8i-neptune-upgraded', name: 'P-8I Neptune Upgraded', type: 'Aircraft', country: 'India/USA', era: 'Modern', image: '',
+    description: 'The P-8I Neptune Upgraded is a variant of the P-8I Neptune, a modern aircraft utilized by India/USA.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-122-hal-amca-d', name: 'HAL AMCA D', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL AMCA D is a variant of the HAL AMCA, a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-123-kamorta-class-corvette-mk-1', name: 'Kamorta-class Corvette Mk 1', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Kamorta-class Corvette Mk 1 is a variant of the Kamorta-class Corvette, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-124-kora-class-corvette-c', name: 'Kora-class Corvette C', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Kora-class Corvette C is a variant of the Kora-class Corvette, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-125-c-17-globemaster-iii-block-ii', name: 'C-17 Globemaster III Block II', type: 'Aircraft', country: 'India/USA', era: 'Modern', image: '',
+    description: 'The C-17 Globemaster III Block II is a variant of the C-17 Globemaster III, a modern aircraft utilized by India/USA.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-126-visakhapatnam-class-destroyer-mountain', name: 'Visakhapatnam-class Destroyer Mountain', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Visakhapatnam-class Destroyer Mountain is a variant of the Visakhapatnam-class Destroyer, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-127-shivalik-class-frigate-naval', name: 'Shivalik-class Frigate Naval', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Shivalik-class Frigate Naval is a variant of the Shivalik-class Frigate, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-128-il-76md-upgraded', name: 'Il-76MD Upgraded', type: 'Aircraft', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The Il-76MD Upgraded is a variant of the Il-76MD, a cold war aircraft utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-129-an-32re-block-ii', name: 'An-32RE Block II', type: 'Aircraft', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The An-32RE Block II is a variant of the An-32RE, a cold war aircraft utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-130-kalvari-class-submarine-a', name: 'Kalvari-class Submarine A', type: 'Naval', country: 'India/France', era: 'Modern', image: '',
+    description: 'The Kalvari-class Submarine A is a variant of the Kalvari-class Submarine, a modern naval utilized by India/France.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-131-hal-rudra-naval', name: 'HAL Rudra Naval', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL Rudra Naval is a variant of the HAL Rudra, a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-132-t-90s-bhishma-prototype', name: 'T-90S Bhishma Prototype', type: 'Tank', country: 'India/Russia', era: 'Modern', image: '',
+    description: 'The T-90S Bhishma Prototype is a variant of the T-90S Bhishma, a modern tank utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-133-hal-amca-export', name: 'HAL AMCA Export', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL AMCA Export is a variant of the HAL AMCA, a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-134-t-90s-bhishma-block-i', name: 'T-90S Bhishma Block I', type: 'Tank', country: 'India/Russia', era: 'Modern', image: '',
+    description: 'The T-90S Bhishma Block I is a variant of the T-90S Bhishma, a modern tank utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-135-atags-heavy', name: 'ATAGS Heavy', type: 'Artillery', country: 'India', era: 'Modern', image: '',
+    description: 'The ATAGS Heavy is a variant of the ATAGS, a modern artillery utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-136-c-17-globemaster-iii-c', name: 'C-17 Globemaster III C', type: 'Aircraft', country: 'India/USA', era: 'Modern', image: '',
+    description: 'The C-17 Globemaster III C is a variant of the C-17 Globemaster III, a modern aircraft utilized by India/USA.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-137-ashok-leyland-fat-6x6-block-ii', name: 'Ashok Leyland FAT 6x6 Block II', type: 'Artillery', country: 'India', era: 'Modern', image: '',
+    description: 'The Ashok Leyland FAT 6x6 Block II is a variant of the Ashok Leyland FAT 6x6, a modern artillery utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-138-rafale-dh-eh-c', name: 'Rafale DH/EH C', type: 'Aircraft', country: 'India/France', era: 'Modern', image: '',
+    description: 'The Rafale DH/EH C is a variant of the Rafale DH/EH, a modern aircraft utilized by India/France.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-139-visakhapatnam-class-destroyer-mk-2', name: 'Visakhapatnam-class Destroyer Mk 2', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Visakhapatnam-class Destroyer Mk 2 is a variant of the Visakhapatnam-class Destroyer, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-140-hal-tedbf-desert', name: 'HAL TEDBF Desert', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL TEDBF Desert is a variant of the HAL TEDBF, a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-141-arjun-mk1-export', name: 'Arjun Mk1 Export', type: 'Tank', country: 'India', era: 'Modern', image: '',
+    description: 'The Arjun Mk1 Export is a variant of the Arjun Mk1, a modern tank utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-142-t-72m1-ajeya-recon', name: 'T-72M1 Ajeya Recon', type: 'Tank', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The T-72M1 Ajeya Recon is a variant of the T-72M1 Ajeya, a cold war tank utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-143-mig-21-bison-mountain', name: 'MiG-21 Bison Mountain', type: 'Aircraft', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The MiG-21 Bison Mountain is a variant of the MiG-21 Bison, a cold war aircraft utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-144-mig-21-bison-a', name: 'MiG-21 Bison A', type: 'Aircraft', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The MiG-21 Bison A is a variant of the MiG-21 Bison, a cold war aircraft utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-145-sindhughosh-class-submarine-mk-2', name: 'Sindhughosh-class Submarine Mk 2', type: 'Naval', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The Sindhughosh-class Submarine Mk 2 is a variant of the Sindhughosh-class Submarine, a cold war naval utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-146-hal-tedbf-upgraded', name: 'HAL TEDBF Upgraded', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL TEDBF Upgraded is a variant of the HAL TEDBF, a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-147-shivalik-class-frigate-c', name: 'Shivalik-class Frigate C', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Shivalik-class Frigate C is a variant of the Shivalik-class Frigate, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-148-kalyani-m4-desert', name: 'Kalyani M4 Desert', type: 'APC', country: 'India', era: 'Modern', image: '',
+    description: 'The Kalyani M4 Desert is a variant of the Kalyani M4, a modern apc utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-149-mig-21-bison-light', name: 'MiG-21 Bison Light', type: 'Aircraft', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The MiG-21 Bison Light is a variant of the MiG-21 Bison, a cold war aircraft utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-150-phalcon-awacs-trainer', name: 'Phalcon AWACS Trainer', type: 'Aircraft', country: 'India/Israel', era: 'Modern', image: '',
+    description: 'The Phalcon AWACS Trainer is a variant of the Phalcon AWACS, a modern aircraft utilized by India/Israel.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-151-ins-vikrant-export', name: 'INS Vikrant Export', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The INS Vikrant Export is a variant of the INS Vikrant, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-152-il-76md-recon', name: 'Il-76MD Recon', type: 'Aircraft', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The Il-76MD Recon is a variant of the Il-76MD, a cold war aircraft utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-153-vijayanta-upgraded', name: 'Vijayanta Upgraded', type: 'Tank', country: 'India/UK', era: 'Cold War', image: '',
+    description: 'The Vijayanta Upgraded is a variant of the Vijayanta, a cold war tank utilized by India/UK.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-154-hal-tejas-mk1-c', name: 'HAL Tejas Mk1 C', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL Tejas Mk1 C is a variant of the HAL Tejas Mk1, a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-155-kora-class-corvette-mountain', name: 'Kora-class Corvette Mountain', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Kora-class Corvette Mountain is a variant of the Kora-class Corvette, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-156-netra-aew-c-recon', name: 'Netra AEW&C Recon', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The Netra AEW&C Recon is a variant of the Netra AEW&C, a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-157-arjun-mk1-b', name: 'Arjun Mk1 B', type: 'Tank', country: 'India', era: 'Modern', image: '',
+    description: 'The Arjun Mk1 B is a variant of the Arjun Mk1, a modern tank utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-158-rajput-class-destroyer-a', name: 'Rajput-class Destroyer A', type: 'Naval', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The Rajput-class Destroyer A is a variant of the Rajput-class Destroyer, a cold war naval utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-159-hal-rudra-upgraded', name: 'HAL Rudra Upgraded', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL Rudra Upgraded is a variant of the HAL Rudra, a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-160-c-130j-super-hercules-mountain', name: 'C-130J Super Hercules Mountain', type: 'Aircraft', country: 'India/USA', era: 'Modern', image: '',
+    description: 'The C-130J Super Hercules Mountain is a variant of the C-130J Super Hercules, a modern aircraft utilized by India/USA.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-161-hal-luh-command', name: 'HAL LUH Command', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL LUH Command is a variant of the HAL LUH, a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-162-mirage-2000i-block-i', name: 'Mirage 2000I Block I', type: 'Aircraft', country: 'India/France', era: 'Modern', image: '',
+    description: 'The Mirage 2000I Block I is a variant of the Mirage 2000I, a modern aircraft utilized by India/France.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-163-c-17-globemaster-iii-heavy', name: 'C-17 Globemaster III Heavy', type: 'Aircraft', country: 'India/USA', era: 'Modern', image: '',
+    description: 'The C-17 Globemaster III Heavy is a variant of the C-17 Globemaster III, a modern aircraft utilized by India/USA.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-164-hal-prachand-mk-1', name: 'HAL Prachand Mk 1', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL Prachand Mk 1 is a variant of the HAL Prachand, a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-165-bmp-2-sarath-b', name: 'BMP-2 Sarath B', type: 'APC', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The BMP-2 Sarath B is a variant of the BMP-2 Sarath, a cold war apc utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-166-hal-rudra-stealth', name: 'HAL Rudra Stealth', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL Rudra Stealth is a variant of the HAL Rudra, a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-167-talwar-class-frigate-block-ii', name: 'Talwar-class Frigate Block II', type: 'Naval', country: 'India/Russia', era: 'Modern', image: '',
+    description: 'The Talwar-class Frigate Block II is a variant of the Talwar-class Frigate, a modern naval utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-168-kamorta-class-corvette-a', name: 'Kamorta-class Corvette A', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Kamorta-class Corvette A is a variant of the Kamorta-class Corvette, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-169-nilgiri-class-frigate-upgraded', name: 'Nilgiri-class Frigate Upgraded', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Nilgiri-class Frigate Upgraded is a variant of the Nilgiri-class Frigate, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-170-il-76md-mk-2', name: 'Il-76MD Mk 2', type: 'Aircraft', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The Il-76MD Mk 2 is a variant of the Il-76MD, a cold war aircraft utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-171-sepecat-jaguar-is-recon', name: 'SEPECAT Jaguar IS Recon', type: 'Aircraft', country: 'India/UK', era: 'Cold War', image: '',
+    description: 'The SEPECAT Jaguar IS Recon is a variant of the SEPECAT Jaguar IS, a cold war aircraft utilized by India/UK.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-172-hal-tejas-mk1-export', name: 'HAL Tejas Mk1 Export', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL Tejas Mk1 Export is a variant of the HAL Tejas Mk1, a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-173-brahmaputra-class-frigate-recon', name: 'Brahmaputra-class Frigate Recon', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Brahmaputra-class Frigate Recon is a variant of the Brahmaputra-class Frigate, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-174-il-76md-export', name: 'Il-76MD Export', type: 'Aircraft', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The Il-76MD Export is a variant of the Il-76MD, a cold war aircraft utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-175-il-76md-block-ii', name: 'Il-76MD Block II', type: 'Aircraft', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The Il-76MD Block II is a variant of the Il-76MD, a cold war aircraft utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-176-hal-rudra-desert', name: 'HAL Rudra Desert', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL Rudra Desert is a variant of the HAL Rudra, a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-177-nilgiri-class-frigate-c', name: 'Nilgiri-class Frigate C', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Nilgiri-class Frigate C is a variant of the Nilgiri-class Frigate, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-178-delhi-class-destroyer-command', name: 'Delhi-class Destroyer Command', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Delhi-class Destroyer Command is a variant of the Delhi-class Destroyer, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-179-rajput-class-destroyer-recon', name: 'Rajput-class Destroyer Recon', type: 'Naval', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The Rajput-class Destroyer Recon is a variant of the Rajput-class Destroyer, a cold war naval utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-180-hal-tejas-mk1-command', name: 'HAL Tejas Mk1 Command', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL Tejas Mk1 Command is a variant of the HAL Tejas Mk1, a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-181-nilgiri-class-frigate-desert', name: 'Nilgiri-class Frigate Desert', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Nilgiri-class Frigate Desert is a variant of the Nilgiri-class Frigate, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-182-c-130j-super-hercules-mk-2', name: 'C-130J Super Hercules Mk 2', type: 'Aircraft', country: 'India/USA', era: 'Modern', image: '',
+    description: 'The C-130J Super Hercules Mk 2 is a variant of the C-130J Super Hercules, a modern aircraft utilized by India/USA.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-183-t-90s-bhishma-naval', name: 'T-90S Bhishma Naval', type: 'Tank', country: 'India/Russia', era: 'Modern', image: '',
+    description: 'The T-90S Bhishma Naval is a variant of the T-90S Bhishma, a modern tank utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-184-an-32re-trainer', name: 'An-32RE Trainer', type: 'Aircraft', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The An-32RE Trainer is a variant of the An-32RE, a cold war aircraft utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-185-dhanush-howitzer-block-i', name: 'Dhanush Howitzer Block I', type: 'Artillery', country: 'India', era: 'Modern', image: '',
+    description: 'The Dhanush Howitzer Block I is a variant of the Dhanush Howitzer, a modern artillery utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-186-k9-vajra-t-prototype', name: 'K9 Vajra-T Prototype', type: 'Artillery', country: 'India/South Korea', era: 'Modern', image: '',
+    description: 'The K9 Vajra-T Prototype is a variant of the K9 Vajra-T, a modern artillery utilized by India/South Korea.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-187-hal-amca-naval', name: 'HAL AMCA Naval', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL AMCA Naval is a variant of the HAL AMCA, a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-188-talwar-class-frigate-command', name: 'Talwar-class Frigate Command', type: 'Naval', country: 'India/Russia', era: 'Modern', image: '',
+    description: 'The Talwar-class Frigate Command is a variant of the Talwar-class Frigate, a modern naval utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-189-k9-vajra-t-desert', name: 'K9 Vajra-T Desert', type: 'Artillery', country: 'India/South Korea', era: 'Modern', image: '',
+    description: 'The K9 Vajra-T Desert is a variant of the K9 Vajra-T, a modern artillery utilized by India/South Korea.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-190-kalvari-class-submarine-heavy', name: 'Kalvari-class Submarine Heavy', type: 'Naval', country: 'India/France', era: 'Modern', image: '',
+    description: 'The Kalvari-class Submarine Heavy is a variant of the Kalvari-class Submarine, a modern naval utilized by India/France.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-191-pinaka-mbrl-command', name: 'Pinaka MBRL Command', type: 'Artillery', country: 'India', era: 'Modern', image: '',
+    description: 'The Pinaka MBRL Command is a variant of the Pinaka MBRL, a modern artillery utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-192-brahmaputra-class-frigate-c', name: 'Brahmaputra-class Frigate C', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Brahmaputra-class Frigate C is a variant of the Brahmaputra-class Frigate, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-193-kora-class-corvette-block-i', name: 'Kora-class Corvette Block I', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Kora-class Corvette Block I is a variant of the Kora-class Corvette, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-194-p-8i-neptune-export', name: 'P-8I Neptune Export', type: 'Aircraft', country: 'India/USA', era: 'Modern', image: '',
+    description: 'The P-8I Neptune Export is a variant of the P-8I Neptune, a modern aircraft utilized by India/USA.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-195-sindhughosh-class-submarine-block-ii', name: 'Sindhughosh-class Submarine Block II', type: 'Naval', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The Sindhughosh-class Submarine Block II is a variant of the Sindhughosh-class Submarine, a cold war naval utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-196-arihant-class-submarine-block-ii', name: 'Arihant-class Submarine Block II', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Arihant-class Submarine Block II is a variant of the Arihant-class Submarine, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-197-t-72m1-ajeya-trainer', name: 'T-72M1 Ajeya Trainer', type: 'Tank', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The T-72M1 Ajeya Trainer is a variant of the T-72M1 Ajeya, a cold war tank utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-198-c-130j-super-hercules-trainer', name: 'C-130J Super Hercules Trainer', type: 'Aircraft', country: 'India/USA', era: 'Modern', image: '',
+    description: 'The C-130J Super Hercules Trainer is a variant of the C-130J Super Hercules, a modern aircraft utilized by India/USA.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-199-atags-a', name: 'ATAGS A', type: 'Artillery', country: 'India', era: 'Modern', image: '',
+    description: 'The ATAGS A is a variant of the ATAGS, a modern artillery utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-200-sindhughosh-class-submarine-light', name: 'Sindhughosh-class Submarine Light', type: 'Naval', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The Sindhughosh-class Submarine Light is a variant of the Sindhughosh-class Submarine, a cold war naval utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-201-c-17-globemaster-iii-trainer', name: 'C-17 Globemaster III Trainer', type: 'Aircraft', country: 'India/USA', era: 'Modern', image: '',
+    description: 'The C-17 Globemaster III Trainer is a variant of the C-17 Globemaster III, a modern aircraft utilized by India/USA.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-202-kora-class-corvette-heavy', name: 'Kora-class Corvette Heavy', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Kora-class Corvette Heavy is a variant of the Kora-class Corvette, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-203-mig-21-bison-block-ii', name: 'MiG-21 Bison Block II', type: 'Aircraft', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The MiG-21 Bison Block II is a variant of the MiG-21 Bison, a cold war aircraft utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-204-kalyani-m4-command', name: 'Kalyani M4 Command', type: 'APC', country: 'India', era: 'Modern', image: '',
+    description: 'The Kalyani M4 Command is a variant of the Kalyani M4, a modern apc utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-205-k9-vajra-t-light', name: 'K9 Vajra-T Light', type: 'Artillery', country: 'India/South Korea', era: 'Modern', image: '',
+    description: 'The K9 Vajra-T Light is a variant of the K9 Vajra-T, a modern artillery utilized by India/South Korea.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-206-atags-export', name: 'ATAGS Export', type: 'Artillery', country: 'India', era: 'Modern', image: '',
+    description: 'The ATAGS Export is a variant of the ATAGS, a modern artillery utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-207-visakhapatnam-class-destroyer-trainer', name: 'Visakhapatnam-class Destroyer Trainer', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Visakhapatnam-class Destroyer Trainer is a variant of the Visakhapatnam-class Destroyer, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-208-c-130j-super-hercules-command', name: 'C-130J Super Hercules Command', type: 'Aircraft', country: 'India/USA', era: 'Modern', image: '',
+    description: 'The C-130J Super Hercules Command is a variant of the C-130J Super Hercules, a modern aircraft utilized by India/USA.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-209-ins-vikrant-trainer', name: 'INS Vikrant Trainer', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The INS Vikrant Trainer is a variant of the INS Vikrant, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-210-t-90s-bhishma-heavy', name: 'T-90S Bhishma Heavy', type: 'Tank', country: 'India/Russia', era: 'Modern', image: '',
+    description: 'The T-90S Bhishma Heavy is a variant of the T-90S Bhishma, a modern tank utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-211-ins-vikrant-block-i', name: 'INS Vikrant Block I', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The INS Vikrant Block I is a variant of the INS Vikrant, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-212-tata-kestrel--whap--export', name: 'TATA Kestrel (WhAP) Export', type: 'APC', country: 'India', era: 'Modern', image: '',
+    description: 'The TATA Kestrel (WhAP) Export is a variant of the TATA Kestrel (WhAP), a modern apc utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-213-hal-amca-block-i', name: 'HAL AMCA Block I', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL AMCA Block I is a variant of the HAL AMCA, a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-214-hal-tejas-mk1-mountain', name: 'HAL Tejas Mk1 Mountain', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL Tejas Mk1 Mountain is a variant of the HAL Tejas Mk1, a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-215-arjun-mk1a-upgraded', name: 'Arjun Mk1A Upgraded', type: 'Tank', country: 'India', era: 'Modern', image: '',
+    description: 'The Arjun Mk1A Upgraded is a variant of the Arjun Mk1A, a modern tank utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-216-t-72m1-ajeya-naval', name: 'T-72M1 Ajeya Naval', type: 'Tank', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The T-72M1 Ajeya Naval is a variant of the T-72M1 Ajeya, a cold war tank utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-217-su-30mki-b', name: 'Su-30MKI B', type: 'Aircraft', country: 'India/Russia', era: 'Modern', image: '',
+    description: 'The Su-30MKI B is a variant of the Su-30MKI, a modern aircraft utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-218-shivalik-class-frigate-command', name: 'Shivalik-class Frigate Command', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Shivalik-class Frigate Command is a variant of the Shivalik-class Frigate, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-219-shivalik-class-frigate-block-ii', name: 'Shivalik-class Frigate Block II', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Shivalik-class Frigate Block II is a variant of the Shivalik-class Frigate, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-220-mirage-2000i-b', name: 'Mirage 2000I B', type: 'Aircraft', country: 'India/France', era: 'Modern', image: '',
+    description: 'The Mirage 2000I B is a variant of the Mirage 2000I, a modern aircraft utilized by India/France.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-221-k9-vajra-t-export', name: 'K9 Vajra-T Export', type: 'Artillery', country: 'India/South Korea', era: 'Modern', image: '',
+    description: 'The K9 Vajra-T Export is a variant of the K9 Vajra-T, a modern artillery utilized by India/South Korea.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-222-netra-aew-c-mk-1', name: 'Netra AEW&C Mk 1', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The Netra AEW&C Mk 1 is a variant of the Netra AEW&C, a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-223-nilgiri-class-frigate-mountain', name: 'Nilgiri-class Frigate Mountain', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Nilgiri-class Frigate Mountain is a variant of the Nilgiri-class Frigate, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-224-delhi-class-destroyer-naval', name: 'Delhi-class Destroyer Naval', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Delhi-class Destroyer Naval is a variant of the Delhi-class Destroyer, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-225-arjun-mk1-a', name: 'Arjun Mk1 A', type: 'Tank', country: 'India', era: 'Modern', image: '',
+    description: 'The Arjun Mk1 A is a variant of the Arjun Mk1, a modern tank utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-226-sepecat-jaguar-is-c', name: 'SEPECAT Jaguar IS C', type: 'Aircraft', country: 'India/UK', era: 'Cold War', image: '',
+    description: 'The SEPECAT Jaguar IS C is a variant of the SEPECAT Jaguar IS, a cold war aircraft utilized by India/UK.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-227-visakhapatnam-class-destroyer-a', name: 'Visakhapatnam-class Destroyer A', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Visakhapatnam-class Destroyer A is a variant of the Visakhapatnam-class Destroyer, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-228-pinaka-mbrl-block-ii', name: 'Pinaka MBRL Block II', type: 'Artillery', country: 'India', era: 'Modern', image: '',
+    description: 'The Pinaka MBRL Block II is a variant of the Pinaka MBRL, a modern artillery utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-229-rajput-class-destroyer-stealth', name: 'Rajput-class Destroyer Stealth', type: 'Naval', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The Rajput-class Destroyer Stealth is a variant of the Rajput-class Destroyer, a cold war naval utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-230-hal-tejas-mk1a-a', name: 'HAL Tejas Mk1A A', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL Tejas Mk1A A is a variant of the HAL Tejas Mk1A, a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-231-ashok-leyland-fat-6x6-heavy', name: 'Ashok Leyland FAT 6x6 Heavy', type: 'Artillery', country: 'India', era: 'Modern', image: '',
+    description: 'The Ashok Leyland FAT 6x6 Heavy is a variant of the Ashok Leyland FAT 6x6, a modern artillery utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-232-il-76md-command', name: 'Il-76MD Command', type: 'Aircraft', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The Il-76MD Command is a variant of the Il-76MD, a cold war aircraft utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-233-hal-tejas-mk1-heavy', name: 'HAL Tejas Mk1 Heavy', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL Tejas Mk1 Heavy is a variant of the HAL Tejas Mk1, a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-234-mahindra-marksman-a', name: 'Mahindra Marksman A', type: 'APC', country: 'India', era: 'Modern', image: '',
+    description: 'The Mahindra Marksman A is a variant of the Mahindra Marksman, a modern apc utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-235-kolkata-class-destroyer-command', name: 'Kolkata-class Destroyer Command', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Kolkata-class Destroyer Command is a variant of the Kolkata-class Destroyer, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-236-an-32re-command', name: 'An-32RE Command', type: 'Aircraft', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The An-32RE Command is a variant of the An-32RE, a cold war aircraft utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-237-p-8i-neptune-light', name: 'P-8I Neptune Light', type: 'Aircraft', country: 'India/USA', era: 'Modern', image: '',
+    description: 'The P-8I Neptune Light is a variant of the P-8I Neptune, a modern aircraft utilized by India/USA.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-238-bmp-2-sarath-upgraded', name: 'BMP-2 Sarath Upgraded', type: 'APC', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The BMP-2 Sarath Upgraded is a variant of the BMP-2 Sarath, a cold war apc utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-239-brahmaputra-class-frigate-block-ii', name: 'Brahmaputra-class Frigate Block II', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Brahmaputra-class Frigate Block II is a variant of the Brahmaputra-class Frigate, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-240-tata-kestrel--whap--upgraded', name: 'TATA Kestrel (WhAP) Upgraded', type: 'APC', country: 'India', era: 'Modern', image: '',
+    description: 'The TATA Kestrel (WhAP) Upgraded is a variant of the TATA Kestrel (WhAP), a modern apc utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-241-p-8i-neptune-mountain', name: 'P-8I Neptune Mountain', type: 'Aircraft', country: 'India/USA', era: 'Modern', image: '',
+    description: 'The P-8I Neptune Mountain is a variant of the P-8I Neptune, a modern aircraft utilized by India/USA.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-242-hal-prachand-export', name: 'HAL Prachand Export', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL Prachand Export is a variant of the HAL Prachand, a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-243-atags-command', name: 'ATAGS Command', type: 'Artillery', country: 'India', era: 'Modern', image: '',
+    description: 'The ATAGS Command is a variant of the ATAGS, a modern artillery utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-244-p-8i-neptune-mk-1', name: 'P-8I Neptune Mk 1', type: 'Aircraft', country: 'India/USA', era: 'Modern', image: '',
+    description: 'The P-8I Neptune Mk 1 is a variant of the P-8I Neptune, a modern aircraft utilized by India/USA.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-245-mahindra-marksman-heavy', name: 'Mahindra Marksman Heavy', type: 'APC', country: 'India', era: 'Modern', image: '',
+    description: 'The Mahindra Marksman Heavy is a variant of the Mahindra Marksman, a modern apc utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-246-arjun-mk1-block-i', name: 'Arjun Mk1 Block I', type: 'Tank', country: 'India', era: 'Modern', image: '',
+    description: 'The Arjun Mk1 Block I is a variant of the Arjun Mk1, a modern tank utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-247-c-130j-super-hercules-light', name: 'C-130J Super Hercules Light', type: 'Aircraft', country: 'India/USA', era: 'Modern', image: '',
+    description: 'The C-130J Super Hercules Light is a variant of the C-130J Super Hercules, a modern aircraft utilized by India/USA.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-248-nilgiri-class-frigate-naval', name: 'Nilgiri-class Frigate Naval', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Nilgiri-class Frigate Naval is a variant of the Nilgiri-class Frigate, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-249-hal-prachand-c', name: 'HAL Prachand C', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL Prachand C is a variant of the HAL Prachand, a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-250-c-17-globemaster-iii-prototype', name: 'C-17 Globemaster III Prototype', type: 'Aircraft', country: 'India/USA', era: 'Modern', image: '',
+    description: 'The C-17 Globemaster III Prototype is a variant of the C-17 Globemaster III, a modern aircraft utilized by India/USA.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-251-hal-tejas-mk1a-block-i', name: 'HAL Tejas Mk1A Block I', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL Tejas Mk1A Block I is a variant of the HAL Tejas Mk1A, a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-252-talwar-class-frigate-mountain', name: 'Talwar-class Frigate Mountain', type: 'Naval', country: 'India/Russia', era: 'Modern', image: '',
+    description: 'The Talwar-class Frigate Mountain is a variant of the Talwar-class Frigate, a modern naval utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-253-pinaka-mbrl-mountain', name: 'Pinaka MBRL Mountain', type: 'Artillery', country: 'India', era: 'Modern', image: '',
+    description: 'The Pinaka MBRL Mountain is a variant of the Pinaka MBRL, a modern artillery utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-254-mirage-2000i-export', name: 'Mirage 2000I Export', type: 'Aircraft', country: 'India/France', era: 'Modern', image: '',
+    description: 'The Mirage 2000I Export is a variant of the Mirage 2000I, a modern aircraft utilized by India/France.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-255-il-76md-c', name: 'Il-76MD C', type: 'Aircraft', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The Il-76MD C is a variant of the Il-76MD, a cold war aircraft utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-256-visakhapatnam-class-destroyer-export', name: 'Visakhapatnam-class Destroyer Export', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Visakhapatnam-class Destroyer Export is a variant of the Visakhapatnam-class Destroyer, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-257-ins-vikramaditya-c', name: 'INS Vikramaditya C', type: 'Naval', country: 'India/Russia', era: 'Modern', image: '',
+    description: 'The INS Vikramaditya C is a variant of the INS Vikramaditya, a modern naval utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-258-nilgiri-class-frigate-block-ii', name: 'Nilgiri-class Frigate Block II', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Nilgiri-class Frigate Block II is a variant of the Nilgiri-class Frigate, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-259-hal-tedbf-export', name: 'HAL TEDBF Export', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL TEDBF Export is a variant of the HAL TEDBF, a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-260-ins-vikrant-c', name: 'INS Vikrant C', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The INS Vikrant C is a variant of the INS Vikrant, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-261-hal-luh-upgraded', name: 'HAL LUH Upgraded', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL LUH Upgraded is a variant of the HAL LUH, a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-262-hal-tedbf-block-ii', name: 'HAL TEDBF Block II', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL TEDBF Block II is a variant of the HAL TEDBF, a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-263-netra-aew-c-trainer', name: 'Netra AEW&C Trainer', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The Netra AEW&C Trainer is a variant of the Netra AEW&C, a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-264-bmp-2-sarath-mountain', name: 'BMP-2 Sarath Mountain', type: 'APC', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The BMP-2 Sarath Mountain is a variant of the BMP-2 Sarath, a cold war apc utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-265-k9-vajra-t-a', name: 'K9 Vajra-T A', type: 'Artillery', country: 'India/South Korea', era: 'Modern', image: '',
+    description: 'The K9 Vajra-T A is a variant of the K9 Vajra-T, a modern artillery utilized by India/South Korea.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-266-delhi-class-destroyer-desert', name: 'Delhi-class Destroyer Desert', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Delhi-class Destroyer Desert is a variant of the Delhi-class Destroyer, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-267-pinaka-mbrl-a', name: 'Pinaka MBRL A', type: 'Artillery', country: 'India', era: 'Modern', image: '',
+    description: 'The Pinaka MBRL A is a variant of the Pinaka MBRL, a modern artillery utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-268-atags-recon', name: 'ATAGS Recon', type: 'Artillery', country: 'India', era: 'Modern', image: '',
+    description: 'The ATAGS Recon is a variant of the ATAGS, a modern artillery utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-269-t-72m1-ajeya-b', name: 'T-72M1 Ajeya B', type: 'Tank', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The T-72M1 Ajeya B is a variant of the T-72M1 Ajeya, a cold war tank utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-270-delhi-class-destroyer-upgraded', name: 'Delhi-class Destroyer Upgraded', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Delhi-class Destroyer Upgraded is a variant of the Delhi-class Destroyer, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-271-k9-vajra-t-block-i', name: 'K9 Vajra-T Block I', type: 'Artillery', country: 'India/South Korea', era: 'Modern', image: '',
+    description: 'The K9 Vajra-T Block I is a variant of the K9 Vajra-T, a modern artillery utilized by India/South Korea.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-272-sindhughosh-class-submarine-c', name: 'Sindhughosh-class Submarine C', type: 'Naval', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The Sindhughosh-class Submarine C is a variant of the Sindhughosh-class Submarine, a cold war naval utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-273-hal-tedbf-c', name: 'HAL TEDBF C', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL TEDBF C is a variant of the HAL TEDBF, a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-274-kamorta-class-corvette-prototype', name: 'Kamorta-class Corvette Prototype', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Kamorta-class Corvette Prototype is a variant of the Kamorta-class Corvette, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-275-mig-21-bison-prototype', name: 'MiG-21 Bison Prototype', type: 'Aircraft', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The MiG-21 Bison Prototype is a variant of the MiG-21 Bison, a cold war aircraft utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-276-arjun-mk1a-stealth', name: 'Arjun Mk1A Stealth', type: 'Tank', country: 'India', era: 'Modern', image: '',
+    description: 'The Arjun Mk1A Stealth is a variant of the Arjun Mk1A, a modern tank utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-277-t-72m1-ajeya-export', name: 'T-72M1 Ajeya Export', type: 'Tank', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The T-72M1 Ajeya Export is a variant of the T-72M1 Ajeya, a cold war tank utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-278-kalyani-m4-d', name: 'Kalyani M4 D', type: 'APC', country: 'India', era: 'Modern', image: '',
+    description: 'The Kalyani M4 D is a variant of the Kalyani M4, a modern apc utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-279-sindhughosh-class-submarine-command', name: 'Sindhughosh-class Submarine Command', type: 'Naval', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The Sindhughosh-class Submarine Command is a variant of the Sindhughosh-class Submarine, a cold war naval utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-280-shivalik-class-frigate-mk-1', name: 'Shivalik-class Frigate Mk 1', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Shivalik-class Frigate Mk 1 is a variant of the Shivalik-class Frigate, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-281-tata-kestrel--whap--stealth', name: 'TATA Kestrel (WhAP) Stealth', type: 'APC', country: 'India', era: 'Modern', image: '',
+    description: 'The TATA Kestrel (WhAP) Stealth is a variant of the TATA Kestrel (WhAP), a modern apc utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-282-hal-prachand-command', name: 'HAL Prachand Command', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL Prachand Command is a variant of the HAL Prachand, a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-283-hal-tejas-mk1a-export', name: 'HAL Tejas Mk1A Export', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL Tejas Mk1A Export is a variant of the HAL Tejas Mk1A, a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-284-t-90s-bhishma-c', name: 'T-90S Bhishma C', type: 'Tank', country: 'India/Russia', era: 'Modern', image: '',
+    description: 'The T-90S Bhishma C is a variant of the T-90S Bhishma, a modern tank utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-285-ins-vikramaditya-d', name: 'INS Vikramaditya D', type: 'Naval', country: 'India/Russia', era: 'Modern', image: '',
+    description: 'The INS Vikramaditya D is a variant of the INS Vikramaditya, a modern naval utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-286-atags-mk-1', name: 'ATAGS Mk 1', type: 'Artillery', country: 'India', era: 'Modern', image: '',
+    description: 'The ATAGS Mk 1 is a variant of the ATAGS, a modern artillery utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-287-bmp-2-sarath-prototype', name: 'BMP-2 Sarath Prototype', type: 'APC', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The BMP-2 Sarath Prototype is a variant of the BMP-2 Sarath, a cold war apc utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-288-delhi-class-destroyer-stealth', name: 'Delhi-class Destroyer Stealth', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The Delhi-class Destroyer Stealth is a variant of the Delhi-class Destroyer, a modern naval utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-289-an-32re-desert', name: 'An-32RE Desert', type: 'Aircraft', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The An-32RE Desert is a variant of the An-32RE, a cold war aircraft utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-290-netra-aew-c-block-i', name: 'Netra AEW&C Block I', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The Netra AEW&C Block I is a variant of the Netra AEW&C, a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-291-rafale-dh-eh-mk-1', name: 'Rafale DH/EH Mk 1', type: 'Aircraft', country: 'India/France', era: 'Modern', image: '',
+    description: 'The Rafale DH/EH Mk 1 is a variant of the Rafale DH/EH, a modern aircraft utilized by India/France.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-292-il-76md-stealth', name: 'Il-76MD Stealth', type: 'Aircraft', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The Il-76MD Stealth is a variant of the Il-76MD, a cold war aircraft utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-293-vijayanta-mk-2', name: 'Vijayanta Mk 2', type: 'Tank', country: 'India/UK', era: 'Cold War', image: '',
+    description: 'The Vijayanta Mk 2 is a variant of the Vijayanta, a cold war tank utilized by India/UK.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-294-mahindra-marksman-trainer', name: 'Mahindra Marksman Trainer', type: 'APC', country: 'India', era: 'Modern', image: '',
+    description: 'The Mahindra Marksman Trainer is a variant of the Mahindra Marksman, a modern apc utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-295-t-72m1-ajeya-prototype', name: 'T-72M1 Ajeya Prototype', type: 'Tank', country: 'India/Russia', era: 'Cold War', image: '',
+    description: 'The T-72M1 Ajeya Prototype is a variant of the T-72M1 Ajeya, a cold war tank utilized by India/Russia.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-296-mahindra-marksman-naval', name: 'Mahindra Marksman Naval', type: 'APC', country: 'India', era: 'Modern', image: '',
+    description: 'The Mahindra Marksman Naval is a variant of the Mahindra Marksman, a modern apc utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-297-hal-rudra-export', name: 'HAL Rudra Export', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL Rudra Export is a variant of the HAL Rudra, a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-298-rafale-dh-eh-d', name: 'Rafale DH/EH D', type: 'Aircraft', country: 'India/France', era: 'Modern', image: '',
+    description: 'The Rafale DH/EH D is a variant of the Rafale DH/EH, a modern aircraft utilized by India/France.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-299-hal-dhruv-mk-2', name: 'HAL Dhruv Mk 2', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL Dhruv Mk 2 is a variant of the HAL Dhruv, a modern aircraft utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
+  },
+  {
+    id: 'var-300-ashok-leyland-fat-6x6-mk-1', name: 'Ashok Leyland FAT 6x6 Mk 1', type: 'Artillery', country: 'India', era: 'Modern', image: '',
+    description: 'The Ashok Leyland FAT 6x6 Mk 1 is a variant of the Ashok Leyland FAT 6x6, a modern artillery utilized by India.',
+    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
   }
 ];
