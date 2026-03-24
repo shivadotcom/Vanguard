@@ -935,5 +935,705 @@ export const VEHICLES: Vehicle[] = [
     id: '2s35-koalitsiya-sv', name: '2S35 Koalitsiya-SV', type: 'Artillery', country: 'Russia', era: 'Modern', image: '',
     description: 'A Russian self-propelled gun, successor to the 2S19 Msta-S.',
     specs: { weight: '48 tons', speed: '60 km/h', armament: ['152 mm 2A88 howitzer', '12.7 mm Kord machine gun'], crew: 3, range: '500 km', engine: 'V-92S2 1,000 hp diesel' }
+  },
+  {
+    id: 'f-15-eagle', name: 'F-15 Eagle', type: 'Aircraft', country: 'United States', era: 'Modern', image: '',
+    description: 'The F-15 Eagle is a renowned aircraft utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'f-16-fighting-falcon', name: 'F-16 Fighting Falcon', type: 'Aircraft', country: 'United States', era: 'Modern', image: '',
+    description: 'The F-16 Fighting Falcon is a renowned aircraft utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'f-a-18-hornet', name: 'F/A-18 Hornet', type: 'Aircraft', country: 'United States', era: 'Modern', image: '',
+    description: 'The F/A-18 Hornet is a renowned aircraft utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'f-14-tomcat', name: 'F-14 Tomcat', type: 'Aircraft', country: 'United States', era: 'Modern', image: '',
+    description: 'The F-14 Tomcat is a renowned aircraft utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'a-10-thunderbolt-ii', name: 'A-10 Thunderbolt II', type: 'Aircraft', country: 'United States', era: 'Modern', image: '',
+    description: 'The A-10 Thunderbolt II is a renowned aircraft utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'b-2-spirit', name: 'B-2 Spirit', type: 'Aircraft', country: 'United States', era: 'Modern', image: '',
+    description: 'The B-2 Spirit is a renowned aircraft utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'b-52-stratofortress', name: 'B-52 Stratofortress', type: 'Aircraft', country: 'United States', era: 'Modern', image: '',
+    description: 'The B-52 Stratofortress is a renowned aircraft utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'b-1-lancer', name: 'B-1 Lancer', type: 'Aircraft', country: 'United States', era: 'Modern', image: '',
+    description: 'The B-1 Lancer is a renowned aircraft utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'sr-71-blackbird', name: 'SR-71 Blackbird', type: 'Aircraft', country: 'United States', era: 'Modern', image: '',
+    description: 'The SR-71 Blackbird is a renowned aircraft utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'u-2-dragon-lady', name: 'U-2 Dragon Lady', type: 'Aircraft', country: 'United States', era: 'Modern', image: '',
+    description: 'The U-2 Dragon Lady is a renowned aircraft utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'f-117-nighthawk', name: 'F-117 Nighthawk', type: 'Aircraft', country: 'United States', era: 'Modern', image: '',
+    description: 'The F-117 Nighthawk is a renowned aircraft utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'f-4-phantom-ii', name: 'F-4 Phantom II', type: 'Aircraft', country: 'United States', era: 'Modern', image: '',
+    description: 'The F-4 Phantom II is a renowned aircraft utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'f-5-tiger-ii', name: 'F-5 Tiger II', type: 'Aircraft', country: 'United States', era: 'Modern', image: '',
+    description: 'The F-5 Tiger II is a renowned aircraft utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'f-86-sabre', name: 'F-86 Sabre', type: 'Aircraft', country: 'United States', era: 'Modern', image: '',
+    description: 'The F-86 Sabre is a renowned aircraft utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'p-51-mustang', name: 'P-51 Mustang', type: 'Aircraft', country: 'United States', era: 'Modern', image: '',
+    description: 'The P-51 Mustang is a renowned aircraft utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'p-38-lightning', name: 'P-38 Lightning', type: 'Aircraft', country: 'United States', era: 'Modern', image: '',
+    description: 'The P-38 Lightning is a renowned aircraft utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'f4u-corsair', name: 'F4U Corsair', type: 'Aircraft', country: 'United States', era: 'Modern', image: '',
+    description: 'The F4U Corsair is a renowned aircraft utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'supermarine-spitfire', name: 'Supermarine Spitfire', type: 'Aircraft', country: 'United Kingdom', era: 'Modern', image: '',
+    description: 'The Supermarine Spitfire is a renowned aircraft utilized by United Kingdom.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'hawker-hurricane', name: 'Hawker Hurricane', type: 'Aircraft', country: 'United Kingdom', era: 'Modern', image: '',
+    description: 'The Hawker Hurricane is a renowned aircraft utilized by United Kingdom.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'avro-lancaster', name: 'Avro Lancaster', type: 'Aircraft', country: 'United Kingdom', era: 'Modern', image: '',
+    description: 'The Avro Lancaster is a renowned aircraft utilized by United Kingdom.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'de-havilland-mosquito', name: 'de Havilland Mosquito', type: 'Aircraft', country: 'United Kingdom', era: 'Modern', image: '',
+    description: 'The de Havilland Mosquito is a renowned aircraft utilized by United Kingdom.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'avro-vulcan', name: 'Avro Vulcan', type: 'Aircraft', country: 'United Kingdom', era: 'Modern', image: '',
+    description: 'The Avro Vulcan is a renowned aircraft utilized by United Kingdom.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'panavia-tornado', name: 'Panavia Tornado', type: 'Aircraft', country: 'United Kingdom', era: 'Modern', image: '',
+    description: 'The Panavia Tornado is a renowned aircraft utilized by United Kingdom.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'harrier-jump-jet', name: 'Harrier Jump Jet', type: 'Aircraft', country: 'United Kingdom', era: 'Modern', image: '',
+    description: 'The Harrier Jump Jet is a renowned aircraft utilized by United Kingdom.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'eurofighter-typhoon', name: 'Eurofighter Typhoon', type: 'Aircraft', country: 'United Kingdom', era: 'Modern', image: '',
+    description: 'The Eurofighter Typhoon is a renowned aircraft utilized by United Kingdom.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'mirage-iii', name: 'Mirage III', type: 'Aircraft', country: 'France', era: 'Modern', image: '',
+    description: 'The Mirage III is a renowned aircraft utilized by France.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'mirage-f1', name: 'Mirage F1', type: 'Aircraft', country: 'France', era: 'Modern', image: '',
+    description: 'The Mirage F1 is a renowned aircraft utilized by France.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'super-etendard', name: 'Super Etendard', type: 'Aircraft', country: 'France', era: 'Modern', image: '',
+    description: 'The Super Etendard is a renowned aircraft utilized by France.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'rafale-m', name: 'Rafale M', type: 'Aircraft', country: 'France', era: 'Modern', image: '',
+    description: 'The Rafale M is a renowned aircraft utilized by France.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'mig-15', name: 'MiG-15', type: 'Aircraft', country: 'Russia', era: 'Modern', image: '',
+    description: 'The MiG-15 is a renowned aircraft utilized by Russia.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'mig-17', name: 'MiG-17', type: 'Aircraft', country: 'Russia', era: 'Modern', image: '',
+    description: 'The MiG-17 is a renowned aircraft utilized by Russia.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'mig-19', name: 'MiG-19', type: 'Aircraft', country: 'Russia', era: 'Modern', image: '',
+    description: 'The MiG-19 is a renowned aircraft utilized by Russia.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'mig-21', name: 'MiG-21', type: 'Aircraft', country: 'Russia', era: 'Modern', image: '',
+    description: 'The MiG-21 is a renowned aircraft utilized by Russia.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'mig-23', name: 'MiG-23', type: 'Aircraft', country: 'Russia', era: 'Modern', image: '',
+    description: 'The MiG-23 is a renowned aircraft utilized by Russia.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'mig-25', name: 'MiG-25', type: 'Aircraft', country: 'Russia', era: 'Modern', image: '',
+    description: 'The MiG-25 is a renowned aircraft utilized by Russia.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'mig-29', name: 'MiG-29', type: 'Aircraft', country: 'Russia', era: 'Modern', image: '',
+    description: 'The MiG-29 is a renowned aircraft utilized by Russia.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'mig-31', name: 'MiG-31', type: 'Aircraft', country: 'Russia', era: 'Modern', image: '',
+    description: 'The MiG-31 is a renowned aircraft utilized by Russia.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'mig-35', name: 'MiG-35', type: 'Aircraft', country: 'Russia', era: 'Modern', image: '',
+    description: 'The MiG-35 is a renowned aircraft utilized by Russia.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'su-27', name: 'Su-27', type: 'Aircraft', country: 'Russia', era: 'Modern', image: '',
+    description: 'The Su-27 is a renowned aircraft utilized by Russia.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'su-30', name: 'Su-30', type: 'Aircraft', country: 'Russia', era: 'Modern', image: '',
+    description: 'The Su-30 is a renowned aircraft utilized by Russia.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'su-33', name: 'Su-33', type: 'Aircraft', country: 'Russia', era: 'Modern', image: '',
+    description: 'The Su-33 is a renowned aircraft utilized by Russia.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'su-34', name: 'Su-34', type: 'Aircraft', country: 'Russia', era: 'Modern', image: '',
+    description: 'The Su-34 is a renowned aircraft utilized by Russia.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'su-35', name: 'Su-35', type: 'Aircraft', country: 'Russia', era: 'Modern', image: '',
+    description: 'The Su-35 is a renowned aircraft utilized by Russia.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'su-47-berkut', name: 'Su-47 Berkut', type: 'Aircraft', country: 'Russia', era: 'Modern', image: '',
+    description: 'The Su-47 Berkut is a renowned aircraft utilized by Russia.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'su-57', name: 'Su-57', type: 'Aircraft', country: 'Russia', era: 'Modern', image: '',
+    description: 'The Su-57 is a renowned aircraft utilized by Russia.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'tu-95-bear', name: 'Tu-95 Bear', type: 'Aircraft', country: 'Russia', era: 'Modern', image: '',
+    description: 'The Tu-95 Bear is a renowned aircraft utilized by Russia.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'tu-160-blackjack', name: 'Tu-160 Blackjack', type: 'Aircraft', country: 'Russia', era: 'Modern', image: '',
+    description: 'The Tu-160 Blackjack is a renowned aircraft utilized by Russia.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'chengdu-j-10', name: 'Chengdu J-10', type: 'Aircraft', country: 'China', era: 'Modern', image: '',
+    description: 'The Chengdu J-10 is a renowned aircraft utilized by China.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'shenyang-j-11', name: 'Shenyang J-11', type: 'Aircraft', country: 'China', era: 'Modern', image: '',
+    description: 'The Shenyang J-11 is a renowned aircraft utilized by China.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'shenyang-j-15', name: 'Shenyang J-15', type: 'Aircraft', country: 'China', era: 'Modern', image: '',
+    description: 'The Shenyang J-15 is a renowned aircraft utilized by China.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'shenyang-j-16', name: 'Shenyang J-16', type: 'Aircraft', country: 'China', era: 'Modern', image: '',
+    description: 'The Shenyang J-16 is a renowned aircraft utilized by China.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'chengdu-j-20', name: 'Chengdu J-20', type: 'Aircraft', country: 'China', era: 'Modern', image: '',
+    description: 'The Chengdu J-20 is a renowned aircraft utilized by China.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'shenyang-fc-31', name: 'Shenyang FC-31', type: 'Aircraft', country: 'China', era: 'Modern', image: '',
+    description: 'The Shenyang FC-31 is a renowned aircraft utilized by China.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'hal-tejas-mk2', name: 'HAL Tejas Mk2', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL Tejas Mk2 is a renowned aircraft utilized by India.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'hal-amca', name: 'HAL AMCA', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The HAL AMCA is a renowned aircraft utilized by India.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'su-30mki', name: 'Su-30MKI', type: 'Aircraft', country: 'Russia', era: 'Modern', image: '',
+    description: 'The Su-30MKI is a renowned aircraft utilized by Russia.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'sepecat-jaguar', name: 'SEPECAT Jaguar', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The SEPECAT Jaguar is a renowned aircraft utilized by India.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'mig-27-bahadur', name: 'MiG-27 Bahadur', type: 'Aircraft', country: 'Russia', era: 'Modern', image: '',
+    description: 'The MiG-27 Bahadur is a renowned aircraft utilized by Russia.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'sea-harrier-frs51', name: 'Sea Harrier FRS51', type: 'Aircraft', country: 'United Kingdom', era: 'Modern', image: '',
+    description: 'The Sea Harrier FRS51 is a renowned aircraft utilized by United Kingdom.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'lca-navy', name: 'LCA Navy', type: 'Aircraft', country: 'United States', era: 'Modern', image: '',
+    description: 'The LCA Navy is a renowned aircraft utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'mitsubishi-f-2a', name: 'Mitsubishi F-2A', type: 'Aircraft', country: 'United States', era: 'Modern', image: '',
+    description: 'The Mitsubishi F-2A is a renowned aircraft utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'f-15j-eagle', name: 'F-15J Eagle', type: 'Aircraft', country: 'United States', era: 'Modern', image: '',
+    description: 'The F-15J Eagle is a renowned aircraft utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'mitsubishi-x-2-shinshin', name: 'Mitsubishi X-2 Shinshin', type: 'Aircraft', country: 'Japan', era: 'Modern', image: '',
+    description: 'The Mitsubishi X-2 Shinshin is a renowned aircraft utilized by Japan.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'kai-kf-21-boramae', name: 'KAI KF-21 Boramae', type: 'Aircraft', country: 'United States', era: 'Modern', image: '',
+    description: 'The KAI KF-21 Boramae is a renowned aircraft utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'fa-50-fighting-eagle', name: 'FA-50 Fighting Eagle', type: 'Aircraft', country: 'South Korea', era: 'Modern', image: '',
+    description: 'The FA-50 Fighting Eagle is a renowned aircraft utilized by South Korea.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'f-35a-lightning-ii', name: 'F-35A Lightning II', type: 'Aircraft', country: 'United States', era: 'Modern', image: '',
+    description: 'The F-35A Lightning II is a renowned aircraft utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'f-35b-lightning-ii', name: 'F-35B Lightning II', type: 'Aircraft', country: 'United States', era: 'Modern', image: '',
+    description: 'The F-35B Lightning II is a renowned aircraft utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'f-35c-lightning-ii', name: 'F-35C Lightning II', type: 'Aircraft', country: 'United States', era: 'Modern', image: '',
+    description: 'The F-35C Lightning II is a renowned aircraft utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'saab-jas-39-gripen-e', name: 'Saab JAS 39 Gripen E', type: 'Aircraft', country: 'Sweden', era: 'Modern', image: '',
+    description: 'The Saab JAS 39 Gripen E is a renowned aircraft utilized by Sweden.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'saab-37-viggen', name: 'Saab 37 Viggen', type: 'Aircraft', country: 'Sweden', era: 'Modern', image: '',
+    description: 'The Saab 37 Viggen is a renowned aircraft utilized by Sweden.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'uss-enterprise-cvn-65', name: 'USS Enterprise (CVN-65)', type: 'Naval', country: 'United States', era: 'Modern', image: '',
+    description: 'The USS Enterprise (CVN-65) is a renowned naval utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'uss-gerald-r-ford', name: 'USS Gerald R. Ford', type: 'Naval', country: 'United States', era: 'Modern', image: '',
+    description: 'The USS Gerald R. Ford is a renowned naval utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'uss-iowa', name: 'USS Iowa', type: 'Naval', country: 'United States', era: 'Modern', image: '',
+    description: 'The USS Iowa is a renowned naval utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'uss-missouri', name: 'USS Missouri', type: 'Naval', country: 'United States', era: 'Modern', image: '',
+    description: 'The USS Missouri is a renowned naval utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'uss-nimitz', name: 'USS Nimitz', type: 'Naval', country: 'United States', era: 'Modern', image: '',
+    description: 'The USS Nimitz is a renowned naval utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'uss-ronald-reagan', name: 'USS Ronald Reagan', type: 'Naval', country: 'United States', era: 'Modern', image: '',
+    description: 'The USS Ronald Reagan is a renowned naval utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'uss-george-washington', name: 'USS George Washington', type: 'Naval', country: 'United States', era: 'Modern', image: '',
+    description: 'The USS George Washington is a renowned naval utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'uss-theodore-roosevelt', name: 'USS Theodore Roosevelt', type: 'Naval', country: 'United States', era: 'Modern', image: '',
+    description: 'The USS Theodore Roosevelt is a renowned naval utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'uss-carl-vinson', name: 'USS Carl Vinson', type: 'Naval', country: 'United States', era: 'Modern', image: '',
+    description: 'The USS Carl Vinson is a renowned naval utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'uss-john-c-stennis', name: 'USS John C. Stennis', type: 'Naval', country: 'United States', era: 'Modern', image: '',
+    description: 'The USS John C. Stennis is a renowned naval utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'uss-harry-s-truman', name: 'USS Harry S. Truman', type: 'Naval', country: 'United States', era: 'Modern', image: '',
+    description: 'The USS Harry S. Truman is a renowned naval utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'uss-abraham-lincoln', name: 'USS Abraham Lincoln', type: 'Naval', country: 'United States', era: 'Modern', image: '',
+    description: 'The USS Abraham Lincoln is a renowned naval utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'uss-george-h-w-bush', name: 'USS George H.W. Bush', type: 'Naval', country: 'United States', era: 'Modern', image: '',
+    description: 'The USS George H.W. Bush is a renowned naval utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'ticonderoga-class-cruiser', name: 'Ticonderoga-class Cruiser', type: 'Naval', country: 'United States', era: 'Modern', image: '',
+    description: 'The Ticonderoga-class Cruiser is a renowned naval utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'los-angeles-class-submarine', name: 'Los Angeles-class Submarine', type: 'Naval', country: 'United States', era: 'Modern', image: '',
+    description: 'The Los Angeles-class Submarine is a renowned naval utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'seawolf-class-submarine', name: 'Seawolf-class Submarine', type: 'Naval', country: 'United States', era: 'Modern', image: '',
+    description: 'The Seawolf-class Submarine is a renowned naval utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'hms-dreadnought', name: 'HMS Dreadnought', type: 'Naval', country: 'United Kingdom', era: 'Modern', image: '',
+    description: 'The HMS Dreadnought is a renowned naval utilized by United Kingdom.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'hms-hood', name: 'HMS Hood', type: 'Naval', country: 'United Kingdom', era: 'Modern', image: '',
+    description: 'The HMS Hood is a renowned naval utilized by United Kingdom.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'hms-vanguard', name: 'HMS Vanguard', type: 'Naval', country: 'United Kingdom', era: 'Modern', image: '',
+    description: 'The HMS Vanguard is a renowned naval utilized by United Kingdom.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'hms-king-george-v', name: 'HMS King George V', type: 'Naval', country: 'United Kingdom', era: 'Modern', image: '',
+    description: 'The HMS King George V is a renowned naval utilized by United Kingdom.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'hms-prince-of-wales', name: 'HMS Prince of Wales', type: 'Naval', country: 'United Kingdom', era: 'Modern', image: '',
+    description: 'The HMS Prince of Wales is a renowned naval utilized by United Kingdom.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'hms-invincible', name: 'HMS Invincible', type: 'Naval', country: 'United Kingdom', era: 'Modern', image: '',
+    description: 'The HMS Invincible is a renowned naval utilized by United Kingdom.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'hms-illustrious', name: 'HMS Illustrious', type: 'Naval', country: 'United Kingdom', era: 'Modern', image: '',
+    description: 'The HMS Illustrious is a renowned naval utilized by United Kingdom.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'hms-ark-royal', name: 'HMS Ark Royal', type: 'Naval', country: 'United Kingdom', era: 'Modern', image: '',
+    description: 'The HMS Ark Royal is a renowned naval utilized by United Kingdom.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'hms-ocean', name: 'HMS Ocean', type: 'Naval', country: 'United Kingdom', era: 'Modern', image: '',
+    description: 'The HMS Ocean is a renowned naval utilized by United Kingdom.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'hms-albion', name: 'HMS Albion', type: 'Naval', country: 'United Kingdom', era: 'Modern', image: '',
+    description: 'The HMS Albion is a renowned naval utilized by United Kingdom.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'hms-bulwark', name: 'HMS Bulwark', type: 'Naval', country: 'United Kingdom', era: 'Modern', image: '',
+    description: 'The HMS Bulwark is a renowned naval utilized by United Kingdom.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'admiral-kuznetsov', name: 'Admiral Kuznetsov', type: 'Naval', country: 'Russia', era: 'Modern', image: '',
+    description: 'The Admiral Kuznetsov is a renowned naval utilized by Russia.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'pyotr-velikiy', name: 'Pyotr Velikiy', type: 'Naval', country: 'Russia', era: 'Modern', image: '',
+    description: 'The Pyotr Velikiy is a renowned naval utilized by Russia.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'moskva-cruiser', name: 'Moskva Cruiser', type: 'Naval', country: 'Russia', era: 'Modern', image: '',
+    description: 'The Moskva Cruiser is a renowned naval utilized by Russia.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'slava-class-cruiser', name: 'Slava-class Cruiser', type: 'Naval', country: 'United States', era: 'Modern', image: '',
+    description: 'The Slava-class Cruiser is a renowned naval utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'udaloy-class-destroyer', name: 'Udaloy-class Destroyer', type: 'Naval', country: 'United States', era: 'Modern', image: '',
+    description: 'The Udaloy-class Destroyer is a renowned naval utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'sovremenny-class-destroyer', name: 'Sovremenny-class Destroyer', type: 'Naval', country: 'United States', era: 'Modern', image: '',
+    description: 'The Sovremenny-class Destroyer is a renowned naval utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'oscar-class-submarine', name: 'Oscar-class Submarine', type: 'Naval', country: 'United States', era: 'Modern', image: '',
+    description: 'The Oscar-class Submarine is a renowned naval utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'akula-class-submarine', name: 'Akula-class Submarine', type: 'Naval', country: 'United States', era: 'Modern', image: '',
+    description: 'The Akula-class Submarine is a renowned naval utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'typhoon-class-submarine', name: 'Typhoon-class Submarine', type: 'Naval', country: 'United States', era: 'Modern', image: '',
+    description: 'The Typhoon-class Submarine is a renowned naval utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'ins-rajput', name: 'INS Rajput', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The INS Rajput is a renowned naval utilized by India.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'ins-delhi', name: 'INS Delhi', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The INS Delhi is a renowned naval utilized by India.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'ins-shivalik', name: 'INS Shivalik', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The INS Shivalik is a renowned naval utilized by India.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'ins-kamorta', name: 'INS Kamorta', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The INS Kamorta is a renowned naval utilized by India.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'm60-patton', name: 'M60 Patton', type: 'Tank', country: 'United States', era: 'Modern', image: '',
+    description: 'The M60 Patton is a renowned tank utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'm48-patton', name: 'M48 Patton', type: 'Tank', country: 'United States', era: 'Modern', image: '',
+    description: 'The M48 Patton is a renowned tank utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'm4-sherman', name: 'M4 Sherman', type: 'Tank', country: 'United States', era: 'Modern', image: '',
+    description: 'The M4 Sherman is a renowned tank utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'm26-pershing', name: 'M26 Pershing', type: 'Tank', country: 'United States', era: 'Modern', image: '',
+    description: 'The M26 Pershing is a renowned tank utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'm46-patton', name: 'M46 Patton', type: 'Tank', country: 'United States', era: 'Modern', image: '',
+    description: 'The M46 Patton is a renowned tank utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'm47-patton', name: 'M47 Patton', type: 'Tank', country: 'United States', era: 'Modern', image: '',
+    description: 'The M47 Patton is a renowned tank utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'm103-heavy-tank', name: 'M103 Heavy Tank', type: 'Tank', country: 'United States', era: 'Modern', image: '',
+    description: 'The M103 Heavy Tank is a renowned tank utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'm551-sheridan', name: 'M551 Sheridan', type: 'Tank', country: 'United States', era: 'Modern', image: '',
+    description: 'The M551 Sheridan is a renowned tank utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'm113-apc', name: 'M113 APC', type: 'APC', country: 'United States', era: 'Modern', image: '',
+    description: 'The M113 APC is a renowned apc utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'm1126-stryker', name: 'M1126 Stryker', type: 'APC', country: 'United States', era: 'Modern', image: '',
+    description: 'The M1126 Stryker is a renowned apc utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'm2-bradley', name: 'M2 Bradley', type: 'Tank', country: 'United States', era: 'Modern', image: '',
+    description: 'The M2 Bradley is a renowned tank utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'm3-bradley', name: 'M3 Bradley', type: 'Tank', country: 'United States', era: 'Modern', image: '',
+    description: 'The M3 Bradley is a renowned tank utilized by United States.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 't-34', name: 'T-34', type: 'Tank', country: 'Russia', era: 'Modern', image: '',
+    description: 'The T-34 is a renowned tank utilized by Russia.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 't-54-55', name: 'T-54/55', type: 'Tank', country: 'Russia', era: 'Modern', image: '',
+    description: 'The T-54/55 is a renowned tank utilized by Russia.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 't-62', name: 'T-62', type: 'Tank', country: 'Russia', era: 'Modern', image: '',
+    description: 'The T-62 is a renowned tank utilized by Russia.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 't-64', name: 'T-64', type: 'Tank', country: 'Russia', era: 'Modern', image: '',
+    description: 'The T-64 is a renowned tank utilized by Russia.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 't-72', name: 'T-72', type: 'Tank', country: 'Russia', era: 'Modern', image: '',
+    description: 'The T-72 is a renowned tank utilized by Russia.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 't-80', name: 'T-80', type: 'Tank', country: 'Russia', era: 'Modern', image: '',
+    description: 'The T-80 is a renowned tank utilized by Russia.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 't-90', name: 'T-90', type: 'Tank', country: 'Russia', era: 'Modern', image: '',
+    description: 'The T-90 is a renowned tank utilized by Russia.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'bmp-1', name: 'BMP-1', type: 'APC', country: 'Russia', era: 'Modern', image: '',
+    description: 'The BMP-1 is a renowned apc utilized by Russia.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'bmp-2', name: 'BMP-2', type: 'APC', country: 'Russia', era: 'Modern', image: '',
+    description: 'The BMP-2 is a renowned apc utilized by Russia.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'bmp-3', name: 'BMP-3', type: 'APC', country: 'Russia', era: 'Modern', image: '',
+    description: 'The BMP-3 is a renowned apc utilized by Russia.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'btr-80', name: 'BTR-80', type: 'APC', country: 'Russia', era: 'Modern', image: '',
+    description: 'The BTR-80 is a renowned apc utilized by Russia.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'btr-90', name: 'BTR-90', type: 'APC', country: 'Russia', era: 'Modern', image: '',
+    description: 'The BTR-90 is a renowned apc utilized by Russia.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'challenger-1', name: 'Challenger 1', type: 'Tank', country: 'United Kingdom', era: 'Modern', image: '',
+    description: 'The Challenger 1 is a renowned tank utilized by United Kingdom.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'chieftain', name: 'Chieftain', type: 'Tank', country: 'United Kingdom', era: 'Modern', image: '',
+    description: 'The Chieftain is a renowned tank utilized by United Kingdom.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'centurion', name: 'Centurion', type: 'Tank', country: 'United Kingdom', era: 'Modern', image: '',
+    description: 'The Centurion is a renowned tank utilized by United Kingdom.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'conqueror', name: 'Conqueror', type: 'Tank', country: 'United Kingdom', era: 'Modern', image: '',
+    description: 'The Conqueror is a renowned tank utilized by United Kingdom.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'leopard-1', name: 'Leopard 1', type: 'Tank', country: 'Germany', era: 'Modern', image: '',
+    description: 'The Leopard 1 is a renowned tank utilized by Germany.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
+  },
+  {
+    id: 'marder-ifv', name: 'Marder IFV', type: 'APC', country: 'Germany', era: 'Modern', image: '',
+    description: 'The Marder IFV is a renowned apc utilized by Germany.',
+    specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
   }
 ];
