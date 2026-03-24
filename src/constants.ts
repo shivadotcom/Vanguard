@@ -690,5 +690,250 @@ export const VEHICLES: Vehicle[] = [
       range: '1,550 km',
       engine: '1 × SNECMA M53-P2 afterburning turbofan'
     }
+  },
+  {
+    id: 'uss-zumwalt', name: 'USS Zumwalt', type: 'Naval', country: 'United States', era: 'Modern', image: '',
+    description: 'A class of guided missile destroyers designed as multi-mission stealth ships.',
+    specs: { weight: '15,995 tons', speed: '30 knots', armament: ['2 × 155mm AGS', '80 × Mk 57 VLS cells'], crew: 175, range: 'Unlimited', engine: '2 × Rolls-Royce MT30 gas turbines' }
+  },
+  {
+    id: 'arleigh-burke', name: 'Arleigh Burke-class', type: 'Naval', country: 'United States', era: 'Modern', image: '',
+    description: 'A class of guided missile destroyers built around the Aegis Combat System.',
+    specs: { weight: '9,700 tons', speed: '30+ knots', armament: ['96-cell Mk 41 VLS', '1 × 5-inch gun'], crew: 300, range: '8,100 km', engine: '4 × General Electric LM2500 gas turbines' }
+  },
+  {
+    id: 'virginia-class', name: 'Virginia-class Submarine', type: 'Naval', country: 'United States', era: 'Modern', image: '',
+    description: 'A class of nuclear-powered cruise missile fast-attack submarines.',
+    specs: { weight: '7,900 tons', speed: '25+ knots', armament: ['12 × VLS tubes', '4 × torpedo tubes'], crew: 135, range: 'Unlimited', engine: 'S9G nuclear reactor' }
+  },
+  {
+    id: 'ohio-class', name: 'Ohio-class Submarine', type: 'Naval', country: 'United States', era: 'Cold War', image: '',
+    description: 'A class of nuclear-powered ballistic missile submarines (SSBN).',
+    specs: { weight: '18,750 tons', speed: '25 knots', armament: ['24 × Trident II D5 SLBMs', '4 × torpedo tubes'], crew: 155, range: 'Unlimited', engine: 'S8G PWR nuclear reactor' }
+  },
+  {
+    id: 'hms-queen-elizabeth', name: 'HMS Queen Elizabeth', type: 'Naval', country: 'United Kingdom', era: 'Modern', image: '',
+    description: 'The lead ship of the Queen Elizabeth class of aircraft carriers.',
+    specs: { weight: '65,000 tons', speed: '25 knots', armament: ['3 × Phalanx CIWS', '4 × 30mm DS30M'], crew: 1600, range: '19,000 km', engine: '2 × Rolls-Royce MT30 gas turbines' }
+  },
+  {
+    id: 'type-45-destroyer', name: 'Type 45 Destroyer', type: 'Naval', country: 'United Kingdom', era: 'Modern', image: '',
+    description: 'Also known as the Daring class, an advanced air-defence destroyer.',
+    specs: { weight: '8,500 tons', speed: '30 knots', armament: ['48-cell Sylver VLS', '1 × 4.5-inch Mark 8 gun'], crew: 191, range: '13,000 km', engine: '2 × Rolls-Royce WR-21 gas turbines' }
+  },
+  {
+    id: 'astute-class', name: 'Astute-class Submarine', type: 'Naval', country: 'United Kingdom', era: 'Modern', image: '',
+    description: 'The latest class of nuclear-powered fleet submarines in service with the Royal Navy.',
+    specs: { weight: '7,400 tons', speed: '30 knots', armament: ['6 × 21-inch torpedo tubes', 'Tomahawk cruise missiles'], crew: 98, range: 'Unlimited', engine: 'Rolls-Royce PWR2 nuclear reactor' }
+  },
+  {
+    id: 'yasen-class', name: 'Yasen-class Submarine', type: 'Naval', country: 'Russia', era: 'Modern', image: '',
+    description: 'A series of the newest nuclear-powered cruise missile submarines.',
+    specs: { weight: '13,800 tons', speed: '35 knots', armament: ['32 × VLS cells', '10 × torpedo tubes'], crew: 90, range: 'Unlimited', engine: 'KTP-6 nuclear reactor' }
+  },
+  {
+    id: 'borei-class', name: 'Borei-class Submarine', type: 'Naval', country: 'Russia', era: 'Modern', image: '',
+    description: 'A class of nuclear-powered ballistic missile submarines produced by Russia.',
+    specs: { weight: '24,000 tons', speed: '29 knots', armament: ['16 × RSM-56 Bulava SLBMs', '6 × torpedo tubes'], crew: 107, range: 'Unlimited', engine: 'OK-650 nuclear reactor' }
+  },
+  {
+    id: 'kirov-class', name: 'Kirov-class Battlecruiser', type: 'Naval', country: 'Russia', era: 'Cold War', image: '',
+    description: 'The largest and heaviest surface combatant warships in active operation.',
+    specs: { weight: '28,000 tons', speed: '32 knots', armament: ['20 × P-700 Granit AShM', '96 × S-300F SAMs'], crew: 710, range: 'Unlimited', engine: '2 × KN-3 nuclear reactors' }
+  },
+  {
+    id: 'admiral-gorshkov', name: 'Admiral Gorshkov-class', type: 'Naval', country: 'Russia', era: 'Modern', image: '',
+    description: 'The newest class of frigates being built for the Russian Navy.',
+    specs: { weight: '5,400 tons', speed: '29.5 knots', armament: ['16-cell VLS for Kalibr/Zircon', '32-cell Redut VLS'], crew: 210, range: '8,980 km', engine: 'CODAG (2 × gas turbines, 2 × diesel)' }
+  },
+  {
+    id: 'type-055', name: 'Type 055 Destroyer', type: 'Naval', country: 'China', era: 'Modern', image: '',
+    description: 'A class of stealth guided missile destroyers being constructed for the Chinese Navy.',
+    specs: { weight: '13,000 tons', speed: '30 knots', armament: ['112-cell VLS', '1 × 130 mm gun'], crew: 300, range: '9,300 km', engine: '4 × QC-280 gas turbines' }
+  },
+  {
+    id: 'type-052d', name: 'Type 052D Destroyer', type: 'Naval', country: 'China', era: 'Modern', image: '',
+    description: 'A class of guided missile destroyers in the Chinese People\'s Liberation Army Navy.',
+    specs: { weight: '7,500 tons', speed: '30 knots', armament: ['64-cell VLS', '1 × 130 mm gun'], crew: 280, range: '8,300 km', engine: 'CODOG (2 × gas turbines, 2 × diesel)' }
+  },
+  {
+    id: 'type-094', name: 'Type 094 Submarine', type: 'Naval', country: 'China', era: 'Modern', image: '',
+    description: 'A class of ballistic missile submarines developed by China.',
+    specs: { weight: '11,000 tons', speed: '20+ knots', armament: ['12 × JL-2 SLBMs', '6 × torpedo tubes'], crew: 120, range: 'Unlimited', engine: 'Nuclear reactor' }
+  },
+  {
+    id: 'fujian-carrier', name: 'Fujian Aircraft Carrier', type: 'Naval', country: 'China', era: 'Modern', image: '',
+    description: 'China\'s first aircraft carrier with a fully indigenous design, featuring a CATOBAR system.',
+    specs: { weight: '80,000+ tons', speed: '30 knots', armament: ['HQ-10 SAM', 'H/PJ-11 CIWS'], crew: 2000, range: 'Classified', engine: 'Conventional steam turbines' }
+  },
+  {
+    id: 'ins-arihant', name: 'INS Arihant', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The lead ship of India\'s Arihant class of nuclear-powered ballistic missile submarines.',
+    specs: { weight: '6,000 tons', speed: '24 knots', armament: ['12 × K-15 SLBMs', '6 × torpedo tubes'], crew: 95, range: 'Unlimited', engine: '83 MW pressurized water reactor' }
+  },
+  {
+    id: 'ins-kolkata', name: 'INS Kolkata', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The lead ship of the Kolkata-class stealth guided-missile destroyers of the Indian Navy.',
+    specs: { weight: '7,400 tons', speed: '30+ knots', armament: ['32-cell VLS for Barak 8', '16-cell VLS for BrahMos'], crew: 390, range: '15,000 km', engine: '2 × Zorya M36E gas turbines' }
+  },
+  {
+    id: 'ins-vikrant', name: 'INS Vikrant', type: 'Naval', country: 'India', era: 'Modern', image: '',
+    description: 'The first aircraft carrier built in India for the Indian Navy.',
+    specs: { weight: '45,000 tons', speed: '28 knots', armament: ['Barak 8 SAM', 'AK-630 CIWS'], crew: 1645, range: '15,000 km', engine: '4 × General Electric LM2500+ gas turbines' }
+  },
+  {
+    id: 'charles-de-gaulle', name: 'Charles de Gaulle', type: 'Naval', country: 'France', era: 'Modern', image: '',
+    description: 'The flagship of the French Navy and the only nuclear-powered carrier completed outside of the US Navy.',
+    specs: { weight: '42,500 tons', speed: '27 knots', armament: ['4 × 8-cell Sylver VLS', '2 × Sadral launchers'], crew: 1950, range: 'Unlimited', engine: '2 × K15 pressurized water reactors' }
+  },
+  {
+    id: 'fremm-frigate', name: 'FREMM Multipurpose Frigate', type: 'Naval', country: 'France', era: 'Modern', image: '',
+    description: 'A class of multi-purpose frigates designed by Naval Group and Fincantieri.',
+    specs: { weight: '6,000 tons', speed: '27 knots', armament: ['16-cell Sylver VLS', 'Exocet or Teseo missiles'], crew: 145, range: '11,000 km', engine: 'CODLOG or CODLAG' }
+  },
+  {
+    id: 'mogami-class', name: 'Mogami-class Frigate', type: 'Naval', country: 'Japan', era: 'Modern', image: '',
+    description: 'A stealthy multi-mission frigate in development for the Japan Maritime Self-Defense Force.',
+    specs: { weight: '5,500 tons', speed: '30+ knots', armament: ['16-cell Mk 41 VLS', '1 × 5-inch gun'], crew: 90, range: 'Classified', engine: 'CODAG (1 × MT30 gas turbine, 2 × MAN diesels)' }
+  },
+  {
+    id: 'taigei-class', name: 'Taigei-class Submarine', type: 'Naval', country: 'Japan', era: 'Modern', image: '',
+    description: 'An advanced attack submarine class for the JMSDF, utilizing lithium-ion batteries.',
+    specs: { weight: '3,000 tons', speed: '20 knots', armament: ['6 × 21-inch torpedo tubes', 'Harpoon anti-ship missiles'], crew: 70, range: 'Classified', engine: 'Diesel-electric with lithium-ion batteries' }
+  },
+  {
+    id: 'dokdo-class', name: 'Dokdo-class', type: 'Naval', country: 'South Korea', era: 'Modern', image: '',
+    description: 'A class of amphibious assault ships operated by the Republic of Korea Navy.',
+    specs: { weight: '18,800 tons', speed: '23 knots', armament: ['2 × Goalkeeper CIWS', '1 × RIM-116 RAM'], crew: 330, range: '19,000 km', engine: '4 × SEMT Pielstick 16 PC2.5 STC diesels' }
+  },
+  {
+    id: 'hobart-class', name: 'Hobart-class Destroyer', type: 'Naval', country: 'Australia', era: 'Modern', image: '',
+    description: 'A class of air warfare destroyers built for the Royal Australian Navy.',
+    specs: { weight: '7,000 tons', speed: '28+ knots', armament: ['48-cell Mk 41 VLS', '1 × 5-inch gun'], crew: 186, range: '9,300 km', engine: 'CODAG (2 × LM2500 gas turbines, 2 × diesels)' }
+  },
+  {
+    id: 'm109a7-paladin', name: 'M109A7 Paladin', type: 'Artillery', country: 'United States', era: 'Modern', image: '',
+    description: 'The latest iteration of the M109 155mm self-propelled howitzer.',
+    specs: { weight: '35.3 tons', speed: '61 km/h', armament: ['155 mm M284 howitzer', '12.7 mm M2HB machine gun'], crew: 4, range: '300 km', engine: 'Cummins V903 600 hp diesel' }
+  },
+  {
+    id: 'stryker', name: 'Stryker', type: 'APC', country: 'United States', era: 'Modern', image: '',
+    description: 'A family of eight-wheeled armored fighting vehicles derived from the Canadian LAV III.',
+    specs: { weight: '18.1 tons', speed: '97 km/h', armament: ['12.7 mm M2 machine gun or 40 mm Mk 19 grenade launcher'], crew: 2, range: '500 km', engine: 'Caterpillar C7 350 hp diesel' }
+  },
+  {
+    id: 't-90m', name: 'T-90M', type: 'Tank', country: 'Russia', era: 'Modern', image: '',
+    description: 'The latest modernized version of the Russian T-90 main battle tank.',
+    specs: { weight: '48 tons', speed: '60 km/h', armament: ['125 mm 2A46M-5 smoothbore gun', '12.7 mm Kord heavy machine gun'], crew: 3, range: '550 km', engine: 'V-92S2F 1,130 hp diesel' }
+  },
+  {
+    id: 'bmp-3', name: 'BMP-3', type: 'APC', country: 'Russia', era: 'Modern', image: '',
+    description: 'A Soviet and Russian infantry fighting vehicle, successor to the BMP-1 and BMP-2.',
+    specs: { weight: '18.7 tons', speed: '72 km/h', armament: ['100 mm 2A70 gun', '30 mm 2A72 autocannon', '3 × 7.62 mm PKT machine guns'], crew: 3, range: '600 km', engine: 'UTD-29M 500 hp diesel' }
+  },
+  {
+    id: '2s19-msta-s', name: '2S19 Msta-S', type: 'Artillery', country: 'Russia', era: 'Modern', image: '',
+    description: 'A 152.4 mm self-propelled howitzer designed by the Soviet Union.',
+    specs: { weight: '42 tons', speed: '60 km/h', armament: ['152.4 mm 2A64 howitzer', '12.7 mm NSVT machine gun'], crew: 5, range: '500 km', engine: 'V-84A 840 hp diesel' }
+  },
+  {
+    id: 'tos-1a', name: 'TOS-1A', type: 'Artillery', country: 'Russia', era: 'Modern', image: '',
+    description: 'A Soviet 220 mm 24-barrel multiple rocket launcher and thermobaric weapon.',
+    specs: { weight: '45.3 tons', speed: '60 km/h', armament: ['24 × 220 mm thermobaric rockets'], crew: 3, range: '550 km', engine: 'V-84 840 hp diesel' }
+  },
+  {
+    id: 'challenger-3', name: 'Challenger 3', type: 'Tank', country: 'United Kingdom', era: 'Modern', image: '',
+    description: 'A new main battle tank being developed for the British Army, based on the Challenger 2.',
+    specs: { weight: '66 tons', speed: '60 km/h', armament: ['120 mm Rheinmetall L55A1 smoothbore gun', '7.62 mm chain gun'], crew: 4, range: '500+ km', engine: 'Perkins CV12-9A V12 diesel 1,500 hp' }
+  },
+  {
+    id: 'ajax-afv', name: 'Ajax', type: 'APC', country: 'United Kingdom', era: 'Modern', image: '',
+    description: 'A family of armoured fighting vehicles being developed for the British Army.',
+    specs: { weight: '38 tons', speed: '70 km/h', armament: ['40 mm CT40 cannon', '7.62 mm L94A1 chain gun'], crew: 3, range: '500 km', engine: 'MTU V8 199 TE21 800 hp diesel' }
+  },
+  {
+    id: 'as90', name: 'AS90', type: 'Artillery', country: 'United Kingdom', era: 'Modern', image: '',
+    description: 'A lightly armoured self-propelled artillery piece used by the British Army.',
+    specs: { weight: '45 tons', speed: '55 km/h', armament: ['155 mm L31 39-calibre gun', '7.62 mm L7 GPMG'], crew: 5, range: '370 km', engine: 'Cummins VTA903T 660 hp diesel' }
+  },
+  {
+    id: 'type-96b', name: 'Type 96B', type: 'Tank', country: 'China', era: 'Modern', image: '',
+    description: 'An upgraded variant of the Type 96 main battle tank used by the PLA.',
+    specs: { weight: '42.8 tons', speed: '65 km/h', armament: ['125 mm smoothbore gun', '12.7 mm heavy machine gun'], crew: 3, range: '400 km', engine: '1000 hp diesel' }
+  },
+  {
+    id: 'zbd-04', name: 'ZBD-04', type: 'APC', country: 'China', era: 'Modern', image: '',
+    description: 'A Chinese infantry fighting vehicle, heavily armed with a 100mm and 30mm gun combination.',
+    specs: { weight: '20 tons', speed: '65 km/h', armament: ['100 mm rifled gun', '30 mm autocannon', '7.62 mm machine gun'], crew: 3, range: '500 km', engine: '6-cylinder water-cooled diesel' }
+  },
+  {
+    id: 'plz-05', name: 'PLZ-05', type: 'Artillery', country: 'China', era: 'Modern', image: '',
+    description: 'A 155 mm self-propelled howitzer developed by the People\'s Liberation Army.',
+    specs: { weight: '35 tons', speed: '56 km/h', armament: ['155 mm L/52 howitzer', '12.7 mm heavy machine gun'], crew: 4, range: '550 km', engine: '8V150 diesel 800 hp' }
+  },
+  {
+    id: 'leclerc', name: 'Leclerc', type: 'Tank', country: 'France', era: 'Modern', image: '',
+    description: 'A third-generation French main battle tank built by Nexter.',
+    specs: { weight: '54.6 tons', speed: '71 km/h', armament: ['120 mm Modèle F1 smoothbore gun', '12.7 mm coaxial M2HB'], crew: 3, range: '550 km', engine: 'SACM V8X-1500 1,500 hp diesel' }
+  },
+  {
+    id: 'vbci', name: 'VBCI', type: 'APC', country: 'France', era: 'Modern', image: '',
+    description: 'A French Infantry fighting vehicle designed to replace the AMX-10P.',
+    specs: { weight: '25.6 tons', speed: '100 km/h', armament: ['25 mm M811 autocannon', '7.62 mm NF1 machine gun'], crew: 3, range: '750 km', engine: 'Renault D12 550 hp diesel' }
+  },
+  {
+    id: 'caesar-howitzer', name: 'CAESAR', type: 'Artillery', country: 'France', era: 'Modern', image: '',
+    description: 'A French 155 mm, 52-caliber self-propelled howitzer installed on a 6x6 or 8x8 truck chassis.',
+    specs: { weight: '17.7 tons', speed: '100 km/h', armament: ['155 mm / 52 caliber howitzer'], crew: 5, range: '600 km', engine: 'Renault dCI 6 240 hp' }
+  },
+  {
+    id: 'pzh-2000', name: 'PzH 2000', type: 'Artillery', country: 'Germany', era: 'Modern', image: '',
+    description: 'A German 155 mm self-propelled howitzer developed by Krauss-Maffei Wegmann.',
+    specs: { weight: '55.8 tons', speed: '67 km/h', armament: ['155 mm Rheinmetall L52 howitzer', '7.62 mm MG3 machine gun'], crew: 5, range: '420 km', engine: 'MTU 881 Ka-500 1,000 hp diesel' }
+  },
+  {
+    id: 'puma-ifv', name: 'Puma IFV', type: 'APC', country: 'Germany', era: 'Modern', image: '',
+    description: 'A German infantry fighting vehicle designed to replace the aging Marder IFVs.',
+    specs: { weight: '31.5 tons', speed: '70 km/h', armament: ['30 mm MK30-2/ABM autocannon', '5.56 mm HK MG4 machine gun', 'Spike LR ATGM'], crew: 3, range: '600 km', engine: 'MTU V10 892 1,090 hp diesel' }
+  },
+  {
+    id: 'boxer-afv', name: 'Boxer AFV', type: 'APC', country: 'Germany', era: 'Modern', image: '',
+    description: 'A multirole armoured fighting vehicle designed by an international consortium.',
+    specs: { weight: '36.5 tons', speed: '103 km/h', armament: ['12.7 mm heavy machine gun or 40 mm automatic grenade launcher'], crew: 3, range: '1,050 km', engine: 'MTU 8V 199 TE20 710 hp diesel' }
+  },
+  {
+    id: 'k808-white-tiger', name: 'K808 White Tiger', type: 'APC', country: 'South Korea', era: 'Modern', image: '',
+    description: 'An 8x8 wheeled armored personnel carrier developed by Hyundai Rotem.',
+    specs: { weight: '20 tons', speed: '100 km/h', armament: ['12.7 mm K6 heavy machine gun or 40 mm K4 grenade launcher'], crew: 2, range: '800 km', engine: 'Hyundai D6HA 420 hp diesel' }
+  },
+  {
+    id: 'type-16-mcv', name: 'Type 16 MCV', type: 'APC', country: 'Japan', era: 'Modern', image: '',
+    description: 'A wheeled tank destroyer of the Japan Ground Self-Defense Force.',
+    specs: { weight: '26 tons', speed: '100 km/h', armament: ['105 mm rifled gun', '12.7 mm M2HB machine gun'], crew: 4, range: '400 km', engine: 'Mitsubishi 4VA 570 hp diesel' }
+  },
+  {
+    id: 'type-99-sph', name: 'Type 99 SPH', type: 'Artillery', country: 'Japan', era: 'Modern', image: '',
+    description: 'A self-propelled 155 mm howitzer of the Japan Ground Self-Defense Force.',
+    specs: { weight: '40 tons', speed: '49.6 km/h', armament: ['155 mm L52 howitzer', '12.7 mm M2HB machine gun'], crew: 4, range: '300 km', engine: 'Mitsubishi 6SY31WA 600 hp diesel' }
+  },
+  {
+    id: 'namer', name: 'Namer', type: 'APC', country: 'Israel', era: 'Modern', image: '',
+    description: 'A heavily armored infantry fighting vehicle based on the Merkava Mark IV tank chassis.',
+    specs: { weight: '60 tons', speed: '60 km/h', armament: ['12.7 mm M2HB machine gun or 40 mm Mk 19 grenade launcher'], crew: 3, range: '500 km', engine: 'Continental AVDS-1790-9AR 1,200 hp diesel' }
+  },
+  {
+    id: 'eitan-afv', name: 'Eitan AFV', type: 'APC', country: 'Israel', era: 'Modern', image: '',
+    description: 'An 8x8 armored personnel carrier developed to replace the aging M113 in the IDF.',
+    specs: { weight: '35 tons', speed: '90 km/h', armament: ['30 mm autocannon', '12.7 mm machine gun', 'Spike ATGM'], crew: 3, range: '1000 km', engine: 'MTU 8V199 TE20 750 hp diesel' }
+  },
+  {
+    id: 'bm-21-grad', name: 'BM-21 Grad', type: 'Artillery', country: 'Russia', era: 'Cold War', image: '',
+    description: 'A Soviet truck-mounted 122 mm multiple rocket launcher.',
+    specs: { weight: '13.7 tons', speed: '75 km/h', armament: ['40 × 122 mm rocket tubes'], crew: 3, range: '405 km', engine: 'ZiL-375 V8 gasoline 180 hp' }
+  },
+  {
+    id: '2s35-koalitsiya-sv', name: '2S35 Koalitsiya-SV', type: 'Artillery', country: 'Russia', era: 'Modern', image: '',
+    description: 'A Russian self-propelled gun, successor to the 2S19 Msta-S.',
+    specs: { weight: '48 tons', speed: '60 km/h', armament: ['152 mm 2A88 howitzer', '12.7 mm Kord machine gun'], crew: 3, range: '500 km', engine: 'V-92S2 1,000 hp diesel' }
   }
 ];
