@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Vehicle } from '../types';
 import { getOrGenerateVehicleImage, memoryCache } from '../services/imageService';
 
@@ -14,11 +14,38 @@ interface VehicleImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
 export const VehicleImage: React.FC<VehicleImageProps> = ({ vehicle, className, alt, ...props }) => {
   const [src, setSrc] = useState<string | null>(memoryCache.get(vehicle.id) || null);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Intersection Observer to only load images when they scroll into view
+  useEffect(() => {
+    // If we already have the image in cache, no need to observe
+    if (src) {
+      setIsVisible(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '200px' } // Start loading slightly before it comes into view
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [src]);
 
   useEffect(() => {
     let isMounted = true;
 
-    if (!src && !errorMsg) {
+    if (isVisible && !src && !errorMsg) {
       getOrGenerateVehicleImage(vehicle)
         .then((imageUrl) => {
           if (isMounted) {
@@ -36,12 +63,12 @@ export const VehicleImage: React.FC<VehicleImageProps> = ({ vehicle, className, 
     return () => {
       isMounted = false;
     };
-  }, [vehicle, src, errorMsg]);
+  }, [vehicle, src, errorMsg, isVisible]);
 
   if (errorMsg || !src) {
     // Show fallback if error or while loading
     return (
-      <div className={`relative flex items-center justify-center bg-[#111827] overflow-hidden ${className || ''}`}>
+      <div ref={containerRef} className={`relative flex items-center justify-center bg-[#111827] overflow-hidden ${className || ''}`}>
         <img
           src={getFallbackImage(vehicle.type)}
           alt={alt || vehicle.name}
