@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Search, Shield, ChevronRight, ArrowLeftRight, X, Info } from 'lucide-react';
+import { Search, Shield, ChevronRight, ArrowLeftRight, X, Info, ImageIcon } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { VEHICLES } from './constants';
 import { Vehicle, Category } from './types';
@@ -116,13 +116,28 @@ export default function App() {
             />
           </div>
           
-          <div className="flex flex-col items-end">
-            <span className="text-[10px] text-gray-500 font-mono tracking-widest uppercase mb-1">
-              Total Assets
-            </span>
-            <span className="text-xl font-bold text-white leading-none">
-              {filteredVehicles.length}
-            </span>
+          <div className="flex items-center gap-6">
+            <button
+              onClick={() => {
+                filteredVehicles.forEach(vehicle => {
+                  import('./services/imageService').then(({ getVehicleImage }) => {
+                    getVehicleImage(vehicle, Date.now());
+                  });
+                });
+              }}
+              className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold rounded-lg transition-colors flex items-center gap-2"
+            >
+              <ImageIcon className="w-4 h-4" />
+              GENERATE ALL ({filteredVehicles.length})
+            </button>
+            <div className="flex flex-col items-end">
+              <span className="text-[10px] text-gray-500 font-mono tracking-widest uppercase mb-1">
+                Total Assets
+              </span>
+              <span className="text-xl font-bold text-white leading-none">
+                {filteredVehicles.length}
+              </span>
+            </div>
           </div>
         </header>
 

@@ -91,9 +91,23 @@ Image Prompt:
 export async function generateVehicleImage(name: string, type: string, description: string, customPrompt?: string) {
   try {
     const ai = getAiClient();
-    const prompt = customPrompt || `Generate a highly detailed, cinematic, tactical military photograph of a ${name} (${type}). 
-    Context: ${description}. 
-    Style: Professional military photography, dramatic lighting, realistic textures, 4k resolution, bokeh background, battlefield environment.`;
+    const prompt = customPrompt || `Generate a highly realistic photograph of a ${name}, a ${type} used by the military.
+
+Requirements:
+
+* Real-world military photography style
+* No illustration, no CGI, no cartoon, no digital art
+* Natural lighting, realistic textures, accurate proportions
+* Captured like a real defense photography shot
+* Neutral or battlefield background
+* High detail, sharp focus
+
+Strictly avoid:
+
+* cartoon style
+* painting style
+* concept art
+* futuristic or fictional designs`;
 
     const response = await withRetry(() => ai.models.generateContent({
       model: 'gemini-2.5-flash-image',

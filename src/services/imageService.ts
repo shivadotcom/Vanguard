@@ -70,29 +70,124 @@ export async function deleteImageCache(vehicleId: string): Promise<void> {
 
 export const memoryCache = new Map<string, string>();
 
-export async function getVehicleImage(vehicle: Vehicle): Promise<string | null> {
-  if (memoryCache.has(vehicle.id)) {
-    return memoryCache.get(vehicle.id)!;
+// --- Queue System & Generation Lock ---
+const generationLocks = new Set<string>();
+const generatedCache = new Set<string>();
+
+interface QueueTask {
+  vehicle: Vehicle;
+  priority: number;
+  resolve: (url: string | null) => void;
+  reject: (err: any) => void;
+}
+
+let activeGenerations = 0;
+const MAX_CONCURRENT = 50;
+const generationQueue: QueueTask[] = [];
+
+export function cancelVehicleImageGeneration(vehicleId: string) {
+  const index = generationQueue.findIndex(t => t.vehicle.id === vehicleId);
+  if (index !== -1) {
+    generationQueue[index].resolve(null);
+    generationQueue.splice(index, 1);
+    generationLocks.delete(vehicleId);
+  }
+}
+
+export async function getVehicleImage(vehicle: Vehicle, priority: number = 0): Promise<string | null> {
+  // 6. Caching: Once an image is generated, never regenerate it again
+  if (generatedCache.has(vehicle.id) || memoryCache.has(vehicle.id)) {
+    return memoryCache.get(vehicle.id) || null;
   }
 
   const storedImage = await getStoredImage(vehicle.id);
   if (storedImage) {
     memoryCache.set(vehicle.id, storedImage);
+    generatedCache.add(vehicle.id);
     return storedImage;
   }
 
-  try {
-    const cloudUrl = await checkCloudImageExists(vehicle.id);
-    if (cloudUrl) {
-      await storeImage(vehicle.id, cloudUrl);
-      memoryCache.set(vehicle.id, cloudUrl);
-      return cloudUrl;
-    }
-  } catch (e) {
-    console.error("Failed to check cloud image:", e);
+  // 3. Generation Lock: Prevent duplicate API calls
+  if (generationLocks.has(vehicle.id)) {
+    return new Promise((resolve) => {
+      const existingTask = generationQueue.find(t => t.vehicle.id === vehicle.id);
+      if (existingTask) {
+        existingTask.priority = Math.max(existingTask.priority, priority);
+        generationQueue.sort((a, b) => b.priority - a.priority);
+        
+        const originalResolve = existingTask.resolve;
+        existingTask.resolve = (url) => {
+          originalResolve(url);
+          resolve(url);
+        };
+      } else {
+        // It's currently processing. Wait for the event.
+        const handler = (e: any) => {
+          if (e.detail.vehicleId === vehicle.id && e.detail.action === 'update') {
+            window.removeEventListener('vehicle-image-updated', handler);
+            resolve(e.detail.src);
+          }
+        };
+        window.addEventListener('vehicle-image-updated', handler);
+        // Fallback timeout to prevent memory leaks if processing fails
+        setTimeout(() => {
+          window.removeEventListener('vehicle-image-updated', handler);
+          resolve(null);
+        }, 30000);
+      }
+    });
   }
 
-  return null;
+  return new Promise((resolve, reject) => {
+    generationLocks.add(vehicle.id);
+    generationQueue.push({ vehicle, priority, resolve, reject });
+    // 7. Performance: Prioritize currently visible cards
+    generationQueue.sort((a, b) => b.priority - a.priority);
+    
+    processGenerationQueue();
+  });
+}
+
+async function processGenerationQueue() {
+  if (activeGenerations >= MAX_CONCURRENT || generationQueue.length === 0) return;
+  
+  activeGenerations++;
+  const task = generationQueue.shift()!;
+  
+  // Start the next one immediately if under limit
+  processGenerationQueue();
+  
+  try {
+    let url = null;
+    try {
+      url = await checkCloudImageExists(task.vehicle.id);
+    } catch (e) {
+      console.error("Failed to check cloud image:", e);
+    }
+    
+    // If not in Cloudinary, generate via AI
+    if (!url) {
+      url = await generateVehicleImageAI(task.vehicle);
+    } else {
+      await storeImage(task.vehicle.id, url);
+      memoryCache.set(task.vehicle.id, url);
+    }
+    
+    if (url) {
+      generatedCache.add(task.vehicle.id);
+      window.dispatchEvent(new CustomEvent('vehicle-image-updated', { 
+        detail: { vehicleId: task.vehicle.id, action: 'update', src: url } 
+      }));
+    }
+    task.resolve(url);
+  } catch (error) {
+    console.error(`Error processing image for ${task.vehicle.id}:`, error);
+    task.resolve(null);
+  } finally {
+    generationLocks.delete(task.vehicle.id);
+    activeGenerations--;
+    processGenerationQueue();
+  }
 }
 
 async function compressImage(dataUrl: string): Promise<string> {
@@ -142,7 +237,23 @@ async function compressImage(dataUrl: string): Promise<string> {
 
 export async function generateVehicleImageAI(vehicle: Vehicle): Promise<string> {
   try {
-    const prompt = `A highly detailed, realistic, cinematic photo of a ${vehicle.name} ${vehicle.type} military vehicle in action. High quality, 4k resolution.`;
+    const prompt = `Generate a highly realistic photograph of a ${vehicle.name}, a ${vehicle.type} used by ${vehicle.country}.
+
+Requirements:
+
+* Real-world military photography style
+* No illustration, no CGI, no cartoon, no digital art
+* Natural lighting, realistic textures, accurate proportions
+* Captured like a real defense photography shot
+* Neutral or battlefield background
+* High detail, sharp focus
+
+Strictly avoid:
+
+* cartoon style
+* painting style
+* concept art
+* futuristic or fictional designs`;
     
     const ai = getAiClient();
     const response = await ai.models.generateContent({

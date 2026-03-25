@@ -4,7 +4,7 @@ import { getVehicleImage, generateVehicleImageAI, uploadCustomVehicleImage, memo
 import { ImageIcon, Loader2, Link as LinkIcon, Upload, Trash2 } from 'lucide-react';
 
 const getFallbackImage = (type: string) => {
-  return `https://placehold.co/600x400/111827/4B5563?text=${encodeURIComponent(type)}+Image+Unavailable`;
+  return `https://source.unsplash.com/600x400/?military,${encodeURIComponent(type)}`;
 };
 
 interface VehicleImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
@@ -14,7 +14,9 @@ interface VehicleImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
 export const VehicleImage: React.FC<VehicleImageProps> = ({ vehicle, className, alt, ...props }) => {
   const [src, setSrc] = useState<string | null>(memoryCache.get(vehicle.id) || null);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [isIntersecting, setIsIntersecting] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [isDeleted, setIsDeleted] = useState(false);
   const [isLoading, setIsLoading] = useState(!src);
   const [isGenerating, setIsGenerating] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
@@ -22,22 +24,20 @@ export const VehicleImage: React.FC<VehicleImageProps> = ({ vehicle, className, 
   const containerRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  // Intersection Observer to only load images when they scroll into view
+  // 2. Visibility Check: Intersection Observer
   useEffect(() => {
     if (src) {
       setIsVisible(true);
+      setIsIntersecting(true);
       setIsLoading(false);
       return;
     }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
+        setIsIntersecting(entry.isIntersecting);
       },
-      { rootMargin: '200px' }
+      { rootMargin: '50px' } // Smaller margin to be more precise
     );
 
     if (containerRef.current) {
@@ -47,12 +47,32 @@ export const VehicleImage: React.FC<VehicleImageProps> = ({ vehicle, className, 
     return () => observer.disconnect();
   }, [src]);
 
+  // 1. Debounce Mechanism & 5. Skip Logic
+  useEffect(() => {
+    let timeoutId: NodeJS.Timeout;
+
+    if (isIntersecting && !src && !isDeleted) {
+      // Add a delay of 400ms before triggering image generation
+      timeoutId = setTimeout(() => {
+        setIsVisible(true);
+      }, 400);
+    } else {
+      setIsVisible(false);
+    }
+
+    return () => clearTimeout(timeoutId);
+  }, [isIntersecting, src, isDeleted, vehicle.id]);
+
   useEffect(() => {
     let isMounted = true;
 
     if (isVisible && !src) {
       setIsLoading(true);
-      getVehicleImage(vehicle)
+      
+      // 7. Performance: Prioritize currently visible cards
+      const priority = Date.now();
+      
+      getVehicleImage(vehicle, priority)
         .then((imageUrl) => {
           if (isMounted) {
             if (imageUrl) {
@@ -257,6 +277,7 @@ export const VehicleImage: React.FC<VehicleImageProps> = ({ vehicle, className, 
         onClick={async (e) => {
           e.preventDefault();
           e.stopPropagation();
+          setIsDeleted(true);
           setSrc(null);
           await deleteImageCache(vehicle.id);
           window.dispatchEvent(new CustomEvent('vehicle-image-updated', { detail: { vehicleId: vehicle.id, action: 'delete' } }));
