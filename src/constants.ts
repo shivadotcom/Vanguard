@@ -1212,18 +1212,18 @@ export const VEHICLES: Vehicle[] = [
     specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
   },
   {
-    id: 'lca-navy', name: 'LCA Navy', type: 'Aircraft', country: 'United States', era: 'Modern', image: '',
-    description: 'The LCA Navy is a renowned aircraft utilized by United States.',
+    id: 'lca-navy', name: 'LCA Navy', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
+    description: 'The LCA Navy is a renowned aircraft utilized by India.',
     specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
   },
   {
-    id: 'mitsubishi-f-2a', name: 'Mitsubishi F-2A', type: 'Aircraft', country: 'United States', era: 'Modern', image: '',
-    description: 'The Mitsubishi F-2A is a renowned aircraft utilized by United States.',
+    id: 'mitsubishi-f-2a', name: 'Mitsubishi F-2A', type: 'Aircraft', country: 'Japan', era: 'Modern', image: '',
+    description: 'The Mitsubishi F-2A is a renowned aircraft utilized by Japan.',
     specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
   },
   {
-    id: 'f-15j-eagle', name: 'F-15J Eagle', type: 'Aircraft', country: 'United States', era: 'Modern', image: '',
-    description: 'The F-15J Eagle is a renowned aircraft utilized by United States.',
+    id: 'f-15j-eagle', name: 'F-15J Eagle', type: 'Aircraft', country: 'Japan', era: 'Modern', image: '',
+    description: 'The F-15J Eagle is a renowned aircraft utilized by Japan.',
     specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
   },
   {
@@ -1232,8 +1232,8 @@ export const VEHICLES: Vehicle[] = [
     specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
   },
   {
-    id: 'kai-kf-21-boramae', name: 'KAI KF-21 Boramae', type: 'Aircraft', country: 'United States', era: 'Modern', image: '',
-    description: 'The KAI KF-21 Boramae is a renowned aircraft utilized by United States.',
+    id: 'kai-kf-21-boramae', name: 'KAI KF-21 Boramae', type: 'Aircraft', country: 'South Korea', era: 'Modern', image: '',
+    description: 'The KAI KF-21 Boramae is a renowned aircraft utilized by South Korea.',
     specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
   },
   {
@@ -1417,33 +1417,33 @@ export const VEHICLES: Vehicle[] = [
     specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
   },
   {
-    id: 'slava-class-cruiser', name: 'Slava-class Cruiser', type: 'Naval', country: 'United States', era: 'Modern', image: '',
-    description: 'The Slava-class Cruiser is a renowned naval utilized by United States.',
+    id: 'slava-class-cruiser', name: 'Slava-class Cruiser', type: 'Naval', country: 'Russia', era: 'Modern', image: '',
+    description: 'The Slava-class Cruiser is a renowned naval utilized by Russia.',
     specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
   },
   {
-    id: 'udaloy-class-destroyer', name: 'Udaloy-class Destroyer', type: 'Naval', country: 'United States', era: 'Modern', image: '',
-    description: 'The Udaloy-class Destroyer is a renowned naval utilized by United States.',
+    id: 'udaloy-class-destroyer', name: 'Udaloy-class Destroyer', type: 'Naval', country: 'Russia', era: 'Modern', image: '',
+    description: 'The Udaloy-class Destroyer is a renowned naval utilized by Russia.',
     specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
   },
   {
-    id: 'sovremenny-class-destroyer', name: 'Sovremenny-class Destroyer', type: 'Naval', country: 'United States', era: 'Modern', image: '',
-    description: 'The Sovremenny-class Destroyer is a renowned naval utilized by United States.',
+    id: 'sovremenny-class-destroyer', name: 'Sovremenny-class Destroyer', type: 'Naval', country: 'Russia', era: 'Modern', image: '',
+    description: 'The Sovremenny-class Destroyer is a renowned naval utilized by Russia.',
     specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
   },
   {
-    id: 'oscar-class-submarine', name: 'Oscar-class Submarine', type: 'Naval', country: 'United States', era: 'Modern', image: '',
-    description: 'The Oscar-class Submarine is a renowned naval utilized by United States.',
+    id: 'oscar-class-submarine', name: 'Oscar-class Submarine', type: 'Naval', country: 'Russia', era: 'Modern', image: '',
+    description: 'The Oscar-class Submarine is a renowned naval utilized by Russia.',
     specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
   },
   {
-    id: 'akula-class-submarine', name: 'Akula-class Submarine', type: 'Naval', country: 'United States', era: 'Modern', image: '',
-    description: 'The Akula-class Submarine is a renowned naval utilized by United States.',
+    id: 'akula-class-submarine', name: 'Akula-class Submarine', type: 'Naval', country: 'Russia', era: 'Modern', image: '',
+    description: 'The Akula-class Submarine is a renowned naval utilized by Russia.',
     specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
   },
   {
-    id: 'typhoon-class-submarine', name: 'Typhoon-class Submarine', type: 'Naval', country: 'United States', era: 'Modern', image: '',
-    description: 'The Typhoon-class Submarine is a renowned naval utilized by United States.',
+    id: 'typhoon-class-submarine', name: 'Typhoon-class Submarine', type: 'Naval', country: 'Russia', era: 'Modern', image: '',
+    description: 'The Typhoon-class Submarine is a renowned naval utilized by Russia.',
     specs: { weight: 'Classified', speed: 'Classified', armament: ['Various'], crew: 1, range: 'Classified', engine: 'Classified' }
   },
   {
@@ -1833,11 +1833,6 @@ export const VEHICLES: Vehicle[] = [
     specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
   },
   {
-    id: 'ind-6-bmp-2-sarath', name: 'BMP-2 Sarath', type: 'APC', country: 'India/Russia', era: 'Cold War', image: '',
-    description: 'The BMP-2 Sarath is a cold war apc utilized by India/Russia.',
-    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
-  },
-  {
     id: 'ind-7-tata-kestrel--whap-', name: 'TATA Kestrel (WhAP)', type: 'APC', country: 'India', era: 'Modern', image: '',
     description: 'The TATA Kestrel (WhAP) is a modern apc utilized by India.',
     specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
@@ -1853,23 +1848,8 @@ export const VEHICLES: Vehicle[] = [
     specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
   },
   {
-    id: 'ind-10-ashok-leyland-fat-6x6', name: 'Ashok Leyland FAT 6x6', type: 'Artillery', country: 'India', era: 'Modern', image: '',
-    description: 'The Ashok Leyland FAT 6x6 is a modern artillery utilized by India.',
-    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
-  },
-  {
     id: 'ind-11-pinaka-mbrl', name: 'Pinaka MBRL', type: 'Artillery', country: 'India', era: 'Modern', image: '',
     description: 'The Pinaka MBRL is a modern artillery utilized by India.',
-    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
-  },
-  {
-    id: 'ind-12-dhanush-howitzer', name: 'Dhanush Howitzer', type: 'Artillery', country: 'India', era: 'Modern', image: '',
-    description: 'The Dhanush Howitzer is a modern artillery utilized by India.',
-    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
-  },
-  {
-    id: 'ind-13-atags', name: 'ATAGS', type: 'Artillery', country: 'India', era: 'Modern', image: '',
-    description: 'The ATAGS is a modern artillery utilized by India.',
     specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
   },
   {
@@ -1918,11 +1898,6 @@ export const VEHICLES: Vehicle[] = [
     specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
   },
   {
-    id: 'ind-23-hal-amca', name: 'HAL AMCA', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
-    description: 'The HAL AMCA is a modern aircraft utilized by India.',
-    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
-  },
-  {
     id: 'ind-24-hal-tedbf', name: 'HAL TEDBF', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
     description: 'The HAL TEDBF is a modern aircraft utilized by India.',
     specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
@@ -1935,11 +1910,6 @@ export const VEHICLES: Vehicle[] = [
   {
     id: 'ind-26-hal-rudra', name: 'HAL Rudra', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
     description: 'The HAL Rudra is a modern aircraft utilized by India.',
-    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
-  },
-  {
-    id: 'ind-27-hal-prachand', name: 'HAL Prachand', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
-    description: 'The HAL Prachand is a modern aircraft utilized by India.',
     specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
   },
   {
@@ -1980,16 +1950,6 @@ export const VEHICLES: Vehicle[] = [
   {
     id: 'ind-35-an-32re', name: 'An-32RE', type: 'Aircraft', country: 'India/Russia', era: 'Cold War', image: '',
     description: 'The An-32RE is a cold war aircraft utilized by India/Russia.',
-    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
-  },
-  {
-    id: 'ind-36-ins-vikramaditya', name: 'INS Vikramaditya', type: 'Naval', country: 'India/Russia', era: 'Modern', image: '',
-    description: 'The INS Vikramaditya is a modern naval utilized by India/Russia.',
-    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
-  },
-  {
-    id: 'ind-37-ins-vikrant', name: 'INS Vikrant', type: 'Naval', country: 'India', era: 'Modern', image: '',
-    description: 'The INS Vikrant is a modern naval utilized by India.',
     specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
   },
   {
@@ -2128,28 +2088,8 @@ export const VEHICLES: Vehicle[] = [
     specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
   },
   {
-    id: 'base-65-bm-21-grad', name: 'BM-21 Grad', type: 'Artillery', country: 'Russia', era: 'Cold War', image: '',
-    description: 'The BM-21 Grad is a cold war artillery utilized by Russia.',
-    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
-  },
-  {
     id: 'base-66-bm-30-smerch', name: 'BM-30 Smerch', type: 'Artillery', country: 'Russia', era: 'Modern', image: '',
     description: 'The BM-30 Smerch is a modern artillery utilized by Russia.',
-    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
-  },
-  {
-    id: 'base-67-m777-howitzer', name: 'M777 Howitzer', type: 'Artillery', country: 'USA', era: 'Modern', image: '',
-    description: 'The M777 Howitzer is a modern artillery utilized by USA.',
-    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
-  },
-  {
-    id: 'base-68-bofors-fh-77b', name: 'Bofors FH-77B', type: 'Artillery', country: 'Sweden', era: 'Cold War', image: '',
-    description: 'The Bofors FH-77B is a cold war artillery utilized by Sweden.',
-    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
-  },
-  {
-    id: 'base-69-m-46-field-gun', name: 'M-46 Field Gun', type: 'Artillery', country: 'Russia', era: 'Cold War', image: '',
-    description: 'The M-46 Field Gun is a cold war artillery utilized by Russia.',
     specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
   },
   {
@@ -2275,11 +2215,6 @@ export const VEHICLES: Vehicle[] = [
   {
     id: 'base-94-mig-27', name: 'MiG-27', type: 'Aircraft', country: 'Russia', era: 'Cold War', image: '',
     description: 'The MiG-27 is a cold war aircraft utilized by Russia.',
-    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
-  },
-  {
-    id: 'base-95-mig-23', name: 'MiG-23', type: 'Aircraft', country: 'Russia', era: 'Cold War', image: '',
-    description: 'The MiG-23 is a cold war aircraft utilized by Russia.',
     specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
   },
   {
@@ -2478,18 +2413,8 @@ export const VEHICLES: Vehicle[] = [
     specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
   },
   {
-    id: 'var-135-atags-heavy', name: 'ATAGS Heavy', type: 'Artillery', country: 'India', era: 'Modern', image: '',
-    description: 'The ATAGS Heavy is a variant of the ATAGS, a modern artillery utilized by India.',
-    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
-  },
-  {
     id: 'var-136-c-17-globemaster-iii-c', name: 'C-17 Globemaster III C', type: 'Aircraft', country: 'India/USA', era: 'Modern', image: '',
     description: 'The C-17 Globemaster III C is a variant of the C-17 Globemaster III, a modern aircraft utilized by India/USA.',
-    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
-  },
-  {
-    id: 'var-137-ashok-leyland-fat-6x6-block-ii', name: 'Ashok Leyland FAT 6x6 Block II', type: 'Artillery', country: 'India', era: 'Modern', image: '',
-    description: 'The Ashok Leyland FAT 6x6 Block II is a variant of the Ashok Leyland FAT 6x6, a modern artillery utilized by India.',
     specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
   },
   {
@@ -2728,11 +2653,6 @@ export const VEHICLES: Vehicle[] = [
     specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
   },
   {
-    id: 'var-185-dhanush-howitzer-block-i', name: 'Dhanush Howitzer Block I', type: 'Artillery', country: 'India', era: 'Modern', image: '',
-    description: 'The Dhanush Howitzer Block I is a variant of the Dhanush Howitzer, a modern artillery utilized by India.',
-    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
-  },
-  {
     id: 'var-186-k9-vajra-t-prototype', name: 'K9 Vajra-T Prototype', type: 'Artillery', country: 'India/South Korea', era: 'Modern', image: '',
     description: 'The K9 Vajra-T Prototype is a variant of the K9 Vajra-T, a modern artillery utilized by India/South Korea.',
     specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
@@ -2798,11 +2718,6 @@ export const VEHICLES: Vehicle[] = [
     specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
   },
   {
-    id: 'var-199-atags-a', name: 'ATAGS A', type: 'Artillery', country: 'India', era: 'Modern', image: '',
-    description: 'The ATAGS A is a variant of the ATAGS, a modern artillery utilized by India.',
-    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
-  },
-  {
     id: 'var-200-sindhughosh-class-submarine-light', name: 'Sindhughosh-class Submarine Light', type: 'Naval', country: 'India/Russia', era: 'Cold War', image: '',
     description: 'The Sindhughosh-class Submarine Light is a variant of the Sindhughosh-class Submarine, a cold war naval utilized by India/Russia.',
     specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
@@ -2830,11 +2745,6 @@ export const VEHICLES: Vehicle[] = [
   {
     id: 'var-205-k9-vajra-t-light', name: 'K9 Vajra-T Light', type: 'Artillery', country: 'India/South Korea', era: 'Modern', image: '',
     description: 'The K9 Vajra-T Light is a variant of the K9 Vajra-T, a modern artillery utilized by India/South Korea.',
-    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
-  },
-  {
-    id: 'var-206-atags-export', name: 'ATAGS Export', type: 'Artillery', country: 'India', era: 'Modern', image: '',
-    description: 'The ATAGS Export is a variant of the ATAGS, a modern artillery utilized by India.',
     specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
   },
   {
@@ -2958,11 +2868,6 @@ export const VEHICLES: Vehicle[] = [
     specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
   },
   {
-    id: 'var-231-ashok-leyland-fat-6x6-heavy', name: 'Ashok Leyland FAT 6x6 Heavy', type: 'Artillery', country: 'India', era: 'Modern', image: '',
-    description: 'The Ashok Leyland FAT 6x6 Heavy is a variant of the Ashok Leyland FAT 6x6, a modern artillery utilized by India.',
-    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
-  },
-  {
     id: 'var-232-il-76md-command', name: 'Il-76MD Command', type: 'Aircraft', country: 'India/Russia', era: 'Cold War', image: '',
     description: 'The Il-76MD Command is a variant of the Il-76MD, a cold war aircraft utilized by India/Russia.',
     specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
@@ -3015,11 +2920,6 @@ export const VEHICLES: Vehicle[] = [
   {
     id: 'var-242-hal-prachand-export', name: 'HAL Prachand Export', type: 'Aircraft', country: 'India', era: 'Modern', image: '',
     description: 'The HAL Prachand Export is a variant of the HAL Prachand, a modern aircraft utilized by India.',
-    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
-  },
-  {
-    id: 'var-243-atags-command', name: 'ATAGS Command', type: 'Artillery', country: 'India', era: 'Modern', image: '',
-    description: 'The ATAGS Command is a variant of the ATAGS, a modern artillery utilized by India.',
     specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
   },
   {
@@ -3143,11 +3043,6 @@ export const VEHICLES: Vehicle[] = [
     specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
   },
   {
-    id: 'var-268-atags-recon', name: 'ATAGS Recon', type: 'Artillery', country: 'India', era: 'Modern', image: '',
-    description: 'The ATAGS Recon is a variant of the ATAGS, a modern artillery utilized by India.',
-    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
-  },
-  {
     id: 'var-269-t-72m1-ajeya-b', name: 'T-72M1 Ajeya B', type: 'Tank', country: 'India/Russia', era: 'Cold War', image: '',
     description: 'The T-72M1 Ajeya B is a variant of the T-72M1 Ajeya, a cold war tank utilized by India/Russia.',
     specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
@@ -3233,11 +3128,6 @@ export const VEHICLES: Vehicle[] = [
     specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
   },
   {
-    id: 'var-286-atags-mk-1', name: 'ATAGS Mk 1', type: 'Artillery', country: 'India', era: 'Modern', image: '',
-    description: 'The ATAGS Mk 1 is a variant of the ATAGS, a modern artillery utilized by India.',
-    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
-  },
-  {
     id: 'var-287-bmp-2-sarath-prototype', name: 'BMP-2 Sarath Prototype', type: 'APC', country: 'India/Russia', era: 'Cold War', image: '',
     description: 'The BMP-2 Sarath Prototype is a variant of the BMP-2 Sarath, a cold war apc utilized by India/Russia.',
     specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
@@ -3302,9 +3192,5 @@ export const VEHICLES: Vehicle[] = [
     description: 'The HAL Dhruv Mk 2 is a variant of the HAL Dhruv, a modern aircraft utilized by India.',
     specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
   },
-  {
-    id: 'var-300-ashok-leyland-fat-6x6-mk-1', name: 'Ashok Leyland FAT 6x6 Mk 1', type: 'Artillery', country: 'India', era: 'Modern', image: '',
-    description: 'The Ashok Leyland FAT 6x6 Mk 1 is a variant of the Ashok Leyland FAT 6x6, a modern artillery utilized by India.',
-    specs: {'weight':'Classified','speed':'Classified','armament':['Various'],'crew':1,'range':'Classified','engine':'Classified'}
-  }
+
 ];
